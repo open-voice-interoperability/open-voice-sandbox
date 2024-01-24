@@ -41,7 +41,8 @@ function ejClearSeqDiag(){
   
 function sbSaveSequenceDiagram(  ) {
   const dateStr = cleanDateTimeString();
-  const fileName = `SD_${dateStr}.seq.json`;
+  var assistant = localStorage.getItem( "assistantName" );
+  const fileName = `${assistant}_${dateStr}.seq.json`;
   writeSBFile(fileName, JSON.stringify(data, null, 2),'Sequence');
   const successMessage = 'File written successfully to "/Report/Sequence"';
   alert(successMessage);

@@ -203,8 +203,6 @@ function updateAssistantSettings() {
   // localStorage.setItem('voiceIndex', selectedAssistant.voiceIndex);
   localStorage.setItem('lightColor', selectedAssistant.lightColor);
   localStorage.setItem('serviceAddress', selectedAssistant.serviceAddress);
-  localStorage.setItem('assistantName', selectedAssistant.assistantName);
-
   assistantTable[selectedAssistantIndex].assistant = selectedAssistant;
   // Save the updated assistantTable to localStorage
   localStorage.setItem('assistantTable', JSON.stringify(assistantTable));

@@ -24,7 +24,7 @@ var aiAssistantPool = [];
 function callInternalLLM( assistName, assistantObject, OVONmsg ){
     var aPoolMember = null;
     temp = parseFloat( localStorage.getItem( "AITemp" ) );
-    retOVONJSON = baseEnvelopeOVON( assistantObject );
+    retOVONJSON = baseEnvelopeOVON( assistantObject, true );
     for (const x in aiAssistantPool) {
         if( x.name === assistName ){ // find the assistant data
             aPoolMember = x;
@@ -64,7 +64,7 @@ function callInternalLLM( assistName, assistantObject, OVONmsg ){
 }
 
 function callInternalAssistant( assistName, assistantObject, OVONmsg ){
-    retOVONJSON = baseEnvelopeOVON( assistantObject );
+    retOVONJSON = baseEnvelopeOVON( assistantObject, true );
     if( assistName == "discovery"){
         //findEvents( OVONmsg.ovon.events );
         var eventsJSON = eventSummary( OVONmsg.ovon.events );

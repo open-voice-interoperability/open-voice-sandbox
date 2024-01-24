@@ -12,6 +12,11 @@
     <script language="JavaScript" src= "../Scripts/sbVoices.js"></script>
     <script language="JavaScript" src= "../Scripts/sbSpeech.js"></script>
     <script language="JavaScript" src= "../Scripts/sbSeqDiag.js"></script>
+    <script>
+      speechSynthesis.onvoiceschanged = function () {
+      loadVoiceSelect();
+      };
+    </script>
   </head>
 
 <body>
@@ -34,6 +39,11 @@
 
   <div id="lineSeparator"></div>
   <table class="sbTable">
+    <tr>
+      <td class = "AssistantName">
+        <b>Assistant: <span id="AssistantName"></span></b>
+    </td>
+    </tr>
     <tr>
       <td colspan="4">
         <div id="information"></div>
@@ -76,13 +86,5 @@
     </tr>
   </table>
   <br/>
-  <script>
-      speechSynthesis.onvoiceschanged = function () {
-      loadVoiceSelect();
-      
-    };
-  
-
-  </script>
 </body>
 </html>

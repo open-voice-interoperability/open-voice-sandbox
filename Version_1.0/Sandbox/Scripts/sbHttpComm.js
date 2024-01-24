@@ -89,14 +89,17 @@ function handleReturnedOVON( OVON_msg ){
   var targ = document.getElementById("msgRECEIVED");
   targ.innerHTML = jsonRECEIVED;
   displayMsgRECEIVED(jsonRECEIVED, localStorage.getItem('markerColor'));
-  const receivedMessage = {
-    direction: 'received',
-    timestamp: new Date().toISOString(),
-    content: jsonRECEIVED,
-  };
+  requestAnimationFrame(function() {
+    const receivedMessage = {
+        direction: 'received',
+        timestamp: new Date().toISOString(),
+        content: jsonRECEIVED,
+    };
+
   conversationLOG.push(receivedMessage);
   localStorage.setItem('conversationLog', JSON.stringify(conversationLOG));
   serviceEventsOVON( OVON_msg );
+  });
 }
 
 function RenderResponseOVON( oneEvent, indx, arr ){

@@ -321,8 +321,8 @@ img {
   }
   
   .AssistantName {
-    text-align: center;
     font-size: 20px;
+    display: inline-block;
     border-bottom: #000000 solid 1px;
     white-space: nowrap;
     overflow: hidden;
