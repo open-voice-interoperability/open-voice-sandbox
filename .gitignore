@@ -1,0 +1,5 @@
+AssistantServers\OVONServerModules\__pycache__
+*.pyc
+Sandbox/Report/Logs/*.*
+
+

@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script language="JavaScript" src= "../Scripts/sbHomepage.js"></script>
+    <link rel="stylesheet" href="../Scripts/css/styles.css">
+    <title>Conversation</title>
+    <script language="JavaScript" src= "../Scripts/sbAssistantMgr.js"></script> 
+    <script language="JavaScript" src= "../AssistantServers/InternalBasic/internalBasic.js"></script>
+    <script language="JavaScript" src= "../AssistantServers/InternalServer/internalServer.js"></script>
+    <script type="JSON" src="../Support/ActiveAssistantList.json"></script>    <script language="JavaScript" src= "../Scripts/sbEnvelopeTools.js"></script>   
+    <script language="JavaScript" src= "../Scripts/sbHttpComm.js"></script>
+   
+    <script language="JavaScript" src= "../Scripts/sbSpeech.js"></script>
+    <script language="JavaScript" src= "../Scripts/sbSeqDiag.js"></script>     
+</head>
+<body>
+    <table class="centerTable">
+        <tr >
+            <td>
+                <h2><img src="../Media/img/Interoperability_Logo_color.jpg" alt="Interop graphic" height="60" width="300"/></h2>
+            </td>
+            <td>
+                <div id="centerDiv">
+                <h2 id="titleHead"><b>Sandbox - Conversation</b> </h2>
+                <div class="browserAndOs">
+                    <b>Browser: <span id="BrowserType" style="color:rgb(192, 25, 38);"></span></b>
+                    <b>OS: <span id="OSType" style="color:rgb(53, 36, 197);"></span></b><br/>
+              </div>
+              </div>
+            </td>
+        </tr>
+      </table>
+      <button class="converseBtn" onclick="openWindow('sbHome.html')">Back Home</button>
+      <button class="converseBtn" onclick="openWindow('logs.html')">Logs</button>
+    <button class="converseBtn" onclick="openWindow('sbSequenceDiag.html')">SeqDiagram</button>
+
+    <button class="converseBtn" onclick="openWindow('sbSettings.html')">Settings</button>
+    <div id="lineSeparator"></div>
+    <table>
+        <tr>
+            <td class = "AssistantName">
+                <b>Assistant: <span id="AssistantName"></span></b>
+            </td>
+        </tr>
+        <tr>
+            <td><h1><b>Input</b></h1></td>
+            <td class="tooltip"> 
+                <img id="microphoneIcon" src="../Media/img/Interoperability_Logo_icon_color.jpg" onclick="sbStartASR();" height="60" width="60"/>
+                <span class="tooltiptext" id="microphoneTooltip"></span>
+            </td>
+            
+            <td class="tooltip">
+                <img id="stopTTSIcon" src="../Media/img/stop_audio.png" onclick="window.speechSynthesis.cancel();" height="20" width="50" style="margin-left: 30px;"/>
+                <span class="tooltiptext" id="stopTTSIconTooltip"></span>
+            </td>
+        </tr>
+        <tr>
+            <td><h3>Utterance:</h3></td>
+            <td>
+                <input style="margin-right: 5px" type="text" id="utterance" placeholder="Type your UTTERANCE here" size="50" onkeyup="checkEnterKey(event, sendReply);"/>
+                <div class="tooltip" id="utteranceTooltip">
+                    <button class="converseBtn" onclick="sendReply(false)" >Send Utterance</button>
+                    <span class="tooltiptext" id="utteranceTooltipText"></span>
+                </div>
+                
+            </td>
+        </tr>
+        <tr>
+            <td><h3>Whisper:</h3></td>
+            <td>
+                <input style="margin-right: 5px" type="text" id="whisper" placeholder="Type your WHISPER here" size="50"/>
+                <div class="tooltip" id="whisperTooltip">
+                    <button class="converseBtn"  onclick="sendReply(true);">Send Whisper</button>
+                    <span class="tooltiptext" id="whisperTooltipText"></span>
+                </div>
+
+            </td>
+        </tr>
+        <tr>
+            <td><h3 style="color:green;">Response:</h3></td>
+            <td><div id="response" class="responseWrap"></div></td>        </tr>
+        <tr>
+            <td><h3 style="color:rgb(128, 96, 27);">LLM:</h3></td>
+            <td><span><pre style="color:rgb(128, 96, 27);" id="llmSENT"></pre></span></td>
+        </tr>
+        <tr>
+            <td><h3 style="color:blue;">SENT:</h3></td>
+            <td><span><pre style="color:blue; white-space: pre-wrap; word-wrap: break-word;" id="msgSENT" class="responseWrap"></pre></span></td>
+        </tr>
+        <tr>
+            <td><h3 style="color:red;">RECEIVED:</h3></td>
+            <td><span><pre style="color:red; white-space: pre-wrap; word-wrap: break-word;" id="msgRECEIVED" class="responseWrap"></pre></span></td>
+        </tr>
+    </table>
+</body>
+<script>
+    document.addEventListener('mousemove', function (e) {
+        var tooltipText = '';
+        var tooltipId;
+        var targetId = e.target ? e.target.id : null;
+
+        if (targetId === 'microphoneIcon') {
+            tooltipText = 'Click Mic to Speak';
+            tooltipId = 'microphoneTooltip';
+        } else if (targetId === 'stopTTSIcon') {
+            tooltipText = 'Click to STOP TTS';
+            tooltipId = 'stopTTSIconTooltip';
+        } else if (e.target.parentElement && e.target.parentElement.id === 'utteranceTooltip') {
+            tooltipText = 'Utt. or Utt. w/ Whisper';
+            tooltipId = 'utteranceTooltipText';
+        } else if (e.target.parentElement && e.target.parentElement.id === 'whisperTooltip') {
+            tooltipText = 'Whisper or Utt. w/ Whisper';
+            tooltipId = 'whisperTooltipText';
+        }
+        else{
+            var tooltips = document.querySelectorAll('.tooltiptext');
+            tooltips.forEach(function (tooltip) {
+                tooltip.style.visibility = 'hidden';
+            });
+            return;
+        }
+
+        var tooltip = document.getElementById(tooltipId);
+
+        if (tooltipText !== '') {
+            tooltip.textContent = tooltipText;
+            tooltip.style.left = e.clientX + 'px';
+            tooltip.style.top = e.clientY + 'px';
+            tooltip.style.visibility = 'visible';
+        } else {
+            tooltip.style.visibility = 'hidden';
+        }
+});
+</script>
+</html>

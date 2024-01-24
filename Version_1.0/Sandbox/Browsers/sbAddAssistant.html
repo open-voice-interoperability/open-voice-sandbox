@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="../Scripts/css/styles.css">
+    <title >Create Assistant</title>
+    <script type="JSON" src="../Support/ActiveAssistantList.json"></script>
+    <script language="JavaScript" src= "../Scripts/sbHomepage.js"></script>
+    <script language="JavaScript" src= "../Scripts/sbAssistantMgr.js"></script>    
+    <script language="JavaScript" src= "../Scripts/sbHttpComm.js"></script>
+    <script language="JavaScript" src= "../Scripts/sbEnvelopeTools.js"></script>
+    <script language="JavaScript" src="../Scripts/sbCreateAssistant.js"></script>
+    <link rel="stylesheet" href="../Scripts/css/styles.css">
+    <script language="JavaScript" src= "../Scripts/sbSpeech.js"></script>
+    <script language="JavaScript" src= "../Scripts/sbSeqDiag.js"></script>
+</head>
+<body>
+    <table class="centerTable">
+        <tr >
+            <td>
+                <h2><img src="../Media/img/Interoperability_Logo_color.jpg" alt="Interop graphic" height="60" width="300"/></h2>
+            </td>
+            <td>
+                <div id="centerDiv">
+                <h2 id="titleHead"><b>Sandbox - Create New Assistant</b> </h2>
+                <div class="browserAndOs">
+                    <b>Browser: <span id="BrowserType" style="color:rgb(192, 25, 38);"></span></b>
+                    <b>OS: <span id="OSType" style="color:rgb(53, 36, 197);"></span></b><br/>
+              </div>
+              </div>
+            </td>
+        </tr>
+      </table>
+    <div id="lineSeparator"></div>
+    
+    <a href="sbHome.html"><button class="homeBtn">Back Home</button></a>
+    <br>
+    <br>
+    <div>
+        <label for="assistantType"><b>Assistant Type:</b></label>
+        <select id="assistantType" onchange="toggleCreateAssistantForm()">
+            <option value="" disabled selected>Select an option</option>
+            <option value="python">Basic Python Assistant</option>
+            <option value="js">Basic JS Assistant</option>
+            <option value="llm">LLM JS Assistant</option>
+        </select>
+    </div>
+    <form id="createAssistantForm" onsubmit="return createAssistant();" style="display: none;">
+       <div>
+            <label for="assistantName"><b>Assistant Name:</b></label>
+            <input type="text" id="assistantName" required>
+       </div> 
+        <div>
+            <label for="assistantID"><b>Assistant ID:</b></label>
+            <input type="text" id="assistantID">
+        </div>
+        <div>
+            <!-- MAKE A VOICE SELECT DROPDOWN WITH THE VOICES WE END UP PICKING -->
+            <label for="voiceIndex"><b>Voice Index:</b></label>
+            <input type="text" id="voiceIndex">
+            <button id="voiceSelect" class="load-voices" onclick="openWindow('sbVoices.html')">Load Voices</button>
+        </div>
+        <div>
+            <label for="lightColor"><b>Light Color:</b></label>
+            <input type="color" id="lightColor">
+        </div>
+        <div>
+            <label for="markerColor"><b>Marker Color:</b></label>
+            <input type="color" id="markerColor">
+        </div>
+        <div>
+            <label for="serviceName"><b>Service Name:</b></label>
+            <input type="text" id="serviceName" placeholder="ex: PrimaryAssistant">
+        </div>
+        <div>
+            <label for="serviceAddress"><b>Service Address:</b></label>
+            <input type="text" id="serviceAddress" value="http://localhost:port/">
+        </div>
+        <div>
+            <label for="authCode"><b>Auth Code:</b></label>
+            <input type="text" id="authCode">
+        </div>
+        <div>
+            <label for="contentType"><b>Content Type:</b></label>
+            <input type="text" id="contentType" value="application/json">
+        </div><br>
+        <div id="openaiKeyDiv" style="display: none;"> <!-- Added an ID to the div -->
+            <label for="openaiKey"><b>OpenAI Key:</b></label>
+            <input type="text" id="OpenAI" onchange="setOpenAIKey();">
+        </div>
+    </form>
+    <br>
+    <button id="createAssistant" type="submit" class="homeBtn" onclick="createAssistant()">Create</button>
+
+</body>
+</html>

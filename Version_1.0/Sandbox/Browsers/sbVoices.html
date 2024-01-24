@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>TTS Voice Selection</title>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/>
+    <meta name="viewport" content="width=device-width"/>
+    <script language="JavaScript" src= "../Scripts/sbAssistantMgr.js"></script>
+    <script language="JavaScript" src= "../Scripts/sbHomepage.js"></script>
+    <script language="JavaScript" src= "../Scripts/sbHttpComm.js"></script>
+    <script language="JavaScript" src= "../Scripts/sbEnvelopeTools.js"></script>
+    <link rel="stylesheet" href="../Scripts/css/styles.css">
+    <script language="JavaScript" src= "../Scripts/sbVoices.js"></script>
+    <script language="JavaScript" src= "../Scripts/sbSpeech.js"></script>
+    <script language="JavaScript" src= "../Scripts/sbSeqDiag.js"></script>
+  </head>
+
+<body>
+  <table class="centerTable">
+    <tr >
+        <td>
+            <h2><img src="../Media/img/Interoperability_Logo_color.jpg" alt="Interop graphic" height="60" width="300"/></h2>
+        </td>
+        <td>
+          <div id="centerDiv">
+            <h2 id="titleHead"><b>Sandbox - TTS Voice Selection</b> </h2>
+            <div class="browserAndOs">
+                <b>Browser: <span id="BrowserType" style="color:rgb(192, 25, 38);"></span></b>
+                <b>OS: <span id="OSType" style="color:rgb(53, 36, 197);"></span></b><br/>
+          </div>
+          </div>
+        </td>
+    </tr>
+  </table>
+
+  <div id="lineSeparator"></div>
+  <table class="sbTable">
+    <tr>
+      <td colspan="4">
+        <div id="information"></div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <div id="voiceSettings">
+          <label for="volume">Volume: <span id="volumeValue">1.0</span></label>
+          <input type="range" id="volume" min="0" max="2" step="0.1" value="1" oninput="updateSpeechParams('volume')">
+        
+          <label for="rate">Rate: <span id="rateValue">1.0</span></label>
+          <input type="range" id="rate" min="0.1" max="2" step="0.1" value="1" oninput="updateSpeechParams('rate')">
+          
+          <label for="pitch">Pitch: <span id="pitchValue">1.0</span></label>
+          <input type="range" id="pitch" min="0" max="2" step="0.1" value="1" oninput="updateSpeechParams('pitch')">
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <div style="display: inline-block;">
+          <button id="testBtn" onclick="saveTTS_TestText();" style="margin-top: 5px;">Test Voice</button>
+        </div>
+        <br>
+        <div id="testInput">
+          <h7>Input you want to test: </h7>
+        </div>
+        <br>
+        <textarea id="sbTTS_Text">Hello. How do you like this voice?</textarea>
+        <br>
+        <div id="selectedVoiceInfo"></div>
+      </td>
+      </td>
+    </tr>
+    <tr>
+      <td align="left" colspan="2">
+        <h5><button onclick="updateVoiceSettings()"><b>Sandbox CONVERSATION</b></button></h5>
+      </td>
+    </tr>
+  </table>
+  <br/>
+  <script>
+      speechSynthesis.onvoiceschanged = function () {
+      loadVoiceSelect();
+      
+    };
+  
+
+  </script>
+</body>
+</html>

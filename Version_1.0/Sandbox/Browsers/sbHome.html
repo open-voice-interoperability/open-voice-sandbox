@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>Home (Start Conversation)</title>
+    <link rel="stylesheet" href="../Scripts/css/styles.css">
+    <script type="JSON" src="../Support/ActiveAssistantList.json"></script>
+    <script language="JavaScript" src= "../Scripts/sbHomepage.js"></script>
+    <script language="JavaScript" src= "../Scripts/sbAssistantMgr.js"></script>    
+    <script language="JavaScript" src= "../Scripts/sbEnvelopeTools.js"></script>
+    <script language="JavaScript" src= "../Scripts/sbHttpComm.js"></script>
+    <script language="JavaScript" src= "../Scripts/sbSpeech.js"></script>
+    <!-- <script language="JavaScript" src= "../Scripts/sbSeqDiag.js"></script> -->
+</head>
+<body onload="sbStart()">
+    <table class="centerTable">
+        <tr >
+            <td>
+                <h2><img src="../Media/img/Interoperability_Logo_color.jpg" alt="Interop graphic" height="60" width="300"/></h2>
+            </td>
+            <td>
+                <div id="centerDiv">
+                <h2 id="titleHead"><b>Sandbox - Home</b> </h2>
+                <div class="browserAndOs">
+                    <b>Browser: <span id="BrowserType" style="color:rgb(192, 25, 38);"></span></b>
+                    <b>OS: <span id="OSType" style="color:rgb(53, 36, 197);"></span></b><br/>
+              </div>
+            </div>
+            </td>
+        </tr>
+      </table>
+
+    <div id="lineSeparator"></div>
+    <button class="homeBtn" onclick="openWindow('../sbStartup.html')">Startup Page</button>
+
+    <button class="homeBtn" onclick="openWindow('sbSettings.html')">Settings</button>
+    <button class="homeBtn" onclick="openWindow('sbAddAssistant.html')">Create New Assistant</button>
+    <br/>
+    <br/>
+    <div class="assistantSelectDiv"><span id="assistantSelect"></span> </div>
+    <div id="assistantSettings" style="display: none;"></div>
+    
+    <br/>
+    <br/>
+    <button class="homeBtn" onclick="bareInviteWindow()"><b>Bare Invite</b></a></button>    <br/>
+    <br/>
+    <div class="whisper">
+        <button class="homeBtn" onclick="inviteWithUtterance()"><b>Invite w/ WHISPER</b></button>
+        <textarea rows=1 type="text" id="whisperMessage" placeholder="Enter WHISPER message here ..."></textarea>
+    </div>
+    <br/>
+
+
+</body>
+</html>
