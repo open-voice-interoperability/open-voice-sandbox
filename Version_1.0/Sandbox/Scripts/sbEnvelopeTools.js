@@ -60,6 +60,7 @@ initializeAssistantData().then(sbConversationStart);
 
 function baseEnvelopeOVON( someAssistant, isReceived = false ){
     const humanFirstName = localStorage.getItem("humanFirstName");
+    const defaultSenderName = humanFirstName || "Human";    
     const OVON_Base = {
         "ovon": {
             "conversation": {
@@ -70,7 +71,7 @@ function baseEnvelopeOVON( someAssistant, isReceived = false ){
                 "url": "not_published_yet"
             },
             "sender": {
-                "from": isReceived ? someAssistant.assistant.serviceAddress : "Human",
+                "from": isReceived ? someAssistant.assistant.serviceAddress : defaultSenderName,
             },
             "responseCode" : {
                 "code": 200,

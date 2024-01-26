@@ -4,8 +4,6 @@ var conversationID;
 var msgLogDiv;
 var assistantObject;
 var selectedAssistantIndex;
-
-// var assistantObject = assistantTable[selectedAssistantIndex];
 var bareInviteSelected = false;
 var InviteWithWhisper = false;
 
@@ -85,5 +83,5 @@ function cleanDateTimeString() {
         number='0' + number;
     };
     return ('_' + number);
-    }
+}
     

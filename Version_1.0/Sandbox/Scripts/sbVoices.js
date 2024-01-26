@@ -2,21 +2,32 @@
 // build the TTS Voice <select> html innerHTML string
 function loadVoiceSelect() {
   var voices = speechSynthesis.getVoices();
-  console.log(voices);
-    var selCntl = '<br><label for="TTSVoices">Choose a TTS Voice:</label>';
-    selCntl += '<select name="TTSVoices" id="sbTTS" onchange="saveTTSVoiceIndex();">';
-    
-    for (var i = 0; i < voices.length; i++) {
-      if (i !== 115) {
-        //var voiceName = voices[i].name;
-        selCntl += '<option value="' + i + '">' + i + ": " + voices[i].name + '</option>';
-      }
+
+  // Check if voices are available
+  if (voices.length > 0) {
+    updateVoiceSelectOptions(voices);
+  } else {
+    // If voices are not available, wait for the onvoiceschanged event
+    speechSynthesis.onvoiceschanged = function () {
+      voices = speechSynthesis.getVoices();
+      updateVoiceSelectOptions(voices);
+    };
+  }
+}
+
+function updateVoiceSelectOptions(voices) {
+  var selCntl = '<br><label for="TTSVoices">Choose a TTS Voice:</label>';
+  selCntl += '<select name="TTSVoices" id="sbTTS" onchange="saveTTSVoiceIndex();">';
+
+  for (var i = 0; i < voices.length; i++) {
+    if (i !== 115) {
+      selCntl += '<option value="' + i + '">' + i + ": " + voices[i].name + '</option>';
     }
-    
-    selCntl += "</select>";
-    document.getElementById('information').innerHTML = selCntl;
-    // var firstOptionValue = document.getElementById('sbTTS').options[0].value; // Set default index
-    // localStorage.setItem('voiceSelection', firstOptionValue);
+  }
+  selCntl += "</select>";
+  document.getElementById('information').innerHTML = selCntl;
+  // var firstOptionValue = document.getElementById('sbTTS').options[0].value; // Set default index
+  // localStorage.setItem('voiceSelection', firstOptionValue);
 }
 
 var lastSelectedVoices = [];

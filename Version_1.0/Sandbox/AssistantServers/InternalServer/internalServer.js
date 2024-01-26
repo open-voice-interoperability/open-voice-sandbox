@@ -1,12 +1,4 @@
 // branch to a JavaScript based server in here
-/*
-var invite = false;
-var bye = false;
-var utterance = false;
-var whisper = false;
-var utteranceText = "";
-var whisperText = "";
-*/
 
 var humanName = "Human";
 var sbLLM_CommObject;
@@ -14,12 +6,14 @@ var LLMLog = [];
 var sendInternalJSON;
 var aiCallType = "https://api.openai.com/v1/chat/completions";
 var aiModel = "gpt-3.5-turbo-1106";
-var startPrompt = "You are an assistant that will help the human user discover the domain expertise required by the human to complete their task. You will accept a phrase or sentence as a starting point and ask questions that help focus on the general expertise that is needed to help the human. Your responses will be friendly and conversational. You will try to keep your responses to less than 40 words. Your questions for clarification can and should be leading and suggestive enough to prompt the user to give clearer answers. The result of this conversation will be a single word or short phrase that identifies the domain expertise for the assistant they require (we will call this the DOMAIN value and it will be something like \"boating\" or \"culinary\" or \"composing\"). Also, if possible you will provide a SUBDOMAIN value to refine the focus of the larger DOMAIN. For example \"sailing\" is a SUBDOMAIN of \"boating\" (as \"poetry\" might be for \"composing\"). This conversation should be no longer than two or three turns. Once you are confident about identifying the DOMAIN and SUBDOMAIN You will return a parting utterance and the resulting DOMAIN and SUBDOMAIN in the form of a JSON structure of the form: <<<{\"discovery:{\"domain\":\"the_DOMAIN_value\",\"subDomain\":\"the_SUBDOMAIN_value\"}}>>>";
+
+//var startPrompt = "You are an assistant for the Betty's Bakery. You are friendly and cheery and try to be helpful but Betty is out of the building right now and you are not sure when she will be back. You are also not very familiar with the baking related products and services that Betty provides. But you will make up harmless, polite, non-committal fibs about the bakery and Betty just to keep the human custormer happy. You will try to keep your responses to less than 30 words. Your goal is to keep the good will of the customer and get them to call back later. You will also detect when the customer is trying to end the conversation by saying things such as \"goodbye\", \"I want to go back to the other assistant\", \"you are not much help\", \"this is useless\", \"when should I call back\", or \"when will Betty be back\". We will call this the human's INTENT. You will also summarize the human's DEMEANOR from their responses as a word or phrase that expresses their mood and attitude (e.g. \"happy\", \"angry\", \"easy going\", etc.). When you decide that the conversation is going nowhere then say your goodbyes and append the INTENT and DEMEANOR (but without mentioning it) as a JSON structure of the form: <<<WHISPER{\"bakery\":\"JSON\",\"data\":{\"intent\":\"the_INTENT_value\",\"demeanor\":\"the_DEMEANOR_value\"}}>>>";
+var startPrompt = "You are an assistant that will help the human user discover the domain expertise required by the human to complete their task. You will accept a phrase or sentence as a starting point and ask questions that help focus on the general expertise that is needed to help the human. Your responses will be friendly and conversational. You will try to keep your responses to less than 40 words. Your questions for clarification can and should be leading and suggestive enough to prompt the user to give clearer answers. The result of this conversation will be a single word or short phrase that identifies the domain expertise for the assistant they require (we will call this the DOMAIN value and it will be something like \"boating\" or \"culinary\" or \"composing\"). Also, if possible you will provide a SUBDOMAIN value to refine the focus of the larger DOMAIN. For example \"sailing\" is a SUBDOMAIN of \"boating\" (as \"poetry\" might be for \"composing\"). This conversation should be no longer than two or three turns. Once you are confident about identifying the DOMAIN and SUBDOMAIN You will return a parting utterance. You will also append the DOMAIN and SUBDOMAIN (but without mentioning it) as a JSON structure of the form: <<<WHISPER{\"discovery\":\"JSON\",\"data\":{\"domain\":\"the_DOMAIN_value\",\"subDomain\":\"the_SUBDOMAIN_value\"}}>>>";
+
 var turnLLM = 0;
 var aiAssistantPool = [];
-//var veronicaPrompt = "You are a serious expert on the superman comic book and movie genre. You will limit your comments to 5o words or less.";
-
-//localStorage.setItem( "internalLLM_veronica", veronicaPrompt);
+//const response = await fetch('../Support/aiAssistantPool.json');
+//const existingList = await response.json();
 
 function callInternalLLM( assistName, assistantObject, OVONmsg ){
     var aPoolMember = null;
@@ -31,10 +25,9 @@ function callInternalLLM( assistName, assistantObject, OVONmsg ){
         }
     }
     if( aPoolMember === null ){ // not found so build it
-        aPoolMember = initialLLM( assistName, aiModel, veronicaPrompt, 0.5 );
+        aPoolMember = initialLLM( assistName, aiModel, startPrompt, 0.5 );
         aiAssistantPool.push( aPoolMember );
     }
-    //findEvents( OVONmsg.ovon.events );
     var eventsJSON = eventSummary( OVONmsg.ovon.events );
     if( !aPoolMember.invited && eventsJSON.invite ){
         aPoolMember.invited = true;
@@ -62,11 +55,41 @@ function callInternalLLM( assistName, assistantObject, OVONmsg ){
 */
     return;
 }
+function callThisLLM( aPoolMember, OVONmsg ){
+    retOVONJSON = baseEnvelopeOVON( assistantObject, true );
+    var eventsJSON = eventSummary( OVONmsg.ovon.events );
+    if( eventsJSON.invite ){
+        aPoolMember.invited = true;
+
+
+        sendInternalJSON = {
+            "model": aPoolMember.llmModel, // e.g. "model": "gpt-3.5-turbo",
+            "temperature": aPoolMember.temperature, //0.0 - 2.0
+            "messages": aPoolMember.context
+        }
+        sendInternalJSON.messages.push( sbAddMsg( "assistant", aPoolMember.startPrompt ) );
+
+        if( eventsJSON.utterance ){
+            aPoolMember.context.push( sbAddMsg( "user", eventsJSON.utteranceText ) );
+        }else{
+            aPoolMember.context.push( sbAddMsg( "user", "Hello" ) );
+        }
+    }else{
+        if( eventsJSON.utterance ){
+            aPoolMember.context.push( sbAddMsg( "user", eventsJSON.utteranceText ) );
+        }else if( eventsJSON.whisper ){
+            aPoolMember.context.push( sbAddMsg( "user", eventsJSON.whisperText ) );
+        }else{
+            console.log("You must send an utterance or a whisper.");
+        }
+    }
+    sbLLMPost( aPoolMember.context );
+    return;
+}
 
 function callInternalAssistant( assistName, assistantObject, OVONmsg ){
     retOVONJSON = baseEnvelopeOVON( assistantObject, true );
     if( assistName == "discovery"){
-        //findEvents( OVONmsg.ovon.events );
         var eventsJSON = eventSummary( OVONmsg.ovon.events );
         if( eventsJSON.invite ){
             temp = parseFloat( localStorage.getItem( "AITemp" ) );
@@ -130,7 +153,6 @@ function sbLLMPost( someJSON) { //send to LLM
         alert( 'Failed to make LLM communication object' );
         return false;
       }
-      //sbLLM_CommObject.onreadystatechange=sbLLMPostResp;
       sbLLM_CommObject.onreadystatechange= function(){
         sbLLMPostResp( someJSON );
       }
@@ -172,14 +194,16 @@ function sbLLMPostResp( aiJSON ){ // should something come in do this
                 // e.g. {"discovery":{"domain":"Sports","subDomain":"Volleyball"}}
                 // if there then remove it from utt and put it in the whisper
                 // note: the first label "discovery" is the name of the assistant
-                startPosJSON = text.indexOf( "<<<" );
+                startPosJSON = text.indexOf( "<<<WHISPER" );
                 if( startPosJSON > -1 ){
                     endPosJSON = text.indexOf( ">>>" );
                     if( endPosJSON > startPosJSON ){ // maybe some good JSON from LLM
-                        whisper = text.substring( startPosJSON+3, endPosJSON-1 );
-                        ovonUtt = buildWhisperOVON( localStorage.getItem('assistantName'), whisper );
+                        whisper = text.substring( startPosJSON+10, endPosJSON );
+                        var whisperObj = JSON.parse( whisper );
+                        ovonUtt = buildWhisperOVON( localStorage.getItem('assistantName'), whisperObj );
                         retOVONJSON.ovon.events.push(ovonUtt);
                     }
+                    text = text.substring( 0, startPosJSON-1);
                 }
                 aiJSON.messages.push( sbAddMsg( "assistant", text ) ); // keeping the convo context
 
@@ -198,4 +222,18 @@ function sbLLMPostResp( aiJSON ){ // should something come in do this
             }
         }
     }
+}
+
+function saveAssistantLLMContext(){
+    // Send a PUT request to update the server-side JSON file
+    fetch('../Support/ActiveAssistantList.json', {
+        method: 'PUT',
+        headers: {'Content-Type': 'application/json'},
+        body: JSON.stringify(assistantTable, null, 2), // Save updated data
+    })
+    .then(response => response.json())
+    .catch(error => {
+    console.error('Error updating assistant on the server:', error);
+    });
+
 }

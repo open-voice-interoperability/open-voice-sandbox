@@ -9,7 +9,7 @@ import os
 import mimetypes
 import json
 from AssistantServers.OVONServerModules.simpleAssistant import exchange
-port = 6002
+port = 6005
 print ("Started Sandbox Browser Service: ", port, "\n")
 
 class Serv(SimpleHTTPRequestHandler):
