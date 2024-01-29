@@ -13,8 +13,10 @@
     <script language="JavaScript" src= "../Scripts/sbSpeech.js"></script>
     <script language="JavaScript" src= "../Scripts/sbSeqDiag.js"></script>
     <script>
-      speechSynthesis.onvoiceschanged = function () {
       loadVoiceSelect();
+      speechSynthesis.onvoiceschanged = function () {
+        sleep(200);
+        loadVoiceSelect();
       };
     </script>
   </head>
@@ -86,5 +88,8 @@
     </tr>
   </table>
   <br/>
+  <script>
+    loadVoiceSelect();
+  </script>
 </body>
 </html>

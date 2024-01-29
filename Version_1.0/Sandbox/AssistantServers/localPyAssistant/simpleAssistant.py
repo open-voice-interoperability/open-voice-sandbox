@@ -1,47 +1,25 @@
 import json
 from datetime import datetime
 import re
-import os
-import openai
 
 # Set your assistant's unique speakerID and service address
-conversationID = ""
+global conversationID
 mySpeakerID = ""
 myServiceAddress = ""
-f = open( "C:/ejDev/3rdParty/OAIK/amphibian.txt")
-amphibCode = f.read()
-print( "theKey: ", amphibCode )
-openai.api_key = amphibCode
-initialPrompt = "You are an inquisitive child. Whenever the user mentions something you are curious. You ask logical questions that an eight year old child would."
 
-def promptLLM( inputStr):
-    response = openai.ChatCompletion.create(
-        model="gpt-3.5-turbo-1106",
-        messages=[
-            {"role": "system", "content": initialPrompt},
-            {"role": "user", "content": inputStr}
-        ],
-        temperature=0.3,
-            max_tokens=400,  # Adjust the max_tokens parameter as needed
-            n=1,
-            stop=None,
-            top_p=1.0
-
-    )
-    print("Raw LLM response: ", response )
-    response_text = response_text.choices[0].message['content'].strip()
-    return response_text
-    #print("whisper: ",conversation_history)
-
-def setServAddressAndSpeakerID( srvAdd, speakerID ):
+def setServAddressAndSpeakerID( srvAdd, myID ):
+    global mySpeakerID
+    global myServiceAddress
     myServiceAddress = srvAdd
-    mySpeakerID = speakerID
+    mySpeakerID = myID
+    return
 
 def exchange(inputOVON):
     i = 0
     eventSet = {"invite":False,"utterance":False,"whisper":False,"bye":False,"unKnown":False}
     utteranceInput = ""
     whisperInput = ""
+    global conversationID
     conversationID = inputOVON["ovon"]["conversation"]["id"]
     while i < len(inputOVON["ovon"]["events"]):
         oneEvent = inputOVON["ovon"]["events"][i]
@@ -65,43 +43,40 @@ def exchange(inputOVON):
         # set this to your goodbye for a "naked bye"
         utteranceInput = "Nice talking to you. Goodbye."
 
-    return modeResponse( utteranceInput, whisperInput, eventSet["invite"], eventSet["bye"] )
+    return modeResponse( utteranceInput, whisperInput, eventSet["invite"] )
 
-def modeResponse( inputUtterance, inputWhisper, isInvite, isBye ):
-    print(promptLLM("describe how to drive a car using 20 words or less."))
+def modeResponse( inputUtterance, inputWhisper, isInvite ):
     if isInvite:
         if len(inputWhisper)>0:
             responseObj = converse( "", inputWhisper )
-            response_text = responseObj["data"]["say"]
+            response_text = responseObj["converse"]["say"]
         else:
             response_text = "Welcome to my world. How can I help."
     else:
         responseObj = converse( inputUtterance, inputWhisper )
-        response_text = responseObj["data"]["say"]
+        print(responseObj)
+        response_text = responseObj["converse"]["say"]
 
     currentTime = datetime.now().isoformat()
     ovon_response = {
         "ovon": {
             "conversation": {
-                "id": conversationID
+                "id": ""
             },
             "schema": {
                 "version": "0.9.0",
                 "url": "not_published_yet"
             },            
             "sender": {
-                "from": myServiceAddress
+                "from": ""
             },
-            "responseCode" : {
-                "code": 200,
-                "description": "OK"
-              },
+            "responseCode": 200,
             "events": [
                 {
                     "eventType": "utterance",
                     "parameters": {
                         "dialogEvent": {
-                            "speakerId": mySpeakerID,
+                            "speakerId": "",
                             "span": {
                                 "startTime": currentTime
                             },
@@ -117,9 +92,14 @@ def modeResponse( inputUtterance, inputWhisper, isInvite, isBye ):
             ]
         }
     }
+    ovon_response["ovon"]["conversation"]["id"]=conversationID
+    ovon_response["ovon"]["sender"]["from"]=myServiceAddress
+    ovon_response["ovon"]["events"][0]["parameters"]["dialogEvent"]["speakerId"]=mySpeakerID
     return json.dumps(ovon_response)
 
 def converse( utt, whisp ):
+    print ("UTT&WHISP", utt, whisp)
+
     say = "I am sorry I don't understand."
     action = "none"
     if len(whisp)>0:
@@ -146,11 +126,11 @@ def converse( utt, whisp ):
                 action = "return"
 
     conRespObject = {
-        "data": {
+        "converse": {
             "say": say,
             "whisper": "textToWhisper",  # maybe set on an invite or utt
             "delegate": action   # "invite|bye|utt"  this may be set by the assistant
         }
     }
-    return conRespObject
 
+    return conRespObject

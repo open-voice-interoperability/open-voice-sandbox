@@ -180,7 +180,7 @@
   {
     "assistant": {
       "name": "discovery",
-      "voiceIndex": "117",
+      "voiceIndex": "119",
       "lightColor": "#ffb3d9",
       "markerColor": "#cc0088",
       "serviceName": "PrimaryAssistant",
@@ -192,11 +192,11 @@
   {
     "assistant": {
       "name": "betty",
-      "voiceIndex": 4255,
+      "voiceIndex": "114",
       "lightColor": "#ffb3d9",
       "markerColor": "#cc0088",
       "serviceName": "PrimaryAssistant",
-      "serviceAddress": "http://localhost:7005/",
+      "serviceAddress": "http://localhost:7005",
       "authCode": "zz8h00ji",
       "contentType": "application/json"
     }

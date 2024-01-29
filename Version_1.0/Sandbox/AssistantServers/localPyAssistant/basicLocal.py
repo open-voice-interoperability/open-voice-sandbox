@@ -18,7 +18,7 @@ portNum = 7005  # Set the port number you want
 print( "Localhost Python Assistant Port: ", portNum )
 
 srvAdd = "localhost:" + str(portNum)
-setServAddressAndSpeakerID( srvAdd, "Betty_1763IRQ" )
+setServAddressAndSpeakerID( srvAdd, "simpleAgentUniqueId" )
 
 @app.route('/', methods=['POST'])
 def home():

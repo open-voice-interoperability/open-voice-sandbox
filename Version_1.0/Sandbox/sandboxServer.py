@@ -1,15 +1,15 @@
 # This is the simple server that hosts the browser resources
 # Just run it from the root directory for your "sandbox"
-#     (the dir containing the Browsers folder)
-#     python sandboxServer.py
+#   (the dir containing the Browsers folder)
+#   python sandboxServer.py
+#   then open Edge or Chrome browser with "localhost:6003"
 
 from http.server import HTTPServer, SimpleHTTPRequestHandler
-#import requests
 import os
 import mimetypes
 import json
 from AssistantServers.OVONServerModules.simpleAssistant import exchange
-port = 6005
+port = 6003
 print ("Started Sandbox Browser Service: ", port, "\n")
 
 class Serv(SimpleHTTPRequestHandler):
@@ -120,7 +120,6 @@ class Serv(SimpleHTTPRequestHandler):
     def do_POST(self):
         # read the message and convert it into a python dictionary
         length = int(self.headers.get('content-length'))
-        #length = int(self.headers.getheader('content-length'))
         post_data = self.rfile.read(length).decode('utf-8')
         try:
             message = json.loads(post_data)
@@ -200,4 +199,3 @@ class Serv(SimpleHTTPRequestHandler):
 httpd = HTTPServer(('localhost', port), Serv)
 httpd.serve_forever()
 
-# python sandboxServer.py
