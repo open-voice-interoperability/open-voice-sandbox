@@ -7,23 +7,27 @@
 from flask import Flask
 from flask import request
 from flask_cors import CORS
-from flask_cors import cross_origin
 import json
+import OvonIOparser
 
 # ========= IMPORT your assistant code here
-import simpleAssistant
+# from MyAssistantPackage import *
 
 app = Flask(__name__)
-CORS(app)
+CORS(app, resources={r"/*": {"origins": "*"}})
+port = 8242
 
 @app.route('/', methods=['POST'])
-@cross_origin()
 def home():
-    
     inputOVON = json.loads( request.data )
 
-    return simpleAssistant.exchange(inputOVON)
+    host = request.host.split(":")[0]
+    port = request.host.split(":")[1] if ":" in request.host else 'None'
+    sender_from = f"http://{host}:{port}/"
+    ovon_response = OvonIOparser.generate_response(inputOVON, sender_from)
+  
+    return ovon_response
 
 if __name__ == '__main__':
-    app.run(host="0.0.0.0",port=7002, debug=True)
+    app.run(host="localhost",port=port, debug=True)
 # =================================================

@@ -131,18 +131,6 @@
   },
   {
     "assistant": {
-      "name": "leah",
-      "voiceIndex": "80",
-      "lightColor": "#ffb3d9",
-      "markerColor": "#cc0088",
-      "serviceName": "PrimaryAssistant",
-      "serviceAddress": "https://lrb24.pythonanywhere.com",
-      "authCode": "AuZ9SYtXn",
-      "contentType": "application/json"
-    }
-  },
-  {
-    "assistant": {
       "name": "library",
       "voiceIndex": "80",
       "lightColor": "#ffb3d9",
@@ -163,18 +151,6 @@
       "serviceAddress": "http://localhost:6002",
       "authCode": "AuZ9SYtXn",
       "contentType": ""
-    }
-  },
-  {
-    "assistant": {
-      "name": "sam",
-      "voiceIndex": 80,
-      "lightColor": "#ffb3d9",
-      "markerColor": "#cc0088",
-      "serviceName": "PrimaryAssistant",
-      "serviceAddress": "http://localhost:8242/",
-      "authCode": "AuZ9SYtXn",
-      "contentType": "application/json"
     }
   },
   {
@@ -203,7 +179,7 @@
   },
   {
     "assistant": {
-      "name": "base",
+      "name": "basicJS",
       "voiceIndex": 100,
       "lightColor": "#ffb3d9",
       "markerColor": "#cc0088",
@@ -214,6 +190,42 @@
       "pitch": 0.9,
       "volume": 1,
       "rate": 1.1
+    }
+  },
+  {
+    "assistant": {
+      "name": "petePyAnywhere",
+      "voiceIndex": "80",
+      "lightColor": "#ffb3d9",
+      "markerColor": "#cc0088",
+      "serviceName": "PrimaryAssistant",
+      "serviceAddress": "https://lrb24.pythonanywhere.com",
+      "authCode": "AuZ9SYtXn",
+      "contentType": "application/json"
+    }
+  },
+  {
+    "assistant": {
+      "name": "samBasic",
+      "voiceIndex": "80",
+      "lightColor": "#ffb3d9",
+      "markerColor": "#cc0088",
+      "serviceName": "PrimaryAssistant",
+      "serviceAddress": "http://localhost:8242/",
+      "authCode": "AuZ9SYtXn",
+      "contentType": "application/json"
+    }
+  },
+  {
+    "assistant": {
+      "name": "samOpenAI",
+      "voiceIndex": "80",
+      "lightColor": "#b380ff",
+      "markerColor": "#cc0088",
+      "serviceName": "PrimaryAssistant",
+      "serviceAddress": "http://localhost:8243/",
+      "authCode": "AuZ9SYtXn",
+      "contentType": "application/json"
     }
   }
 ]

@@ -4,10 +4,11 @@ from datetime import datetime
 
 server_info = ""
 greetings = ["hi", "hello", "hey", "good morning", "good afternoon", "good evening"]
+weather_terms = ["weather", "forecast", "temperature", "rain", "sun", "clouds", "wind"]
 
-def generate_response(inputOVON, sender_from):
+
+def generate_response(inputOVON):
     global server_info
-    global conversation_history
     server_info = ""
     response_text = "I'm not sure how to respond."
 
@@ -23,7 +24,9 @@ def generate_response(inputOVON, sender_from):
                 whisper_text = whisper_event["parameters"]["dialogEvent"]["features"]["text"]["tokens"][0]["value"]
                 if any(greeting in whisper_text.lower() for greeting in greetings):
                     response_text = "Hello! How can I assist you today?"
-
+                elif any(weather in whisper_text.lower() for weather in weather_terms):
+                    # Set the target URL to the assistant you want to send the message to
+                    response_text = "Sure, let me check the weather for you."
             else:
                 # Handle the bare invite event
                 if "parameters" in event and "to" in event["parameters"]:
@@ -33,12 +36,14 @@ def generate_response(inputOVON, sender_from):
 
         elif event_type == "utterance":
             user_input = event["parameters"]["dialogEvent"]["features"]["text"]["tokens"][0]["value"]
-            if "hello" in user_input.lower():
+            if any(greeting in user_input.lower() for greeting in greetings):
                 response_text = "Hello! How can I assist you today?"
-
+            elif any(weather in user_input.lower() for weather in weather_terms):
+                response_text = "Sure, let me check the weather for you."
 
     currentTime = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
 
+    sender_from = "https://lrb24.pythonanywhere.com"
     if "to" in inputOVON["ovon"]["events"][0]["parameters"]:
         to_url = inputOVON["ovon"]["events"][0]["parameters"]["to"]["url"]
         sender_from = to_url
