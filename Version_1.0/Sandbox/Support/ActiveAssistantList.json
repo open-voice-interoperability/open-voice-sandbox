@@ -35,72 +35,12 @@
   },
   {
     "assistant": {
-      "name": "ovon_auto",
-      "voiceIndex": 114,
-      "lightColor": "#99e6e6",
-      "markerColor": "#29a3a3",
-      "serviceName": "Debbie_OVONAUTO",
-      "serviceAddress": "https://secondAssistant.pythonanywhere.com",
-      "authCode": "69jjg45cf0",
-      "contentType": "application/json"
-    }
-  },
-  {
-    "assistant": {
-      "name": "cassandra",
-      "voiceIndex": 4255,
-      "lightColor": "#ffb3d9",
-      "markerColor": "#cc0088",
-      "serviceName": "PrimaryAssistant",
-      "serviceAddress": "http://localhost:15455/ejCassandra",
-      "authCode": "h229k00m8bv",
-      "contentType": "application/json"
-    }
-  },
-  {
-    "assistant": {
-      "name": "Madison",
-      "voiceIndex": 4255,
-      "lightColor": "#ffb3d9",
-      "markerColor": "#cc0088",
-      "serviceName": "PrimaryAssistant",
-      "serviceAddress": "http://localhost:8887",
-      "authCode": "h229k00m8bv",
-      "contentType": "application/json"
-    }
-  },
-  {
-    "assistant": {
       "name": "Burokratt",
       "voiceIndex": "120",
       "lightColor": "#ffb3d9",
       "markerColor": "#cc0088",
       "serviceName": "Estonia",
       "serviceAddress": "https://dev.buerokratt.ee/ovonr/conversation",
-      "authCode": "h229k00m8bv",
-      "contentType": "application/json"
-    }
-  },
-  {
-    "assistant": {
-      "name": "ejtalk",
-      "voiceIndex": 4255,
-      "lightColor": "#ffb3d9",
-      "markerColor": "#cc0088",
-      "serviceName": "PrimaryAssistant",
-      "serviceAddress": "https://ejtalk.pythonanywhere.com",
-      "authCode": "h229k00m8bv",
-      "contentType": "application/json"
-    }
-  },
-  {
-    "assistant": {
-      "name": "george",
-      "voiceIndex": 95,
-      "lightColor": "#ffb3d9",
-      "markerColor": "#cc0088",
-      "serviceName": "PrimaryAssistant",
-      "serviceAddress": "http:localhost:7001",
       "authCode": "h229k00m8bv",
       "contentType": "application/json"
     }
@@ -114,18 +54,6 @@
       "serviceName": "PrimaryAssistant",
       "serviceAddress": "https://codeMom.pythonanywhere.com",
       "authCode": "h229k00m8bv",
-      "contentType": "application/json"
-    }
-  },
-  {
-    "assistant": {
-      "name": "einstein",
-      "voiceIndex": 144,
-      "lightColor": "#ffb3d9",
-      "markerColor": "#cc0088",
-      "serviceName": "PrimaryAssistant",
-      "serviceAddress": "https://api.openai.com/v1/chat/completions",
-      "authCode": "AuZ9SYtXn",
       "contentType": "application/json"
     }
   },

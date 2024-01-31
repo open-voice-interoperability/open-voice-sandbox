@@ -95,6 +95,15 @@ def modeResponse( inputUtterance, inputWhisper, isInvite ):
     ovon_response["ovon"]["conversation"]["id"]=conversationID
     ovon_response["ovon"]["sender"]["from"]=myServiceAddress
     ovon_response["ovon"]["events"][0]["parameters"]["dialogEvent"]["speakerId"]=mySpeakerID
+
+    if( responseObj["converse"]["delegate"] == "bye"):
+        theBye = {
+            "event": {
+                "eventType": "bye"
+            }
+        }
+        ovon_response["ovon"]["events"].append(theBye)
+
     return json.dumps(ovon_response)
 
 def converse( utt, whisp ):
@@ -119,7 +128,12 @@ def converse( utt, whisp ):
             if re.search(rf'\b{bye}\b', utt, re.IGNORECASE):
                 say = "Goodbye for now."
                 action = "bye"
-        goback=['go back to', 'return to']
+        returnTo=['go back to', 'return to', 'talk to', 'speak to', 'chat with']
+        for back in returnTo:
+            if re.search(rf'\b{back}\b', utt, re.IGNORECASE):
+                say = "Okay, I will try to connect you with them."
+                action = "return"
+        goback=['go back', 'return']
         for back in goback:
             if re.search(rf'\b{back}\b', utt, re.IGNORECASE):
                 say = "Okay, I will send you back."
