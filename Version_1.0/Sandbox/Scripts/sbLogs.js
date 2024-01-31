@@ -197,7 +197,9 @@ function saveFullDialogToFile() {
     writeSBFile(fileName, logContent, 'Logs');
     const successMessage = 'File written successfully to "/Report/Logs';
     alert(successMessage);
-}
+    setTimeout(function() {
+        location.reload();
+    }, 100);}
 
 function fetchLogsAndPopulateDropdown() {
     const logDropdown = document.getElementById('logFileDropdown');

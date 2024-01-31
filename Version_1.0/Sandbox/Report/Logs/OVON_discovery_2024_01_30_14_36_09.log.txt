@@ -1,0 +1,364 @@
+{
+  "ovon": {
+    "conversation": {
+      "id": "convoID8403984"
+    },
+    "schema": {
+      "version": "0.9.0",
+      "url": "not_published_yet"
+    },
+    "sender": {
+      "from": "leah"
+    },
+    "responseCode": {
+      "code": 200,
+      "description": "OK"
+    },
+    "events": [
+      {
+        "eventType": "invite",
+        "parameters": {
+          "to": {
+            "url": "internal:discovery"
+          }
+        }
+      }
+    ]
+  }
+}
+
+{
+  "ovon": {
+    "conversation": {
+      "id": "convoID8403984"
+    },
+    "schema": {
+      "version": "0.9.0",
+      "url": "not_published_yet"
+    },
+    "sender": {
+      "from": "leah"
+    },
+    "responseCode": {
+      "code": 200,
+      "description": "OK"
+    },
+    "events": [
+      {
+        "eventType": "utterance",
+        "parameters": {
+          "dialogEvent": {
+            "speakerId": "leah",
+            "span": {
+              "startTime": "2024-01-30T13:30:52.327Z"
+            },
+            "features": {
+              "text": {
+                "mimeType": "text/plain",
+                "tokens": [
+                  {
+                    "value": "Hello"
+                  }
+                ]
+              }
+            }
+          }
+        }
+      }
+    ]
+  }
+}
+
+{
+  "ovon": {
+    "conversation": {
+      "id": "convoID8403984"
+    },
+    "schema": {
+      "version": "0.9.0",
+      "url": "not_published_yet"
+    },
+    "sender": {
+      "from": "internal:discovery"
+    },
+    "responseCode": {
+      "code": 200,
+      "description": "OK"
+    },
+    "events": [
+      {
+        "eventType": "utterance",
+        "parameters": {
+          "dialogEvent": {
+            "speakerId": "discovery",
+            "span": {
+              "startTime": "2024-01-30T13:30:54.208Z"
+            },
+            "features": {
+              "text": {
+                "mimeType": "text/plain",
+                "tokens": [
+                  {
+                    "value": "Hi there! How can I assist you today? What kind of expertise or knowledge are you looking for?"
+                  }
+                ]
+              }
+            }
+          }
+        }
+      }
+    ]
+  }
+}
+
+{
+  "ovon": {
+    "conversation": {
+      "id": "convoID8403984"
+    },
+    "schema": {
+      "version": "0.9.0",
+      "url": "not_published_yet"
+    },
+    "sender": {
+      "from": "leah"
+    },
+    "responseCode": {
+      "code": 200,
+      "description": "OK"
+    },
+    "events": [
+      {
+        "eventType": "utterance",
+        "parameters": {
+          "dialogEvent": {
+            "speakerId": "leah",
+            "span": {
+              "startTime": "2024-01-30T13:31:06.484Z"
+            },
+            "features": {
+              "text": {
+                "mimeType": "text/plain",
+                "tokens": [
+                  {
+                    "value": "I'm looking into buying a new car"
+                  }
+                ]
+              }
+            }
+          }
+        }
+      }
+    ]
+  }
+}
+
+{
+  "ovon": {
+    "conversation": {
+      "id": "convoID8403984"
+    },
+    "schema": {
+      "version": "0.9.0",
+      "url": "not_published_yet"
+    },
+    "sender": {
+      "from": "internal:discovery"
+    },
+    "responseCode": {
+      "code": 200,
+      "description": "OK"
+    },
+    "events": [
+      {
+        "eventType": "utterance",
+        "parameters": {
+          "dialogEvent": {
+            "speakerId": "discovery",
+            "span": {
+              "startTime": "2024-01-30T13:31:07.727Z"
+            },
+            "features": {
+              "text": {
+                "mimeType": "text/plain",
+                "tokens": [
+                  {
+                    "value": "What kind of cars are you considering? Are you looking for something sporty, family-friendly, or environmentally friendly?"
+                  }
+                ]
+              }
+            }
+          }
+        }
+      }
+    ]
+  }
+}
+
+{
+  "ovon": {
+    "conversation": {
+      "id": "convoID8403984"
+    },
+    "schema": {
+      "version": "0.9.0",
+      "url": "not_published_yet"
+    },
+    "sender": {
+      "from": "leah"
+    },
+    "responseCode": {
+      "code": 200,
+      "description": "OK"
+    },
+    "events": [
+      {
+        "eventType": "utterance",
+        "parameters": {
+          "dialogEvent": {
+            "speakerId": "leah",
+            "span": {
+              "startTime": "2024-01-30T13:31:21.559Z"
+            },
+            "features": {
+              "text": {
+                "mimeType": "text/plain",
+                "tokens": [
+                  {
+                    "value": "Sporty and environmentally friendly"
+                  }
+                ]
+              }
+            }
+          }
+        }
+      }
+    ]
+  }
+}
+
+{
+  "ovon": {
+    "conversation": {
+      "id": "convoID8403984"
+    },
+    "schema": {
+      "version": "0.9.0",
+      "url": "not_published_yet"
+    },
+    "sender": {
+      "from": "internal:discovery"
+    },
+    "responseCode": {
+      "code": 200,
+      "description": "OK"
+    },
+    "events": [
+      {
+        "eventType": "utterance",
+        "parameters": {
+          "dialogEvent": {
+            "speakerId": "discovery",
+            "span": {
+              "startTime": "2024-01-30T13:31:23.103Z"
+            },
+            "features": {
+              "text": {
+                "mimeType": "text/plain",
+                "tokens": [
+                  {
+                    "value": "It sounds like you're looking for expertise in the domain of \"Electric Vehicles\" with a subdomain of \"Sports Cars.\" Is that correct?"
+                  }
+                ]
+              }
+            }
+          }
+        }
+      }
+    ]
+  }
+}
+
+{
+  "ovon": {
+    "conversation": {
+      "id": "convoID8403984"
+    },
+    "schema": {
+      "version": "0.9.0",
+      "url": "not_published_yet"
+    },
+    "sender": {
+      "from": "leah"
+    },
+    "responseCode": {
+      "code": 200,
+      "description": "OK"
+    },
+    "events": [
+      {
+        "eventType": "utterance",
+        "parameters": {
+          "dialogEvent": {
+            "speakerId": "leah",
+            "span": {
+              "startTime": "2024-01-30T13:31:37.871Z"
+            },
+            "features": {
+              "text": {
+                "mimeType": "text/plain",
+                "tokens": [
+                  {
+                    "value": "Yes but is there anything more specific"
+                  }
+                ]
+              }
+            }
+          }
+        }
+      }
+    ]
+  }
+}
+
+{
+  "ovon": {
+    "conversation": {
+      "id": "convoID8403984"
+    },
+    "schema": {
+      "version": "0.9.0",
+      "url": "not_published_yet"
+    },
+    "sender": {
+      "from": "internal:discovery"
+    },
+    "responseCode": {
+      "code": 200,
+      "description": "OK"
+    },
+    "events": [
+      {
+        "eventType": "utterance",
+        "parameters": {
+          "dialogEvent": {
+            "speakerId": "discovery",
+            "span": {
+              "startTime": "2024-01-30T13:31:40.012Z"
+            },
+            "features": {
+              "text": {
+                "mimeType": "text/plain",
+                "tokens": [
+                  {
+                    "value": "It sounds like you're interested in \"Electric Sports Cars\" as a more specific subdomain within the domain of \"Electric Vehicles.\""
+                  }
+                ]
+              }
+            }
+          }
+        }
+      }
+    ]
+  }
+}

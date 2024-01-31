@@ -50,7 +50,7 @@ function sbSaveSequenceDiagram(  ) {
 
 function fetchSequenceFiles() {
   fetch('..\\Report\\Sequence')
-    .then(response => response.text())
+    .then(response => response.json())
     .then(data => {
       const dropdown = document.getElementById('SDFileDropdown');
       dropdown.innerHTML = '';
@@ -60,20 +60,13 @@ function fetchSequenceFiles() {
       defaultOption.text = 'Select';
       dropdown.appendChild(defaultOption);
 
-      const lines = data.split('\n');
-
-      lines.forEach(line => {
-        // Extract filenames (assuming they are indented)
-        const filenames = line.split(',');
-
-        filenames.forEach(fileWithQuotes => {
-          const file = fileWithQuotes.replace(/["\[\]]/g, ''); // Remove quotation marks and brackets
-          const option = document.createElement('option');
-          option.value = file;
-          option.text = file;
-          dropdown.appendChild(option);
-        });
+      data.forEach(file => {
+        const option = document.createElement('option');
+        option.value = file;
+        option.text = file;
+        dropdown.appendChild(option);
       });
+
       dropdown.addEventListener('change', function () {
         selectedFile = dropdown.value;
         updateSVG(selectedFile);
