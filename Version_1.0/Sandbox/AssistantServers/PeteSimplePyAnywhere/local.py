@@ -9,8 +9,7 @@ from flask import request
 from flask_cors import CORS
 import json
 import assistant
-# ========= IMPORT your assistant code here
-# from MyAssistantPackage import *
+
 
 app = Flask(__name__)
 CORS(app)
