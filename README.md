@@ -85,11 +85,15 @@ __A browser/assistant system for experimentation with OVON Envelopes. It is:__
 	* sandboxServer.py [File]
 		* the localhost server that supports the browser components
 	* AssistantServers [Directory]
-		* PeteSimplePyAnywhere.py is a skeleton for a pythonanywhere.com assistant. [more](https://github.com/open-voice-interoperability/open-voice-sandbox/blob/main/Version_1.0/Sandbox/AssistantServers/PeteSimplePyAnywhere/pyAnywhere.md)
+		* PeteSimplePyAnywhere [Directory] This is a skeleton for a pythonanywhere.com assistant. [more](https://github.com/open-voice-interoperability/open-voice-sandbox/blob/main/Version_1.0/Sandbox/AssistantServers/PeteSimplePyAnywhere/pyAnywhere.md)
 		* localPyAssistant [Directory]
 		This is a python server that will run on your machine (localhost) and makes it easier to debug your experiments with the __Envelope__. [more](https://github.com/open-voice-interoperability/open-voice-sandbox/blob/main/Version_1.0/Sandbox/AssistantServers/localPyAssistant/localPyAssistant.md)
+		* internalBasic [Directory]
+		This is a simple JavaScript server that will run in the browser making it easy to experiment with the __Envelope__. [more](https://github.com/open-voice-interoperability/open-voice-sandbox/blob/main/Version_1.0/Sandbox/AssistantServers/InternalBasic/InternalBasic.md)
+		* internalServer [Directory]
+		This is a JavaScript server that runs in the browser and supports OpenAI LLMs. [more](https://github.com/open-voice-interoperability/open-voice-sandbox/blob/main/Version_1.0/Sandbox/AssistantServers/InternalServer/internalServer.md)
 		* feel free to explore the other assistant files, but it is okay to ignore them for now.
 	* Browsers [Directory]
-		* HTML pages for the browser
+		* HTML pages for the browser [more](pathToMd)
 	* Scripts [Directory]
 		* javascript, css, etc. to support the browser
