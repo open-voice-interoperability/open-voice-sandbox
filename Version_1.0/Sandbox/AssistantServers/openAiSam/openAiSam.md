@@ -1,7 +1,7 @@
-# Sam.py
+# SamLLM.py
 
 ### Overview
-`sam.py` is a Flask-based server script that serves as the main entry point for handling OVON messages. 
+`samLLM.py` is a Flask-based server script that serves as the main entry point for handling OVON messages. 
 
 The server listens for POST requests, processes incoming OVON messages, and generates responses using the `OvonIOparser` module.
 
@@ -21,8 +21,10 @@ pip install flask_cors
 
 ### Starting the Server
 To start the server, run the following command in your terminal:
-``` python sam.py ```
+``` python samLLM.py ```
 This command will launch the Flask server, and it will be accessible at `http://localhost:8243/`
+
+__Note:__ On MS Windows systems you can just double click the winSamLLMLocalPyStartup.bat file.
 
 ### Notes 
 1. Ensure that you have the OpenAI API key configured
