@@ -86,9 +86,9 @@ __A browser/assistant system for experimentation with OVON Envelopes. It is:__
 		* the localhost server that supports the browser components
 	* AssistantServers [Directory]
 		* PeteSimplePyAnywhere.py is a skeleton for a pythonanywhere.com assistant. [more](https://github.com/open-voice-interoperability/open-voice-sandbox/blob/main/Version_1.0/Sandbox/AssistantServers/PeteSimplePyAnywhere/pyAnywhere.md)
-		* feel free to explore the other assistant files, but it is okay to ignore them for now.
 		* localPyAssistant [Directory]
 		This is a python server that will run on your machine (localhost) and makes it easier to debug your experiments with the __Envelope__. [more](https://github.com/open-voice-interoperability/open-voice-sandbox/blob/main/Version_1.0/Sandbox/AssistantServers/localPyAssistant/localPyAssistant.md)
+		* feel free to explore the other assistant files, but it is okay to ignore them for now.
 	* Browsers [Directory]
 		* HTML pages for the browser
 	* Scripts [Directory]
