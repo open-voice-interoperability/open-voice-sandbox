@@ -1,6 +1,6 @@
 ## Sandbox JavaScript File Functionality
 
-## <mark style="background-color: rgb(58, 171, 252)">sbHomepage.js</mark>
+## $${\textsf{\color{royalBlue}sbHomepage.js}}$$
 The `sbHomepage.js` file contains essential functions for Sandbox application's homepage. 
 
 #### Functions:
@@ -14,7 +14,7 @@ The script detects the browser and operating system types using the user agent s
 #### Initialization 
 The `sbStart()` function sets up the initial state of the homepage, displaying the browser and OS information.
 
-## <mark style="background-color: rgb(58, 171, 252)">sbAssistantMgr.js</mark>
+## sbAssistantMgr.js
 The `sbAssistantMgr.js` file contains functions related to managing and interacting with the assistants in the Sandbox application. 
 
 #### Key Functions
@@ -27,7 +27,7 @@ The `sbAssistantMgr.js` file contains functions related to managing and interact
 The script interacts with the HTML page, updating the assistant selection dropdown, handling user input for settings, and updating the server-side data.
 
 
-## <mark style="background-color: rgb(58, 171, 252)">sbEnvelopeTools.js</mark>
+## sbEnvelopeTools.js
 The `sbEnvelopTools.js` file includes functions related to starting a conversation and managing the envelope structure for communication with the assistant in the Sandbox application.
 
 #### `sbConversationStart()`:
@@ -46,7 +46,7 @@ This function initiates a conversation, sets up the initial envelope, and handle
 #### Usage:
 The script handles the initiation of conversations, manages the envelope structure, and provides tools for interacting with the assistant. It also includes functions for handling user inputs, settings, and saving conversation logs.
 
-## <mark style="background-color: rgb(58, 171, 252)">sbHttpComm.js</mark>
+## sbHttpComm.js
 The `sbHttpComm.js` files contains functions related to HTTP communication, including sending resquests to an assistant's server and handling the responses.
 
 #### Key Function:
@@ -61,7 +61,7 @@ The `sbHttpComm.js` files contains functions related to HTTP communication, incl
 
 The script is responsible for handling HTTP communication with the assistant's server. It send requests, processes responses, and logs the conversation in the UI. Additionally, it provides functions for reading and writing files in the Sandbox directory.
 
-## <mark style="background-color: rgb(58, 171, 252)">sbCreateAssistant.js</mark>
+## sbCreateAssistant.js
 The functions in this file are part of an assistant creation system. They handle the creation of new assistants, directory creation, and content generation based on the assistant type based on the type of assistant the user select.
 
 #### `createAssistant()`:
@@ -78,7 +78,7 @@ This asynchronous function creates a new assistant based on the values entered i
 Whether dealing with Python, JavaScript, or Language Model (LLM) assistants, the file offers a cohesive and efficient environment for managing diverse assistant types. It serves as a cornerstone, providing a comprehensive solution for the dynamic creation and integration of assistants within the system.
 
 
-## <mark style="background-color: rgb(58, 171, 252)">sbSpeech.js</mark>
+## sbSpeech.js
 The `sbSpeech.js` file manages speech-related functionalities, including Automatic Speech Recognition (ASR) and Text-to-Speech (TTS) for assistant interactions.
 
 #### `sbStartASR()`:
@@ -103,7 +103,7 @@ The `sbSpeech.js` file manages speech-related functionalities, including Automat
 * Voice properties and post-TTS events are configured using `assistantObject`.
 
 
-## <mark style="background-color: rgb(58, 171, 252)">sbLogs.js</mark>
+## sbLogs.js
 The `sbLogs.js` file is responsible for managing and displaying conversation logs in the browser. 
 
 #### Filtering Logs
@@ -114,7 +114,7 @@ The `sbLogs.js` file is responsible for managing and displaying conversation log
 #### Usage: 
 `sbLogs.js` is central to Sandbox's log management, initializing and displaying conversation logs. It enables users to interact with a dropdown for log file selection, apply filters for 'all', 'sent', or 'received' logs, and dynamically displays log content. Additionally, it facilitates file handling, including saving conversation logs, tracking last selected files, and fetching OVON logs for a comprehensive log viewing experience.
 
-## <mark style="background-color: rgb(58, 171, 252)">sbLLM.js</mark>
+## sbLLM.js
 #### Overview:
 `sbLLM.js` manages interactions with the OpenAI language model (LLM) in the Sandbox application.
 
@@ -133,7 +133,7 @@ The `sbLogs.js` file is responsible for managing and displaying conversation log
 - Coordinates with other Sandbox modules for a seamless assistant interaction experience.
 - Supports dynamic conversation flow and real-time updates.
 
-## <mark style="background-color: rgb(58, 171, 252)">sbSeqDiag.js</mark>
+## sbSeqDiag.js
 
 `sbSeqDiag.js` manages the creation, visualization, and interaction with sequence diagrams in the Sandbox application.
 
@@ -151,7 +151,7 @@ The `sbLogs.js` file is responsible for managing and displaying conversation log
 - Integrates with other Sandbox modules to provide a comprehensive environment for managing and visualizing conversation sequences.
 - Supports dynamic updates and real-time interaction with sequence diagrams.
 
-## <mark style="background-color: rgb(58, 171, 252)">sbVoices.js</mark>
+## sbVoices.js
 `sbVoice.js` manages the Text-to-Speech (TTS) voice selection and settings in the Sandbox application.
 
 #### Core Components:
