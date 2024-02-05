@@ -1,6 +1,6 @@
 ## Sandbox JavaScript File Functionality
 
-## $${\textsf{\color{royalBlue}sbHomepage.js}}$$
+## ${\textsf{\color{royalBlue}sbHomepage.js}}$
 The `sbHomepage.js` file contains essential functions for Sandbox application's homepage. 
 
 #### Functions:
@@ -14,7 +14,7 @@ The script detects the browser and operating system types using the user agent s
 #### Initialization 
 The `sbStart()` function sets up the initial state of the homepage, displaying the browser and OS information.
 
-## sbAssistantMgr.js
+## <span style="background-color: rgb(58, 171, 252);color:black;">sbAssistantMgr.js</span>
 The `sbAssistantMgr.js` file contains functions related to managing and interacting with the assistants in the Sandbox application. 
 
 #### Key Functions
