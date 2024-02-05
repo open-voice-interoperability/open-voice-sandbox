@@ -152,3 +152,18 @@ The `sbLogs.js` file is responsible for managing and displaying conversation log
 - Supports dynamic updates and real-time interaction with sequence diagrams.
 
 ## sbVoices.js
+`sbVoice.js` manages the Text-to-Speech (TTS) voice selection and settings in the Sandbox application.
+
+#### Core Components:
+* Voice Selection Dropdown: Dynamically populates and updates a `<select>` HTML element for TTS voice selection.
+* Speech Parameters: Allows adjustment of volume, rate, and pitch parameters for TTS.
+*Voice Info Display: Displays information about the selected TTS voice, including last selected voices.
+####Usage:
+* Load TTS voices using loadVoiceSelect() during initialization.
+* Adjust TTS voice settings using the dropdown and parameter sliders.
+* Save TTS voice index and test text with `saveTTSVoiceIndex()` and `saveTTS_TestText()`.
+* Update voice settings for the selected assistant using updateVoiceSettings().
+#### Integration:
+* Integrates with other Sandbox modules to provide a unified interface for TTS voice control.
+* Utilizes the Web Speech API for TTS functionality.
+* Supports real-time updates and interactions with TTS voices and settings.
