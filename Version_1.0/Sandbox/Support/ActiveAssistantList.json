@@ -135,7 +135,7 @@
   {
     "assistant": {
       "name": "samBasic",
-      "voiceIndex": "80",
+      "voiceIndex": "117",
       "lightColor": "#ffb3d9",
       "markerColor": "#cc0088",
       "serviceName": "PrimaryAssistant",

@@ -94,6 +94,6 @@ __A browser/assistant system for experimentation with OVON Envelopes. It is:__
 		This is a JavaScript server that runs in the browser and supports OpenAI LLMs. [more](https://github.com/open-voice-interoperability/open-voice-sandbox/blob/main/Version_1.0/Sandbox/AssistantServers/InternalServer/internalServer.md)
 		* feel free to explore the other assistant files, but it is okay to ignore them for now.
 	* Browsers [Directory]
-		* HTML pages for the browser [more](pathToMd)
+		* HTML pages for the browser [more](https://github.com/open-voice-interoperability/open-voice-sandbox/blob/main/Version_1.0/Sandbox/Browsers/sbBrowsers.md)
 	* Scripts [Directory]
-		* javascript, css, etc. to support the browser
+		* javascript, css, etc. to support the browser [more](https://github.com/open-voice-interoperability/open-voice-sandbox/blob/main/Version_1.0/Sandbox/Scripts/scripts.md)
