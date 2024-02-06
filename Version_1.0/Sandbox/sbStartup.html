@@ -9,6 +9,12 @@
     <script language="JavaScript" src= "Scripts/sbHomepage.js"></script>
     <link rel="stylesheet" href="../Scripts/css/styles.css">
 
+    <script>
+         if (window.location.href !== "http://localhost:6003/sbStartup.html") {
+          // Redirect to the desired server URL
+          window.location.href = "http://localhost:6003/sbStartup.html";
+      }
+  </script>
   </head>
 
 <body onload="loadSettingsValues()">

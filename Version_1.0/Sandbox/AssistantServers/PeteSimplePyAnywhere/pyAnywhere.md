@@ -1,8 +1,8 @@
 # PythonAnywhere-hosted Assistant
 
-The PythonAnywhere-hosted assistant consists of two main files: `local.py` and `assistant.py`. This assistant is designed to respond to various events, including invites and user utterances. Additionally, it demonstrates how to integrate the assistant with a Flask server.
+The PythonAnywhere-hosted assistant consists of two main files: `local.py` and `assistant.py`. This assistant is designed to respond to various events, including invites and user utterances. It demonstrates how to integrate the assistant with a Flask server.
 
-## local.py
+## ${\textsf{\color{#3AABFC}local.py}}$
 ### Install Dependencies
 * Make sure to install the required dependencies by opening a Bash console and running the following command:
 ``` pip3.10 install --user flask_cors```
@@ -12,7 +12,7 @@ The PythonAnywhere-hosted assistant consists of two main files: `local.py` and `
 * It imports the assistant module (`assistant.py`) for response generation.
 * The `generate_response` function is called to handle incoming OVON messages.
 
-## assistant.py
+## ${\textsf{\color{#3AABFC}assistant.py}}$
 ### Code Overview
 * The assistant module defines a `generate_response` function that processes OVON events and generates appropriate responses. 
 * It recognizes different event types, such as "invite" and "utterance", adapting responses accordingly.
@@ -23,7 +23,7 @@ The PythonAnywhere-hosted assistant consists of two main files: `local.py` and `
 * Modify `greetings` and `weather_terms` lists to tailor the assistant's behavior to specific needs. 
 * Adapt the response logic based on specific use cases.
 
-## Creating your own PythonAnywhere assistant
+## ${\textsf{\color{#3AABFC}Creating your own PythonAnywhere assistant }}$
 #### 1. Create a PythonAnywhere account
 * If you don't have a PythonAnywhere account, sign up at [PythonAnywhere](https://www.pythonanywhere.com/)
 #### 2. Access the PythonAnywhere console
