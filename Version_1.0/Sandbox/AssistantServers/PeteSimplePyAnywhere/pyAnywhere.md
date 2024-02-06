@@ -25,7 +25,7 @@ The PythonAnywhere-hosted assistant consists of two main files: `local.py` and `
 
 ## Creating your own PythonAnywhere assistant
 #### 1. Create a PythonAnywhere account
-* If you don't have a PythonAnywhere account, sign up at `https://www.pythonanywhere.com/`
+* If you don't have a PythonAnywhere account, sign up at [PythonAnywhere](https://www.pythonanywhere.com/)
 #### 2. Access the PythonAnywhere console
 * Log in to  your PythonAnywhere account and navigate to the Dashboard
 #### 3. Upload Your Files
@@ -36,6 +36,6 @@ The PythonAnywhere-hosted assistant consists of two main files: `local.py` and `
 * In the Bash console, install the necessary dependencies. For example, if you are using Flask and Flask-CORS, run:
 ```pip3.10 install --user flask flask-cors```
 #### 6. Running the Server
-* To run the server, press the `>>> Run` button.
+* To run the server, press the `>>>Run` button.
 
 
