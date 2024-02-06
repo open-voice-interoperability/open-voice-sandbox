@@ -7,7 +7,7 @@ __A browser/assistant system for experimentation with OVON Envelopes. It is:__
 * Has a list of OVON Envelope based assistant servers to play with
 * Has a skeleton python assistant server that you can use to build assistants
 
-## How to get started
+## ${\textsf{\color{#3AABFC}How to get started}}$
 
 ### Prerequisites
 
@@ -16,9 +16,9 @@ __A browser/assistant system for experimentation with OVON Envelopes. It is:__
 *The following are installed in the command line. Install using pip3*
 *Following are ONLY needed if you are building your own assistant server*
 
-* Flask: **pip3 install flask**
-* Flask_cors: **pip3 install flask-cors**
-* Requests: **pip3 install requests**
+* Flask: **`pip3 install flask`**
+* Flask_cors: **`pip3 install flask-cors`**
+* Requests: **`pip3 install requests`**
 
 #### A modern web browser (any will work for text only)
 *BUT for the full advanced speech system you should use MS Edge*
@@ -35,14 +35,19 @@ __A browser/assistant system for experimentation with OVON Envelopes. It is:__
 *  _Clone_ Repository on local machine
 *  _Navigate_ to project directory in a _console_/cmd window
 *  _Start_ the sandbox server by running this command:
-	**python sandboxServer.py** (Or the windows bat or Mac sh files)
+	
+	**`python sandboxServer.py`** 
+	#### OR 
+* by double clicking the .bat file (for windows) or the .command file (for Mac)
 
-## How to run the Browser component
+## ${\textsf{\color{#3AABFC}How to run the Browser component}}$
+* Double click the **`sbStartup.html`**
+	#### OR
 * Open you web browser
 * In the Navigation bar enter: __http://localhost:6003__
-* You will see a page titled __OVON SandBox Homepage__
-* Enter your __first__ name (may be used by assistants to address you)
-* Press the __"Start Sandbox"__ button
+	* You will see a page titled __OVON SandBox Homepage__
+	* Enter your __first__ name (may be used by assistants to address you)
+	* Press the __"Start Sandbox"__ button
 
 *There are several working assistants that use the OVON Envelope. They were developed by members of our group as experimental examples.*
 * Some of the assistants:
@@ -79,7 +84,7 @@ __A browser/assistant system for experimentation with OVON Envelopes. It is:__
 * (remember to end with the *enter* key)
 * You can also *click* the microphone icon and speak
 
-## Directory Structure and Files
+## ${\textsf{\color{#3AABFC}Directory Structure and Files}}$
 
 * Version_1.0/Sandbox [Root]
 	* sandboxServer.py [File]
@@ -97,3 +102,6 @@ __A browser/assistant system for experimentation with OVON Envelopes. It is:__
 		* HTML pages for the browser [more](https://github.com/open-voice-interoperability/open-voice-sandbox/blob/main/Version_1.0/Sandbox/Browsers/sbBrowsers.md)
 	* Scripts [Directory]
 		* javascript, css, etc. to support the browser [more](https://github.com/open-voice-interoperability/open-voice-sandbox/blob/main/Version_1.0/Sandbox/Scripts/scripts.md)
+
+## FAQs
+[Here](https://github.com/open-voice-interoperability/open-voice-sandbox/blob/main/Version_1.0/Sandbox/FAQs) are some of the FAQs we have come up with, feel free to submit any inquries/questions you may have to our [discussions](https://github.com/open-voice-interoperability/open-voice-sandbox/discussions) page or on our [discord](https://discord.gg/xt3ynbDE)
