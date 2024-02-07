@@ -3,7 +3,7 @@
 ## ${\textsf{\color{#3AABFC}What is the purpose of the open-voice-sandbox? }}$
 * It is a browser/assistant system for experimentation with OVON Envelopes, which is text and speech based and provides a server to run as localhost to host the browser html/javascript, with a list of OVON Envelope based assistant servers to play with.
 
-## ${\textsf{\color{#3AABFC}What is the purpose of the Open Voice Interoperability Initiative - LF AI and Data Foundation Architecture Work Group and the specification it has developed? }}$
+## ${\textsf{\color{#3AABFC}What is the purpose of the Open Voice Interoperability Initiative - LF AI and Data Foundation \\ Architecture Work Group and the specification it has developed? }}$
 * The purpose of the Open Voice Interoperability Initiative - LF AI & Data Foundation Architecture Work Group is to define a standard format for conversation envelopes, allowing human or automatic agents to interoperate in a conversation. The specification provides a universal JSON structure for conversations, facilitating interoperability among dialog agents, users, and other conversants.
 
 ## ${\textsf{\color{#3AABFC}What are the main components of a conversation envelope? }}$
