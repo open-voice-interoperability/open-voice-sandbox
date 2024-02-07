@@ -69,11 +69,11 @@
 * Scripts [Directory]
     * javascript, css, etc. to support the browser more
 
-## ${\textsf{\color{#3AABFC}How do the conversation envelope and event-types facilitate interoperable participation in a conversation?}}$
+## ${\textsf{\color{#3AABFC}How do the conversation envelope and event-types facilitate interoperable participation }}$ ${\textsf{\color{#3AABFC}in a conversation?}}$
 * The OVON conversation envelope and event-types, along with the prescribed minimal behaviors for compliant agents and conversation floor managers, facilitate interoperable participation in a conversation by providing a standardized format for conversation representation, allowing for seamless interaction between human and autonomous agents, delegation of control, and support for simultaneous multi-party conversations.
 
 ## ${\textsf{\color{#3AABFC}How can I experiment with the OVON Envelope using the OVON Sandbox?}}$
 * You can use the log and sequence diagram page to be able to see the OVON envelopes in depth and be able to trace the messages back and forth and the actions used (text, speech, etc)
 
-## ${\textsf{\color{#3AABFC}Can the sandbox server run on different operating systems, or is it specifically designed for a certain OS? }}$
+## ${\textsf{\color{#3AABFC}Can the sandbox server run on different operating systems, or is it specifically designed}}$ ${\textsf{\color{#3AABFC}for a certain OS? }}$
 * Right now it is available on Windows and MacOS 
