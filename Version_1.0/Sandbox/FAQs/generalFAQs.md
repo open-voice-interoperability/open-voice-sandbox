@@ -3,7 +3,7 @@
 ## ${\textsf{\color{#3AABFC}What is the purpose of the open-voice-sandbox? }}$
 * It is a browser/assistant system for experimentation with OVON Envelopes, which is text and speech based and provides a server to run as localhost to host the browser html/javascript, with a list of OVON Envelope based assistant servers to play with.
 
-## <font color="#3AABFC">What is the purpose of the Open Voice Interoperability Initiative - LF AI and Data Foundation Architecture Work Group and the specification it has developed? </font>
+## ${\textsf{\color{#3AABFC}What is the purpose of the Open Voice Interoperability Initiative - LF AI and Data Foundation}}$ ${\textsf{\color{#3AABFC}Architecture Work Group and the specification it has developed? }}$
 * The purpose of the Open Voice Interoperability Initiative - LF AI & Data Foundation Architecture Work Group is to define a standard format for conversation envelopes, allowing human or automatic agents to interoperate in a conversation. The specification provides a universal JSON structure for conversations, facilitating interoperability among dialog agents, users, and other conversants.
 
 ## ${\textsf{\color{#3AABFC}What are the main components of a conversation envelope? }}$
@@ -22,14 +22,14 @@
         #### OR
     2. Open a new browser and type in: **`http://localhost:6003/sbStartup.html`**
 
-## ${\textsf{\color{#3AABFC}What are the prerequisites for building my own assistant server in the OVON Sandbox environment?}}$
+## ${\textsf{\color{#3AABFC}What are the prerequisites for building my own assistant server in the OVON Sandbox }}$ ${\textsf{\color{#3AABFC}environment?}}$
 * Python 3.10+
 * Type the following commands in the command line
     * Flask: `pip3 install flask`
     * Flask_cors: `pip3 install flask-cors`
     * Requests: `pip3 install requests`
 
-## ${\textsf{\color{#3AABFC}Is it possible to use any web browser for text-based interactions with the OVON Sandbox, or are there specific recommendations?}}$
+## ${\textsf{\color{#3AABFC}Is it possible to use any web browser for text-based interactions with }}$ ${\textsf{\color{#3AABFC}the OVON Sandbox, or are there specific recommendations?}}$
 * Text based communication works on Chrome and Edge on Windows and Mac OS, along with Safari.
 * Voice based communication works on Chrome and Edge on Windows and Mac OS. We are still working on getting Safari listening for requests correctly.
 
