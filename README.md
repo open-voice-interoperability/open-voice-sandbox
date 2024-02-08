@@ -104,4 +104,4 @@ __A browser/assistant system for experimentation with OVON Envelopes. It is:__
 		* javascript, css, etc. to support the browser [more](https://github.com/open-voice-interoperability/open-voice-sandbox/blob/main/Version_1.0/Sandbox/Scripts/scripts.md)
 
 ## ${\textsf{\color{#3AABFC}FAQs}}$
-[Here](https://github.com/open-voice-interoperability/open-voice-sandbox/blob/main/Version_1.0/Sandbox/FAQs) are some of the FAQs we have come up with, feel free to submit any inquries/questions you may have to our [discussions](https://github.com/open-voice-interoperability/open-voice-sandbox/discussions) page or on our [discord](https://discord.gg/xt3ynbDE)
+[Here](https://github.com/open-voice-interoperability/open-voice-sandbox/blob/main/Version_1.0/Sandbox/FAQs/generalFAQs.md) are some of the FAQs we have come up with, feel free to submit any inquries/questions you may have to our [discussions](https://github.com/open-voice-interoperability/open-voice-sandbox/discussions) page or on our [discord](https://discord.gg/xt3ynbDE)
