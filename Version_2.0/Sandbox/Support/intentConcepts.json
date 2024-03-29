@@ -1,0 +1,131 @@
+{
+    "concepts": [
+      {
+        "name": "repeat",
+        "examples": [
+          "repeat that",
+          "repeat",
+          "say again",
+          "rephrase that",
+          "didn't catch that",
+          "I don't understand"
+        ]
+      },
+      {
+        "name": "bye",
+        "examples": [
+          "Goodbye",
+          "Farewell",
+          "bye",
+          "see you",
+          "have a good day",
+          "goodnight"
+        ]
+      },
+      {
+        "name": "yes",
+        "examples": [
+          "yes",
+          "yeah",
+          "okay",
+          "why not"
+        ]
+      },
+      {
+        "name": "no",
+        "examples": [
+          "no",
+          "not now",
+          "never"
+        ]
+      },
+      {
+        "name": "stillThere",
+        "examples": [
+          "are you still there",
+          "are you there",
+          "are you listening",
+          "can you here me"
+        ]
+      },
+      {
+        "name": "politeness",
+        "examples": [
+          "thank you",
+          "Excuse me",
+          "please",
+          "excuse"
+        ]
+      },
+      {
+        "name": "greeting",
+        "examples": [
+          "hello",
+          "hi",
+          "hey",
+          "how is it going",
+          "good morning",
+          "good afternoon"
+        ]
+      },
+      {
+        "name": "delegate",
+        "examples": [
+          "transfer me to assistant",
+          "transfer me to",
+          "transfer me to the assistant",
+          "go to assistant",
+          "talk to assistant",
+          "talk with assistant",
+          "chat with assistant",
+          "transfer me to agent",
+          "go to agent",
+          "talk to agent",
+          "talk with agent",
+          "chat with agent"
+        ]
+      },
+      {
+        "name": "return",
+        "examples": [
+          "return to assistant",
+          "go back to assistant",
+          "continue with assistant",
+          "return to agent",
+          "go back to agent",
+          "continue with agent"
+        ]
+      },
+      {
+        "name": "assistantName",
+        "examples": [
+          "wizard",
+          "discovery",
+          "sam",
+          "library",
+          "bureaucrat",
+          "pete",
+          "ben",
+          "basic"
+        ]
+      },
+      {
+        "name": "location",
+        "examples": [
+          "estonia",
+          "italy",
+          "england"
+        ]
+      },
+      {
+        "name": "travel",
+        "examples": [
+          "travel",
+          "visit",
+          "vacation",
+          "trip"
+        ]
+      }
+  ]
+}
+  

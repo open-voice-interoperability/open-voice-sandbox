@@ -1,0 +1,118 @@
+[
+  {
+    "assistant": {
+      "name": "human",
+      "voiceIndex": 666,
+      "markerColor": "#ff0202",
+      "serviceName": "HumanUser",
+      "serviceAddress": "OriginationPoint",
+      "authCode": "hugi666ikjjerg"
+    }
+  },
+  {
+    "assistant": {
+      "name": "assistantBrowser",
+      "voiceIndex": 999,
+      "markerColor": "#56585d",
+      "serviceName": "AssistantCommunications",
+      "serviceAddress": "localhost:6002",
+      "authCode": "456398nns"
+    }
+  },
+  {
+    "assistant": {
+      "name": "wizard",
+      "displayName": "Wizard",
+      "voiceIndex": "108",
+      "markerColor": "#29a3a3",
+      "serviceName": "DaVinci_LLM",
+      "serviceAddress": "https://www.asteroute.com/ovontest",
+      "authCode": "69jjg45cf0",
+      "contentType": "none"
+    }
+  },
+  {
+    "assistant": {
+      "name": "bureaucrat",
+      "displayName": "Burokratt",
+      "voiceIndex": "121",
+      "markerColor": "#2826c5",
+      "serviceName": "Estonia",
+      "serviceAddress": "https://dev.buerokratt.ee/ovonr/conversation",
+      "authCode": "h229k00m8bv",
+      "contentType": "application/json"
+    }
+  },
+  {
+    "assistant": {
+      "name": "library",
+      "displayName": "Smart Library",
+      "voiceIndex": "80",
+      "markerColor": "#cc0088",
+      "serviceName": "PrimaryAssistant",
+      "serviceAddress": "https://ovon.xcally.com/smartlibrary",
+      "authCode": "AuZ9SYtXn",
+      "contentType": "application/json"
+    }
+  },
+  {
+    "assistant": {
+      "name": "discovery",
+      "displayName": "Discovery",
+      "voiceIndex": "119",
+      "markerColor": "#d100a4",
+      "serviceName": "PrimaryAssistant",
+      "serviceAddress": "internal:discovery",
+      "authCode": "zz8h00ji",
+      "contentType": "application/json"
+    }
+  },
+  {
+    "assistant": {
+      "name": "basic",
+      "displayName": "BasicJS",
+      "voiceIndex": 100,
+      "markerColor": "#cc0088",
+      "serviceName": "PrimaryAssistant",
+      "serviceAddress": "internal:basic",
+      "authCode": "zz8h00ji",
+      "contentType": "application/json"
+    }
+  },
+  {
+    "assistant": {
+      "name": "pete",
+      "displayName": "PetePyAnywhere",
+      "voiceIndex": "80",
+      "markerColor": "#cc0088",
+      "serviceName": "PythonAnywhere",
+      "serviceAddress": "https://lrb24.pythonanywhere.com",
+      "authCode": "AuZ9SYtXn",
+      "contentType": "application/json"
+    }
+  },
+  {
+    "assistant": {
+      "name": "sam",
+      "displayName": "Sam",
+      "voiceIndex": "117",
+      "markerColor": "#fa7000",
+      "serviceName": "sam Basic",
+      "serviceAddress": "http://localhost:8242/",
+      "authCode": "AuZ9SYtXn",
+      "contentType": "application/json"
+    }
+  },
+  {
+    "assistant": {
+      "name": "ben",
+      "displayName": "BenOpenAI",
+      "voiceIndex": "80",
+      "markerColor": "#2e89ff",
+      "serviceName": "OpenAI",
+      "serviceAddress": "http://localhost:8243/",
+      "authCode": "AuZ9SYtXn",
+      "contentType": "application/json"
+    }
+  }
+]

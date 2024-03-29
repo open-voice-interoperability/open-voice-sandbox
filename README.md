@@ -1,4 +1,4 @@
-# open-voice-sandbox
+#  ${\textsf{\color{#3AABFC}open-voice-sandbox}}$ 
 *__Note:__ The Sandbox __implements__ the formal [InteropDialogEventSpecs](https://github.com/open-voice-interoperability/docs/tree/main/specifications) in a working environment.*
 
 __A browser/assistant system for experimentation with OVON Envelopes. It is:__
@@ -6,6 +6,9 @@ __A browser/assistant system for experimentation with OVON Envelopes. It is:__
 * Provides a server to run as localhost to host the browser html/javascript
 * Has a list of OVON Envelope based assistant servers to play with
 * Has a skeleton python assistant server that you can use to build assistants
+
+## ${\textsf{\color{#3AABFC}Version 2 Updates}}$
+
 
 ## ${\textsf{\color{#3AABFC}How to get started}}$
 
@@ -86,22 +89,24 @@ __A browser/assistant system for experimentation with OVON Envelopes. It is:__
 
 ## ${\textsf{\color{#3AABFC}Directory Structure and Files}}$
 
-* Version_1.0/Sandbox [Root]
+
+
+* Version_2.0/Sandbox [Root]
 	* sandboxServer.py [File]
 		* the localhost server that supports the browser components
 	* AssistantServers [Directory]
-		* PeteSimplePyAnywhere [Directory] This is a skeleton for a pythonanywhere.com assistant. [more](https://github.com/open-voice-interoperability/open-voice-sandbox/blob/main/Version_1.0/Sandbox/AssistantServers/PeteSimplePyAnywhere/pyAnywhere.md)
+		* PeteSimplePyAnywhere [Directory] This is a skeleton for a pythonanywhere.com assistant. [more](https://github.com/open-voice-interoperability/open-voice-sandbox/blob/main/Version_2.0/Sandbox/AssistantServers/PeteSimplePyAnywhere/pyAnywhere.md)
 		* localPyAssistant [Directory]
-		This is a python server that will run on your machine (localhost) and makes it easier to debug your experiments with the __Envelope__. [more](https://github.com/open-voice-interoperability/open-voice-sandbox/blob/main/Version_1.0/Sandbox/AssistantServers/localPyAssistant/localPyAssistant.md)
+		This is a python server that will run on your machine (localhost) and makes it easier to debug your experiments with the __Envelope__. [more](https://github.com/open-voice-interoperability/open-voice-sandbox/blob/main/Version_2.0/Sandbox/AssistantServers/localPyAssistant/localPyAssistant.md)
 		* internalBasic [Directory]
-		This is a simple JavaScript server that will run in the browser making it easy to experiment with the __Envelope__. [more](https://github.com/open-voice-interoperability/open-voice-sandbox/blob/main/Version_1.0/Sandbox/AssistantServers/InternalBasic/InternalBasic.md)
+		This is a simple JavaScript server that will run in the browser making it easy to experiment with the __Envelope__. [more](https://github.com/open-voice-interoperability/open-voice-sandbox/blob/main/Version_2.0/Sandbox/AssistantServers/InternalBasic/InternalBasic.md)
 		* internalServer [Directory]
-		This is a JavaScript server that runs in the browser and supports OpenAI LLMs. [more](https://github.com/open-voice-interoperability/open-voice-sandbox/blob/main/Version_1.0/Sandbox/AssistantServers/InternalServer/internalServer.md)
+		This is a JavaScript server that runs in the browser and supports OpenAI LLMs. [more](https://github.com/open-voice-interoperability/open-voice-sandbox/blob/main/Version_2.0/Sandbox/AssistantServers/InternalServer/internalServer.md)
 		* feel free to explore the other assistant files, but it is okay to ignore them for now.
 	* Browsers [Directory]
-		* HTML pages for the browser [more](https://github.com/open-voice-interoperability/open-voice-sandbox/blob/main/Version_1.0/Sandbox/Browsers/sbBrowsers.md)
+		* HTML pages for the browser [more](https://github.com/open-voice-interoperability/open-voice-sandbox/blob/main/Version_2.0/Sandbox/Browsers/sbBrowsers.md)
 	* Scripts [Directory]
-		* javascript, css, etc. to support the browser [more](https://github.com/open-voice-interoperability/open-voice-sandbox/blob/main/Version_1.0/Sandbox/Scripts/scripts.md)
+		* javascript, css, etc. to support the browser [more](https://github.com/open-voice-interoperability/open-voice-sandbox/blob/main/Version_2.0/Sandbox/Scripts/scripts.md)
 
 ## ${\textsf{\color{#3AABFC}FAQs}}$
-[Here](https://github.com/open-voice-interoperability/open-voice-sandbox/blob/main/Version_1.0/Sandbox/FAQs/generalFAQs.md) are some of the FAQs we have come up with, feel free to submit any inquries/questions you may have to our [discussions](https://github.com/open-voice-interoperability/open-voice-sandbox/discussions) page or on our [discord](https://discord.gg/xt3ynbDE)
+[Here](https://github.com/open-voice-interoperability/open-voice-sandbox/blob/main/Version_2.0/Sandbox/FAQs/generalFAQs.md) are some of the FAQs we have come up with, feel free to submit any inquries/questions you may have to our [discussions](https://github.com/open-voice-interoperability/open-voice-sandbox/discussions) page or on our [discord](https://discord.gg/xt3ynbDE)

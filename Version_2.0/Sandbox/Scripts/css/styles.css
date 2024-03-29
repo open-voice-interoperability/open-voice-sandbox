@@ -1,0 +1,368 @@
+#assistantSettings, #userInput {
+    border: 2px solid rgb(1, 120, 205);
+    border-radius: 10px;
+    padding: 10px;
+    margin-top: 50px;
+    max-width: 250px; 
+    float: right;
+    margin-right: 20%;
+    background-color: #3aabfc;
+    position: relative;
+}
+
+#assistantSettings h2 {
+    color: black; 
+    margin-bottom: 1px;
+    margin-top: -1px;
+}
+
+#assistantSettings label {
+    display: block;
+    margin-bottom: 5px;
+    margin-top: 2px;
+    color: black; 
+    pointer-events: none;
+}
+#assistantSettings input[type="text"]:hover,
+#assistantSettings input[type="color"]:hover {
+    background-color: rgb(218, 216, 216);
+}
+#assistantSettings input[type="text"] {
+    color: black; 
+}
+
+#assistantSettings input[type="color"] {
+    width: 40px; 
+    height: 30px;
+}
+
+
+#assistantSettings .update-settings {
+    background-color: #003973;
+    color: white; 
+    border-radius: 10px;
+    border: 0px;
+    padding: 8px 16px;
+    cursor: pointer;
+    margin-top: 10px;
+    display: flex;
+    align-items: center;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#assistantSettings .update-settings:hover {
+    transition: .5s;
+    background-color: #ca4300; 
+}
+#assistantSettings .load-voices {
+    background-color: #003973;
+    padding: 5px 13px;
+    color: white; 
+    border-radius: 10px;
+    border: 0px;
+    cursor: pointer;
+}
+
+#assistantSettings .load-voices:hover {
+    transition: .5s;
+    background-color: #ca4300; 
+}
+#assistantList {
+    position: fixed;
+    margin-right: 20px;
+    right: 0;
+    width: 150px; /* Adjust as needed */
+    border-radius: 10px;
+    padding-bottom: 10px;
+    padding-top: 10px;
+    background-color: #f0f0f0;
+}
+
+.log.sent{
+    background-color: lightcoral !important;
+}
+/* .log.received{
+    background-color: var(--received-color, #ffb3d9) !important;
+} */
+
+.log {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    border: 1.5px solid #000000;
+    padding: 10px;
+    position: relative;
+  }
+
+  .element {
+    margin-bottom: 5px;
+  }
+
+
+  .label {
+    font-weight: bold;
+  }
+
+#microphoneIcon {
+    /* Initial styles */
+    cursor: pointer !important;
+    filter: brightness(100%);
+    position: relative; 
+}
+
+#microphoneIcon:hover {
+    filter: brightness(135%);
+    transition: filter 0.75s ease;
+}
+
+#stopTTSIcon {
+    /* Initial styles */
+    cursor: pointer !important;
+    filter: brightness(100%);
+    position: relative; 
+}
+
+#stopTTSIcon:hover {
+    filter: brightness(135%);
+    transition: filter 0.75s ease;
+}
+
+#lineSeparator {
+    border-top: 1.5px solid #646464;
+    margin: 10px 0;
+  }
+  #backgroundPickerLabel {
+    text-align: left;
+    margin-top: -5px;
+    margin-bottom: 5px;
+    font-weight: bold;
+    margin-left: 5px;
+  }
+  
+  #colorPickerLabel, #brightnessPickerLabel {
+    font-weight: bold;
+    display: inline-block;
+    margin-top: 3.5px;
+    vertical-align: top;
+    margin-left: 5px;
+    margin-right: 3px;
+  }
+
+  #testInput{
+    margin-top: 8px;
+  }
+
+  #testBtn {
+    width: 100px;
+}
+  #sbTTS_Text {
+    margin-top: -9px;
+    width: 400px;
+    resize: vertical;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 14px;
+    max-height: 200px;
+}
+#startBtn {
+    margin-top: 20px;
+}
+
+.sbTable {
+    width: 75%;
+}
+#voiceSettings {
+    margin-top: 10px;
+}
+
+.homeBtn , .converseBtn , .logBtn, .settingBtn {
+    border-radius: 8px;
+    opacity: 90%;
+    border: 0px;
+    margin-top: 5px;
+    margin-right: 5px;
+    padding: 5px;
+    background-color: rgb(58, 171, 252);
+    font-size: 16px;
+}
+.homeBtn:hover, .converseBtn:hover, .logBtn:hover, .settingBtn:hover{
+    background-color: rgb(101, 191, 255);
+    transition: .5s;
+    cursor: pointer;
+}
+.assistantSelectDiv{
+    margin-bottom: -25px;
+}
+#sbAssist{
+    margin-left: 5px;
+    padding: 1.85px;
+    padding-left: 1.85px;
+    padding-right: 1.85px;
+    border-radius: 8px;
+}
+
+#sbAssist:hover, #logFileDropdown:hover{
+    background-color: rgb(214, 214, 214);
+    transition: .35s;
+    cursor: pointer;
+}
+
+#logFileDropdown{
+    margin-top: 10px;
+    padding: 1.85px;
+    padding-left: 1.85px;
+    padding-right: 1.85px;
+    border-radius: 8px;
+    border-color: #484747;
+}
+.centerTable {
+    margin-right: 100px;
+    width: 100%;
+    max-width: 1100px; /* Set a specific width for the table */
+}
+#centerDiv {
+    align-items: center;
+    text-align: center;
+}
+.browserAndOs{
+    margin-bottom: 6px;
+    font-size: 14px;
+}
+#titleHead{
+    margin-top: -10px;
+}
+
+img {
+    max-width: 100%; /* Make sure the image doesn't exceed its container */
+    height: auto;
+}
+
+@media (max-width: 600px) {
+    img {
+        height: auto;
+        max-width: fit-content;
+    }
+}
+
+#whisperMessage, #rf {
+    border-radius: 5px;
+    border-color: #797979;
+    border-style: solid;
+}
+#whisperMessage::placeholder , #rf::placeholder{ 
+    color: rgb(56, 55, 55);
+    text-align: center;
+}
+
+#whisperMessage{
+    margin-top: 2px;
+    margin-left: 10px;
+    width: 215px;
+    resize: vertical;
+    font-family: 'Arial';
+    font-size: 14px;
+    max-height: 200px;
+}
+
+.whisper{
+    align-items: center;
+    margin-bottom: -10px;
+}
+
+.accordion-log-header {
+    /* font-weight: bold; */
+    cursor: pointer;
+    transition: transform 0.3s ease; /* Add smooth transition for color and transform */
+    transform-origin: left; /* Set the transformation origin to the left */
+
+}
+
+.accordion-log-header:hover .tooltiptext {
+    visibility: visible;
+}
+
+
+.log-tooltip .log-tooltip-text {
+    display: block;
+    visibility: hidden;
+    max-width: 100px;
+    background-color: rgb(22, 0, 131);
+    color: #fff;
+    text-align: center;
+    border-radius: 10px;
+    padding: 8px;
+    font-size: 13.5px;
+    position: fixed;
+    margin-left: 8px;
+    margin-top: 1px;
+    z-index: 1;
+}
+
+.log-tooltip:hover .log-tooltip-text {
+    visibility: visible;
+}
+
+.responseWrap {
+    overflow-x: auto;
+    word-wrap: break-word;
+  }
+  .tooltip {
+      margin-top: 16px;
+      position: relative;
+      display: inline-block;
+  }
+.tooltiptext {
+    display: block;
+    visibility: hidden;
+    max-width: 200px;
+    background-color: rgb(22, 0, 131);
+    color: #fff;
+    text-align: center;
+    border-radius: 10px;
+    padding: 8px;
+    font-size: 13.5px;
+    position: fixed;
+    margin-left: 8px;
+    margin-top: 4px;
+    z-index: 1;
+  }
+  .tooltip:hover .tooltiptext {
+  visibility: visible;
+  }
+  
+  .AssistantName {
+    font-size: 33px;
+    display: inline-block;
+    max-width: max-content;
+    font-style: italic;
+    border-bottom: #000000 solid 2px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+.log-content{
+    white-space: pre-wrap;
+    line-height: 1.15;
+}
+
+#createAssistantForm div{
+    margin-top: 15px;
+}
+
+#llmSENT{
+    white-space: pre-wrap; 
+    word-wrap: break-word;
+}
+#assistantSettingsContainer{
+    position: relative;
+}
+.update-message {
+    margin-top: 8px;
+    display: none;
+    background-color: #219b25;
+    color: white;
+    padding: 5px;
+    text-align: center;
+    border-radius: 10px;
+    font-weight: 600;
+}

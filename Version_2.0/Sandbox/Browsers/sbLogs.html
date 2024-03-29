@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Logs</title>
+  <script language="JavaScript" src= "../Scripts/sbAssistantMgr.js"></script>
+  <script language="JavaScript" src= "../Scripts/sbHomepage.js"></script>
+  <script language="JavaScript" src= "../Scripts/sbHttpComm.js"></script>
+  <script language="JavaScript" src= "../Scripts/sbEnvelopeTools.js"></script>
+  <link rel="stylesheet" href="../Scripts/css/styles.css">
+  <script language="JavaScript" src= "../Scripts/sbVoices.js"></script>
+  <script language="JavaScript" src= "../Scripts/sbSpeech.js"></script>
+  <script language="JavaScript" src= "../Scripts/sbSeqDiag.js"></script>
+  <script language="JavaScript" src= "../Scripts/Settings.js"></script>
+
+  <link rel="stylesheet" href="../Scripts/css/styles.css">
+
+</head>
+<body>
+  <table class="centerTable">
+    <tr >
+        <td>
+            <h2><img src="../Media/img/Interoperability_Logo_color.jpg" alt="Interop graphic" height="60" width="300"/></h2>
+        </td>
+        <td>
+          <div id="centerDiv">
+            <h2 id="titleHead"><b>Sandbox - Logs</b> </h2>
+            <div class="browserAndOs">
+                <b>Browser: <span id="BrowserType" style="color:rgb(192, 25, 38);"></span></b>
+                <b>OS: <span id="OSType" style="color:rgb(53, 36, 197);"></span></b><br/>
+          </div>
+        </div>
+        </td>
+    </tr>
+  </table>
+  <div id="lineSeparator"></div>
+
+  <div id="conversationId" style="font-size: 20px;"><b>Conversation ID: </b><span id="displayedConversationId"></span> </div>
+  <div id="conversationDate" style="font-size: 20px;"><b>Conversation Date: </b><span id="displayedDate"></span></div>
+
+   <button class="logBtn tooltip" id="showAllButton" type="button">
+    Reload
+    <span class="tooltiptext">Show logs from converse page.</span>
+  </button>
+<button class="logBtn" id="ovonSentButton" type="button" name="filter" value="sent" >OVON Sent</button>
+  <button class="logBtn" id="ovonReceivedButton" type="button" name="filter" value="received" >OVON Received</button>
+  <button class="logBtn" id="ovonFullDialogButton" type="button" name="filter" value="all">Full Dialog</button>
+  <button class="logBtn" type="button" name="filter" value="save" onclick="saveFullDialogToFile()">Save Dialog</button>
+  <br>  
+  <label for="logFileDropdown">Select a Log File:</label>
+  <select id="logFileDropdown"></select>
+  <div id="selectedLogFileInfo"></div>
+  <div id="lineSeparator"></div>
+  <div id="logContainer"></div>
+  <script language="JavaScript" src= "../Scripts/sbLogs.js"></script>
+
+</body>
+
+</html>
