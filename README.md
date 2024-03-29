@@ -8,7 +8,10 @@ __A browser/assistant system for experimentation with OVON Envelopes. It is:__
 * Has a skeleton python assistant server that you can use to build assistants
 
 ## ${\textsf{\color{#3AABFC}Version 2 Updates}}$
-
+* Added concepts for certain assistants to understand conversation better and for discovery.
+* Added floor events to handle delegations/transfers to different assistants.
+* Updated Sequence Diagram page quite a bit for better analytics. 
+* And more updates to come..
 
 ## ${\textsf{\color{#3AABFC}How to get started}}$
 
