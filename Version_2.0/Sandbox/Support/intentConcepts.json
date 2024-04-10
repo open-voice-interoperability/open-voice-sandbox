@@ -71,29 +71,20 @@
       {
         "name": "delegate",
         "examples": [
-          "transfer me to assistant",
+          "transfer to",
           "transfer me to",
-          "transfer me to the assistant",
-          "go to assistant",
-          "talk to assistant",
-          "talk with assistant",
-          "chat with assistant",
-          "transfer me to agent",
-          "go to agent",
-          "talk to agent",
-          "talk with agent",
-          "chat with agent"
+          "go to",
+          "talk with",
+          "chat with",
+          "talk to"
         ]
       },
       {
         "name": "return",
         "examples": [
-          "return to assistant",
-          "go back to assistant",
-          "continue with assistant",
-          "return to agent",
-          "go back to agent",
-          "continue with agent"
+          "return to",
+          "go back to",
+          "continue with"
         ]
       },
       {

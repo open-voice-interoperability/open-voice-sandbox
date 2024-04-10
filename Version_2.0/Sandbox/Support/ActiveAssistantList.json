@@ -95,7 +95,7 @@
     "assistant": {
       "name": "sam",
       "displayName": "Sam",
-      "voiceIndex": "117",
+      "voiceIndex": "116",
       "markerColor": "#fa7000",
       "serviceName": "sam Basic",
       "serviceAddress": "http://localhost:8242/",
