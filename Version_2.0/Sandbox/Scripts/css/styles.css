@@ -1,3 +1,9 @@
+.image-container{
+    position:relative;
+    float: right;
+    margin: 10px;
+}
+
 #assistantSettings, #userInput {
     border: 2px solid rgb(1, 120, 205);
     border-radius: 10px;
@@ -68,7 +74,7 @@
     transition: .5s;
     background-color: #ca4300; 
 }
-#assistantList {
+#assistantList{
     position: fixed;
     margin-right: 20px;
     right: 0;
@@ -78,6 +84,9 @@
     padding-top: 10px;
     background-color: #f0f0f0;
 }
+.highlighted {
+    font-weight: bold; /* or any other styling to make it stand out */
+  }
 
 .log.sent{
     background-color: lightcoral !important;
@@ -215,13 +224,18 @@
     border-color: #484747;
 }
 .centerTable {
-    margin-right: 100px;
+    display: relative;
+    justify-content: space-between;
+    align-items: center; /* Center items vertically */
     width: 100%;
-    max-width: 1100px; /* Set a specific width for the table */
+    padding: 0 5px; /* Adjust padding as needed */
+    max-width: 100%; 
 }
 #centerDiv {
     align-items: center;
     text-align: center;
+    margin: 100 auto; /* Center the div horizontally */
+    max-width: 300px;
 }
 .browserAndOs{
     margin-bottom: 6px;
@@ -239,7 +253,6 @@ img {
 @media (max-width: 600px) {
     img {
         height: auto;
-        max-width: fit-content;
     }
 }
 

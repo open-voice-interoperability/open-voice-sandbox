@@ -148,3 +148,42 @@ function hexToHSL(hex) {
   l = Math.round(l*100)+25;
   return { h, s, l };
 }
+
+document.addEventListener("DOMContentLoaded", function() {
+  // Your JavaScript code here
+  const folderPath = '/listImageFiles'; // Endpoint for listing image files
+  const imageContainer = document.getElementById('imageContainer');
+
+  function listFilesInFolder(folderPath) {
+      fetch(folderPath)
+          .then(response => {
+              if (!response.ok) {
+                  throw new Error('Failed to list files in folder');
+              }
+              return response.json();
+          })
+          .then(data => {
+              data.forEach(fileName => {
+                  const imageUrl = '../Media/img/yourLogo/' + fileName;
+                  displayImage(imageUrl);
+              });
+          })
+          .catch(error => {
+              console.error('Error:', error);
+          });
+  }
+
+  function displayImage(imageUrl) {
+    const imageDiv = document.createElement('div');
+    imageDiv.classList.add('image-container');
+
+      const imgElement = document.createElement('img');
+      imgElement.src = imageUrl;
+      imgElement.alt = 'Image';
+      imgElement.width = 100;
+      imgElement.height = 200;
+      imageContainer.appendChild(imgElement);
+  }
+
+  listFilesInFolder(folderPath);
+});

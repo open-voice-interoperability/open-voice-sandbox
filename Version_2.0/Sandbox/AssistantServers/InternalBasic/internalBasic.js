@@ -11,7 +11,10 @@ var humanName = "Human";
 function callBasicAssistant( assistName, assistantObject, OVONmsg ){
     retOVONJSON = baseEnvelopeOVON( assistantObject,true );
         //findEvents( OVONmsg.ovon.events );
-        var eventsJSON = eventSummary( OVONmsg.ovon.events );
+        let eventsJSON = eventSummary( OVONmsg.ovon.events );
+        if(eventsJSON.utteranceText.includes("transfer")){
+            return;
+        }
         if( eventsJSON.invite ){
             if (eventsJSON.whisperText !== "") {
                 // Hardcoded response for invite with whisper
@@ -26,14 +29,7 @@ function callBasicAssistant( assistName, assistantObject, OVONmsg ){
                 retOVONJSON.ovon.sender.from = assistName; // Set sender name
                 retOVONJSON.ovon.events.push(ovonUtt); // Insert
             }
-            if( eventsJSON.utterance ){
-                const responseText = "Hello! Thanks for the utterance";
-                ovonUtt = buildUtteranceOVON(assistName, responseText);
-                retOVONJSON.ovon.sender.from = assistName; // Set sender name
-                retOVONJSON.ovon.events.push(ovonUtt); // Insert
-            }
-            handleReturnedOVON(retOVONJSON);
-
+            // handleReturnedOVON(retOVONJSON);
         }else{
             if( eventsJSON.utterance ){
                 const responseText = "Hello! Thanks for the utterance.....";
@@ -44,8 +40,7 @@ function callBasicAssistant( assistName, assistantObject, OVONmsg ){
                 ovonUtt = buildUtteranceOVON( assistName, "You must invite the assistant first." );
                 retOVONJSON.ovon.events.push(ovonUtt);         
             }
-            handleReturnedOVON(retOVONJSON);
-
         }
+        handleReturnedOVON(retOVONJSON);
     return;
 }

@@ -104,7 +104,7 @@ function sbSpeak( say, assistantObject ) {
     msg.volume = parseFloat(assistantObject.assistant.volume) || 1;
     msg.pitch = parseFloat(assistantObject.assistant.pitch) || 1;
 
-    msg.onend = function (event) {
+    // msg.onend = function (event) {
         startTime = new Date().getTime();
         if (!isOnVoicesPage()) {
             if (retOVONJSON && retOVONJSON.ovon) {
@@ -114,7 +114,7 @@ function sbSpeak( say, assistantObject ) {
                 console.error("Invalid OVON JSON structure");
             }
         }
-    };
+    // };
 
     window.speechSynthesis.cancel();
     window.speechSynthesis.speak(msg);
@@ -166,7 +166,7 @@ function processOtherEvents( eventArray, assistantObject, thisSay ){
           var { eventType, ...eventWithoutType } = event
     }
   }
-  if(eventArray[0]){
+  if(eventArray[0].eventType === "whisper"){
     shortMessage = "utterance[TTS] w/ whisper";
   }else{
     shortMessage = "utterance[TTS]";

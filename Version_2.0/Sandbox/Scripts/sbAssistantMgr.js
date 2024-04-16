@@ -8,6 +8,31 @@ function sbGetAgentParams( someAgentName ){ //return object for this agent
     }
   }
 }
+
+function highlightSelectedAssistant(markerColor) {
+  const hslColor = hexToHSL(markerColor);
+  const assistantListDiv = document.getElementById('assistantList');
+  if (assistantListDiv) {
+      // Remove existing highlighting
+      const highlightedElement = assistantListDiv.querySelector('.highlighted');
+      if (highlightedElement) {
+          highlightedElement.classList.remove('highlighted');
+          highlightedElement.style.backgroundColor = '';
+      }
+
+      // Find the selected assistant and apply highlighting
+      const selectedAssistantName = assistantObject.assistant.name;
+      const assistantElements = assistantListDiv.getElementsByTagName('p');
+      for (const element of assistantElements) {
+          if (element.textContent === selectedAssistantName) {
+              element.classList.add('highlighted');
+              element.style.backgroundColor = `hsl(${hslColor.h}, ${hslColor.s}%, ${hslColor.l}%)`;
+              break; // No need to continue iterating once highlighted
+          }
+      }
+  }
+}
+
 var assistantStack = [];
 async function fetchAssistantData() {
   try {

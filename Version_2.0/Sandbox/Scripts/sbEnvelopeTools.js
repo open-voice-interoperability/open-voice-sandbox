@@ -104,6 +104,7 @@ function setAssistantNameElement( assObj ){
         }
         }
         assistantNameElement.style.color = markerColor;
+        highlightSelectedAssistant(markerColor);
     } else {
     return; 
     }
@@ -122,7 +123,7 @@ function bareByeOVON( someAssistant ){
     return OVON_invite;
 }
 
-function buildUtteranceOVON( speaker, utteranceStr, isText, isDelegate){
+function buildUtteranceOVON( speaker, utteranceStr, isText, isDelegate, isWhisper, whisperText){
     const OVON_Utterance = {
         "eventType": "utterance",
         "parameters": {
@@ -141,12 +142,18 @@ function buildUtteranceOVON( speaker, utteranceStr, isText, isDelegate){
     OVON_Utterance.parameters.dialogEvent.features.text.tokens[0].value = utteranceStr;
     var shortString = shortenString( utteranceStr, 55 )
     if (speaker === 'Human' || speaker === localStorage.getItem('humanFirstName' || speaker === 'unknown')) {
-        buildUttSeqDiag(wc, assistantObject.assistant.name, shortString, utteranceStr, isText, isDelegate);
+        if(!isWhisper){
+            buildUttSeqDiag(wc, assistantObject.assistant.name, shortString, utteranceStr, isText, isDelegate, isWhisper);
+        }else{
+            buildUttSeqDiag(wc, assistantObject.assistant.name, shortString, utteranceStr, isText, isDelegate, isWhisper, whisperText);
+
+        }
     }
     return OVON_Utterance;
 }
 
 function buildWhisperOVON( speaker, whisperStr ){
+    // let isWhisper=true;
     const name = speaker;
     const OVON_Whisper = {
         "eventType": "whisper",
@@ -166,8 +173,6 @@ function buildWhisperOVON( speaker, whisperStr ){
     d = new Date();
     OVON_Whisper.parameters.dialogEvent.span.startTime = d.toISOString();
     OVON_Whisper.parameters.dialogEvent.features.text.tokens[0].value = whisperStr;
-    var shortString = shortenString( whisperStr, 55 )
-    buildWhisperSeqDiag(wc, assistantObject.assistant.name, shortString, whisperStr);
     return OVON_Whisper;
 }
 var converseWindow = null;
@@ -287,20 +292,22 @@ function sendReply(utteranceText, isWhisperButton, isText, prevAssistant, whispe
     if (!baseEnvelope){
         baseEnvelope = baseEnvelopeOVON(assistantObject);   
     }
-
-    const ovonUtt = buildUtteranceOVON(localStorage.getItem("humanFirstName"), utteranceText, isText, isDelegate);
-    baseEnvelope.ovon.events.push(ovonUtt);
         
     if (isWhisperButton && whisperText.trim() === "") {
         // Alert if whisper button is clicked without providing whisper text
         alert("Please provide a whisper");
         return;
     }
-
+    let isWhisper =false;
     if (whisperText && whisperText.trim() !== "") {
-        const ovonWhisper = buildWhisperOVON(localStorage.getItem("humanFirstName"), whisperText);
+        isWhisper = true;
+        const ovonWhisper = buildWhisperOVON(localStorage.getItem("humanFirstName"), whisperText, isText, isDelegate);
         baseEnvelope.ovon.events.push(ovonWhisper);
     }
+
+    const ovonUtt = buildUtteranceOVON(localStorage.getItem("humanFirstName"), utteranceText, isText, isDelegate, isWhisper, whisperText);
+    baseEnvelope.ovon.events.push(ovonUtt);
+
     setEvelopeConvoID(baseEnvelope);
     sbPostToAssistant(assistantObject, baseEnvelope);
 

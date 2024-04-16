@@ -11,6 +11,7 @@ __A browser/assistant system for experimentation with OVON Envelopes. It is:__
 * Added concepts for certain assistants to understand conversation better and for discovery.
 * Added floor events to handle delegations/transfers to different assistants.
 * Updated Sequence Diagram page quite a bit for better analytics. 
+* Added a place to put company/organization logos found [here](https://github.com/open-voice-interoperability/open-voice-sandbox/blob/main/Version_2.0/Sandbox/Media/img/yourLogo)
 * And more updates to come..
 
 ## ${\textsf{\color{#3AABFC}How to get started}}$

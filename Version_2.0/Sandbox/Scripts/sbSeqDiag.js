@@ -138,7 +138,9 @@ function createTooltip(svg, message) {
         .enter()
         .append("p")
         .style("margin", "5px")
-        .text(function (d) { return d; });
+        .html(function (d) {
+          return d.replace(/^(\s*)"(?!concepts|concept|matchedWords)([^"]+)":/, '$1<strong>$2:</strong>');
+        });
     } else {
       // Handle the case where there's no message object
       tooltip.append("p")
@@ -245,13 +247,14 @@ classes.forEach(function(c, i) {
         if (tooltipContent && typeof tooltipContent === 'object') {
           const text = JSON.stringify(tooltipContent, null, 2);
           const textLines = text.split('\n');
-
           tooltip.selectAll("p")
             .data(textLines)
             .enter()
             .append("p")
             .style("margin", "5px")
-            .text(function (d) { return d; });
+            .html(function (d) {
+              return d.replace(/"([^"]+)":/g, '<strong>$1:</strong>');
+            });
         } else {
           tooltip.append("p")
             .style("margin", "5px")
@@ -441,7 +444,8 @@ function buildInviteSeqDiag(wc, aName, delegate) {
   
 }
 
-function buildUttSeqDiag(wc, assistantName, shortASR, finalAsrText, isText, isDelegate) {
+function buildUttSeqDiag(wc, assistantName, shortASR, finalAsrText, isText, isDelegate, isWhisper, whisperText) {
+  console.log(isWhisper);
   if(isDelegate){
     if (isText) {
       buildSeqDiagJSON( "human", wc, shortASR, finalAsrText, "" );
@@ -451,19 +455,36 @@ function buildUttSeqDiag(wc, assistantName, shortASR, finalAsrText, isText, isDe
       saveLocalSeqDiag();
     }
   }else{
-     if (isText) {
-      buildSeqDiagJSON( "human", wc, shortASR, finalAsrText, "" );
-      buildSeqDiagJSON( wc, wc, "[[Client TEXT]]", "Speech recognition via browser webKit", "" );
-      buildSeqDiagJSON( wc, assistantName, "utterance[TEXT]", "OVON Event string sent to Assistant", "" );
-      buildSeqDiagJSON( assistantName, assistantName, "[[NLU/DIALOG]]", "Understand the words and do dialog management and biz logic", "" );
-      saveLocalSeqDiag();
+    if(isWhisper){
+      if (isText) {
+        buildSeqDiagJSON( "human", wc, shortASR, finalAsrText, "", whisperText);
+        buildSeqDiagJSON( wc, wc, "[[Client TEXT]]", "Speech recognition via browser webKit", "" );
+        buildSeqDiagJSON( wc, assistantName, "utterance[TEXT] w/ whisper", "OVON Event string sent to Assistant", "");
+        buildSeqDiagJSON( assistantName, assistantName, "[[NLU/DIALOG]]", "Understand the words and do dialog management and biz logic", "" );
+        saveLocalSeqDiag();
+      } else {
+        buildSeqDiagJSON( "human", wc, shortASR, finalAsrText, "",whisperText );
+        buildSeqDiagJSON( wc, wc, "[[Client ASR]]", "Speech recognition via browser webKit", "" );
+        buildSeqDiagJSON( wc, assistantName, "utterance[ASR] w/ whisper", "OVON Event string sent to Assistant", "" );
+        buildSeqDiagJSON( assistantName, assistantName, "[[NLU/DIALOG]]", "Understand the words and do dialog management and biz logic", "" );
+        saveLocalSeqDiag();
+      }
+    }else{
+      if (isText) {
+        buildSeqDiagJSON( "human", wc, shortASR, finalAsrText, "" );
+        buildSeqDiagJSON( wc, wc, "[[Client TEXT]]", "Speech recognition via browser webKit", "" );
+        buildSeqDiagJSON( wc, assistantName, "utterance[TEXT]", "OVON Event string sent to Assistant", "" );
+        buildSeqDiagJSON( assistantName, assistantName, "[[NLU/DIALOG]]", "Understand the words and do dialog management and biz logic", "" );
+        saveLocalSeqDiag();
     } else {
-      buildSeqDiagJSON( "human", wc, shortASR, finalAsrText, "" );
-      buildSeqDiagJSON( wc, wc, "[[Client ASR]]", "Speech recognition via browser webKit", "" );
-      buildSeqDiagJSON( wc, assistantName, "utterance[ASR]", "OVON Event string sent to Assistant", "" );
-      buildSeqDiagJSON( assistantName, assistantName, "[[NLU/DIALOG]]", "Understand the words and do dialog management and biz logic", "" );
-      saveLocalSeqDiag();
+        buildSeqDiagJSON( "human", wc, shortASR, finalAsrText, "" );
+        buildSeqDiagJSON( wc, wc, "[[Client ASR]]", "Speech recognition via browser webKit", "" );
+        buildSeqDiagJSON( wc, assistantName, "utterance[ASR]", "OVON Event string sent to Assistant", "" );
+        buildSeqDiagJSON( assistantName, assistantName, "[[NLU/DIALOG]]", "Understand the words and do dialog management and biz logic", "" );
+        saveLocalSeqDiag();
     }
+    }
+     
   }
 }
 
@@ -477,13 +498,11 @@ function buildWhisperSeqDiag(wc, assistantName, shortASR, finalAsrText) {
 
 function returnSeqDiag(wc, agentName, shortMessage, longMessage, shortSay, thisSay, whisper){
   var whispText;
-  if(whisper && whisper.parameters && whisper.parameters.dialogEvent) {
-    var event = whisper.parameters.dialogEvent;
-    // Check if the event object has features and text tokens
-    if(event.features && event.features.text && event.features.text.tokens && event.features.text.tokens[0]) {
-      whispText = event.features.text.tokens[0].value;
-    }
+  if(whisper && whisper.parameters ) {
+    var event = whisper.parameters;
+      whispText = event;
   }
+
   if(!whisper){
     buildSeqDiagJSON( agentName, wc, shortMessage, longMessage, "" );
     buildSeqDiagJSON( wc, wc, "[[Client TTS]]", "Speech synthesis in browser", agentName );
@@ -498,7 +517,7 @@ function returnSeqDiag(wc, agentName, shortMessage, longMessage, shortSay, thisS
   else if(whisper){
     buildSeqDiagJSON( agentName, wc, shortMessage, longMessage, "" );
     buildSeqDiagJSON( wc, wc, "[[Client TTS]]", "Speech synthesis in browser", agentName );
-    buildSeqDiagJSON( wc, "human", shortSay, thisSay, agentName, whisper );
+    buildSeqDiagJSON( wc, "human", shortSay, thisSay, agentName, whispText );
     saveLocalSeqDiag();
   }
   
