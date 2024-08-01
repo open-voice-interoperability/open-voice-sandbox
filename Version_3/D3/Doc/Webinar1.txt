@@ -1,0 +1,73 @@
+Assistants:
+Voice-based computer assistants use natural language processing to understand spoken commands and queries from users. They then use algorithms to interpret the input and generate appropriate responses or actions. These assistants integrate with various backend applications and services to provide a seamless and interactive user experience.
+
+
+Interoperability:
+Interoperable voice-based computer assistants can help a human solve a problem by seamlessly accessing and integrating data and services from multiple sources. For example, a user could ask the assistant to find a specific piece of information from a database, cross-reference it with data from a different application, and then present these results in a unified manner. This interoperability enables the assistant to perform complex tasks and provide comprehensive solutions spanning domains, streamlining the problem-solving process for the user.
+
+
+Standard:
+At present, there is a lack of standardization for the interoperability of voice-based assistants. This absence of a universal standard hinders the seamless integration and collaboration among different voice assistant platforms, leading to fragmented user experiences and limited cross-platform functionality that we have currently.
+
+
+Web-like:
+An interoperable standard for voice-based assistants would be similar to HTML and web pages in the context of a browser and server. HTML provides a common language for structuring and presenting content on the web. An interoperable standard establishs a common framework for voice assistants to coordinate and exchange data. This standardization enables voice assistants to interact with platforms and services in a consistent manner. Much like how web pages are rendered uniformly across different browsers supporting a seamless and cohesive user experience.
+
+
+Sandbox...Why:
+Having a programming sandbox to experiment with the new Envelope Standard is beneficial for developers. It provides a controlled environment where developers can test and prototype their implementations of the standard without affecting production systems. This Sandbox enables developers to explore the functionalities and interactions of the standard, troubleshoot potential issues, and innovate new features in a safe and isolated setting. Additionally, it facilitates collaboration and knowledge sharing among developers, fostering a community-driven approach to refining and optimizing the standard's implementation.
+
+
+Components:
+- A Python server launches the Sandbox
+	-A conventional browser connects.
+	-This supports interaction with the sandbox environment.
+
+-The sandbox environment runs in the browser using HTML and JavaScript 	-Developers create and manipulate Envelope messaged assistants
+	-Cloud services are used for
+		Speech recognition
+		Speech synthesis
+		LLM (Language Model) functionality
+		(These services enable developers to experiment with different 			interoperating tasks within the Sandbox.)
+	-The sandbox contains locally hosted and remotely hosted assistant 	examples. (These can be used to experiment with different 	interoperable modalities.)
+
+
+A Tool:
+The sandbox is a tool for developers to test the different modes of interoperability supported by the new standard. This includes:
+	-Enable a text-based assistant to be a voice-based assistant
+	-Delegate conversation between assistants via an "invite" event 
+		(for seamless handover between different assistants.
+	-Conclude an assistants part of the conversation via a "bye" event 
+	-Exchange utterances between  human and assistant via an 				Envelope
+	-Generate log files and displays (to review and analyze the interactions 			and outputs within the sandbox environment)
+	-Generate detailed sequence diagrams visualizing the interactions
+
+For example, a developer could use the sandbox to simulate a multi-assistant conversation, where one assistant delegates to another using the "invite" event, and then observe the sequence diagrams and log files to analyze the flow of the conversation and the interactions between the assistants.
+
+Skills:
+The Interoperability Sandbox is designed for developers with the following skills and experience:
+	-Familiarity with voice assistants and/or chatbots, baseline 	understanding of conversational AI and virtual assistant technologies.
+	-Proficiency in in-browser technologies such as HTML and 	JavaScript, create and manipulate web-based content and interfaces.
+
+Additionally, developers will find the following skills useful when using the Interoperability Sandbox:
+	-Web-based Automatic Speech Recognition (ASR)
+	-Web-based Text-to-Speech (TTS) technologies
+	-Web-based Language Model (LLM) techniques
+	-Python, for server-side scripting and automation
+	-Familiarity with conversational nomenclature and dialog design
+
+For example, a developer with experience in chatbot development and in-browser technologies can utilize the Interoperability Sandbox to explore and test how different voice assistants interact with each other in a web-based environment. Additionally, they can leverage their knowledge of ASR and TTS technologies to experiment with voice-based interactions, while using Python to customize and extend the sandbox functionalities.
+
+Sequence Diagram:
+	-The sbSequenceDiag.html features a graphical representation of a sequence diagram, which is a visual way to show the order of interactions between different entities (like voice assistants)
+	-Using the D3.js library to create dynamic and interactive data visualizations.
+	-The main sequence diagram is drawn inside a SVG container.
+	-Different classes represent various assistants, which are visually depicted in the rectangles atop the SVG container.
+	-Arrows between classes symbolize the messages or interactions exchanged.
+	-The page facilitates fetching sequence files, enabling users to select and view different saved diagrams, with the selected file's information displayed on the page.
+
+Logs:
+	-The logs.html serves the purpose of managing and displaying conversation logs and capturing interactions between users and voice-based assistants. 
+	-It provides a user-friendly interface for filtering, viewing, and analyzing logs, assisting developers in troubleshooting, testing, and refining their implementations.
+	-The webpage includes buttons for filtering the logs based on specific criteria.
+	-A dropdown on the page sends a GET request to the server, fetching names from /Report/Logs/ and populating the dropdown accordingly

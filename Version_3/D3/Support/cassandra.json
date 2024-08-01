@@ -1,0 +1,1437 @@
+[
+  {
+    "from": "human",
+    "to": "assistantBrowser",
+    "sMsg": "[Start a dialog with cassandra]",
+    "lMsg": "Cold open a new conversation thread",
+    "noteColor": ""
+  },
+  {
+    "from": "assistantBrowser",
+    "to": "assistantBrowser",
+    "sMsg": "[New CONN]",
+    "lMsg": "Initiate the new connection",
+    "noteColor": ""
+  },
+  {
+    "from": "assistantBrowser",
+    "to": "cassandra",
+    "sMsg": "invite cassandra",
+    "lMsg": "Invite for initial connection",
+    "noteColor": ""
+  },
+  {
+    "from": "cassandra",
+    "to": "cassandra",
+    "sMsg": "[INITIALIZE]",
+    "lMsg": "Set up for first contact with the assistant",
+    "noteColor": ""
+  },
+  {
+    "from": "cassandra",
+    "to": "assistantBrowser",
+    "sMsg": "utterance[TTS]",
+    "lMsg": "Send text to be spoken on the Client",
+    "noteColor": ""
+  },
+  {
+    "from": "assistantBrowser",
+    "to": "assistantBrowser",
+    "sMsg": "[Client TTS]",
+    "lMsg": "Speech synthesis in browser",
+    "noteColor": "cassandra"
+  },
+  {
+    "from": "assistantBrowser",
+    "to": "human",
+    "sMsg": "Hi Emmett! How can I assist you today?",
+    "lMsg": "Hi Emmett! How can I assist you today?",
+    "noteColor": "cassandra"
+  },
+  {
+    "from": "human",
+    "to": "assistantBrowser",
+    "sMsg": "I do need to order some flowers for my wife's birthday",
+    "lMsg": "I do need to order some flowers for my wife's birthday",
+    "noteColor": ""
+  },
+  {
+    "from": "assistantBrowser",
+    "to": "assistantBrowser",
+    "sMsg": "[Client ASR]",
+    "lMsg": "Speech recognition via browser webKit",
+    "noteColor": ""
+  },
+  {
+    "from": "assistantBrowser",
+    "to": "cassandra",
+    "sMsg": "utterance[ASR]",
+    "lMsg": "OVON Event string sent to Assistant",
+    "noteColor": ""
+  },
+  {
+    "from": "cassandra",
+    "to": "cassandra",
+    "sMsg": "[NLU/DIALOG]",
+    "lMsg": "Understand the words and do dialog management and biz logic",
+    "noteColor": ""
+  },
+  {
+    "from": "assistantBrowser",
+    "to": "assistantBrowser",
+    "sMsg": "[New CONN by DELEGATION]",
+    "lMsg": "Delegate the new connection",
+    "noteColor": ""
+  },
+  {
+    "from": "assistantBrowser",
+    "to": "florist",
+    "sMsg": "invite florist",
+    "lMsg": "Invite for initial connection",
+    "noteColor": ""
+  },
+  {
+    "from": "florist",
+    "to": "florist",
+    "sMsg": "[DELEGATE]",
+    "lMsg": "Set up for first contact with the new assistant",
+    "noteColor": ""
+  },
+  {
+    "from": "assistantBrowser",
+    "to": "florist",
+    "sMsg": "action=invite:florist",
+    "lMsg": "Internal propietary command for the platform",
+    "noteColor": ""
+  },
+  {
+    "from": "cassandra",
+    "to": "assistantBrowser",
+    "sMsg": "utterance[TTS] w/ whisper",
+    "lMsg": "Send text to be spoken on the Client",
+    "noteColor": ""
+  },
+  {
+    "from": "assistantBrowser",
+    "to": "assistantBrowser",
+    "sMsg": "[Client TTS]",
+    "lMsg": "Speech synthesis in browser",
+    "noteColor": "cassandra"
+  },
+  {
+    "from": "assistantBrowser",
+    "to": "human",
+    "sMsg": "Sure thing, Emmett! I'll connect you with the local flo",
+    "lMsg": "Sure thing, Emmett! I'll connect you with the local florist shop.",
+    "whisper": {
+      "dialogEvent": {
+        "speakerId": "cassandra",
+        "span": {
+          "startTime": "2024-07-26T11:44:12.294Z"
+        },
+        "features": {
+          "text": {
+            "mimeType": "text/plain",
+            "tokens": [
+              {
+                "value": "action=invite:florist"
+              }
+            ]
+          }
+        }
+      }
+    },
+    "noteColor": "cassandra"
+  },
+  {
+    "from": "florist",
+    "to": "assistantBrowser",
+    "sMsg": "utterance[TTS]",
+    "lMsg": "Send text to be spoken on the Client",
+    "noteColor": ""
+  },
+  {
+    "from": "assistantBrowser",
+    "to": "assistantBrowser",
+    "sMsg": "[Client TTS]",
+    "lMsg": "Speech synthesis in browser",
+    "noteColor": "florist"
+  },
+  {
+    "from": "assistantBrowser",
+    "to": "human",
+    "sMsg": "Hi Emmett! I'm Pat, your friendly florist. How can I he",
+    "lMsg": "Hi Emmett! I'm Pat, your friendly florist. How can I help you with your flower selection today? Are you looking for something specific or need suggestions?",
+    "noteColor": "florist"
+  },
+  {
+    "from": "human",
+    "to": "assistantBrowser",
+    "sMsg": "Do you have any red Proteas",
+    "lMsg": "Do you have any red Proteas",
+    "noteColor": ""
+  },
+  {
+    "from": "assistantBrowser",
+    "to": "assistantBrowser",
+    "sMsg": "[Client ASR]",
+    "lMsg": "Speech recognition via browser webKit",
+    "noteColor": ""
+  },
+  {
+    "from": "assistantBrowser",
+    "to": "florist",
+    "sMsg": "utterance[ASR]",
+    "lMsg": "OVON Event string sent to Assistant",
+    "noteColor": ""
+  },
+  {
+    "from": "florist",
+    "to": "florist",
+    "sMsg": "[NLU/DIALOG]",
+    "lMsg": "Understand the words and do dialog management and biz logic",
+    "noteColor": ""
+  },
+  {
+    "from": "florist",
+    "to": "assistantBrowser",
+    "sMsg": "utterance[TTS]",
+    "lMsg": "Send text to be spoken on the Client",
+    "noteColor": ""
+  },
+  {
+    "from": "assistantBrowser",
+    "to": "assistantBrowser",
+    "sMsg": "[Client TTS]",
+    "lMsg": "Speech synthesis in browser",
+    "noteColor": "florist"
+  },
+  {
+    "from": "assistantBrowser",
+    "to": "human",
+    "sMsg": "Hi Emmett! Yes, we do have red Proteas. They're stunnin",
+    "lMsg": "Hi Emmett! Yes, we do have red Proteas. They're stunning and make a bold statement. Would you like to include them in your arrangement?",
+    "noteColor": "florist"
+  },
+  {
+    "from": "human",
+    "to": "assistantBrowser",
+    "sMsg": "Yes and add some eucalyptus in a clear vase, please",
+    "lMsg": "Yes and add some eucalyptus in a clear vase, please",
+    "noteColor": ""
+  },
+  {
+    "from": "assistantBrowser",
+    "to": "assistantBrowser",
+    "sMsg": "[Client ASR]",
+    "lMsg": "Speech recognition via browser webKit",
+    "noteColor": ""
+  },
+  {
+    "from": "assistantBrowser",
+    "to": "florist",
+    "sMsg": "utterance[ASR]",
+    "lMsg": "OVON Event string sent to Assistant",
+    "noteColor": ""
+  },
+  {
+    "from": "florist",
+    "to": "florist",
+    "sMsg": "[NLU/DIALOG]",
+    "lMsg": "Understand the words and do dialog management and biz logic",
+    "noteColor": ""
+  },
+  {
+    "from": "florist",
+    "to": "assistantBrowser",
+    "sMsg": "utterance[TTS] w/ whisper",
+    "lMsg": "Send text to be spoken on the Client",
+    "noteColor": ""
+  },
+  {
+    "from": "assistantBrowser",
+    "to": "assistantBrowser",
+    "sMsg": "[Client TTS]",
+    "lMsg": "Speech synthesis in browser",
+    "noteColor": "florist"
+  },
+  {
+    "from": "assistantBrowser",
+    "to": "human",
+    "sMsg": "Great choice, Emmett! Red Proteas with eucalyptus in a ",
+    "lMsg": "Great choice, Emmett! Red Proteas with eucalyptus in a clear vase will look stunning. Would you like to add any other flowers or accents?",
+    "whisper": {
+      "concepts": [
+        {
+          "concept": "yes",
+          "matchedWords": [
+            "yes"
+          ]
+        },
+        {
+          "concept": "politeness",
+          "matchedWords": [
+            "please"
+          ]
+        }
+      ]
+    },
+    "noteColor": "florist"
+  },
+  {
+    "from": "human",
+    "to": "assistantBrowser",
+    "sMsg": "No that's fine, send it to my home",
+    "lMsg": "No that's fine, send it to my home",
+    "noteColor": ""
+  },
+  {
+    "from": "assistantBrowser",
+    "to": "assistantBrowser",
+    "sMsg": "[Client ASR]",
+    "lMsg": "Speech recognition via browser webKit",
+    "noteColor": ""
+  },
+  {
+    "from": "assistantBrowser",
+    "to": "florist",
+    "sMsg": "utterance[ASR]",
+    "lMsg": "OVON Event string sent to Assistant",
+    "noteColor": ""
+  },
+  {
+    "from": "florist",
+    "to": "florist",
+    "sMsg": "[NLU/DIALOG]",
+    "lMsg": "Understand the words and do dialog management and biz logic",
+    "noteColor": ""
+  },
+  {
+    "from": "florist",
+    "to": "assistantBrowser",
+    "sMsg": "utterance[TTS] w/ whisper",
+    "lMsg": "Send text to be spoken on the Client",
+    "noteColor": ""
+  },
+  {
+    "from": "assistantBrowser",
+    "to": "assistantBrowser",
+    "sMsg": "[Client TTS]",
+    "lMsg": "Speech synthesis in browser",
+    "noteColor": "florist"
+  },
+  {
+    "from": "assistantBrowser",
+    "to": "human",
+    "sMsg": "Great choice, Emmett! Shall I use the credit card on fi",
+    "lMsg": "Great choice, Emmett! Shall I use the credit card on file for this order?",
+    "whisper": {
+      "concepts": [
+        {
+          "concept": "no",
+          "matchedWords": [
+            "no"
+          ]
+        }
+      ]
+    },
+    "noteColor": "florist"
+  },
+  {
+    "from": "human",
+    "to": "assistantBrowser",
+    "sMsg": "Yes use the card on file",
+    "lMsg": "Yes use the card on file",
+    "noteColor": ""
+  },
+  {
+    "from": "assistantBrowser",
+    "to": "assistantBrowser",
+    "sMsg": "[Client ASR]",
+    "lMsg": "Speech recognition via browser webKit",
+    "noteColor": ""
+  },
+  {
+    "from": "assistantBrowser",
+    "to": "florist",
+    "sMsg": "utterance[ASR]",
+    "lMsg": "OVON Event string sent to Assistant",
+    "noteColor": ""
+  },
+  {
+    "from": "florist",
+    "to": "florist",
+    "sMsg": "[NLU/DIALOG]",
+    "lMsg": "Understand the words and do dialog management and biz logic",
+    "noteColor": ""
+  },
+  {
+    "from": "assistantBrowser",
+    "to": "assistantBrowser",
+    "sMsg": "[New CONN by DELEGATION]",
+    "lMsg": "Delegate the new connection",
+    "noteColor": ""
+  },
+  {
+    "from": "assistantBrowser",
+    "to": "cassandra",
+    "sMsg": "invite cassandra",
+    "lMsg": "Invite for initial connection",
+    "noteColor": ""
+  },
+  {
+    "from": "cassandra",
+    "to": "cassandra",
+    "sMsg": "[DELEGATE]",
+    "lMsg": "Set up for first contact with the new assistant",
+    "noteColor": ""
+  },
+  {
+    "from": "assistantBrowser",
+    "to": "cassandra",
+    "sMsg": "action=invite:cassandra",
+    "lMsg": "Internal propietary command for the platform",
+    "noteColor": ""
+  },
+  {
+    "from": "florist",
+    "to": "assistantBrowser",
+    "sMsg": "utterance[TTS] w/ whisper",
+    "lMsg": "Send text to be spoken on the Client",
+    "noteColor": ""
+  },
+  {
+    "from": "assistantBrowser",
+    "to": "assistantBrowser",
+    "sMsg": "[Client TTS]",
+    "lMsg": "Speech synthesis in browser",
+    "noteColor": "florist"
+  },
+  {
+    "from": "assistantBrowser",
+    "to": "human",
+    "sMsg": "Great choice, Emmett! Your red Proteas with eucalyptus ",
+    "lMsg": "Great choice, Emmett! Your red Proteas with eucalyptus in a clear vase will be sent to your home. Thanks for your order!\n\nHave a blooming day!",
+    "whisper": {
+      "dialogEvent": {
+        "speakerId": "cassandra",
+        "span": {
+          "startTime": "2024-07-26T11:45:30.310Z"
+        },
+        "features": {
+          "text": {
+            "mimeType": "text/plain",
+            "tokens": [
+              {
+                "value": "action=invite:cassandra"
+              }
+            ]
+          }
+        }
+      }
+    },
+    "noteColor": "florist"
+  },
+  {
+    "from": "cassandra",
+    "to": "assistantBrowser",
+    "sMsg": "utterance[TTS]",
+    "lMsg": "Send text to be spoken on the Client",
+    "noteColor": ""
+  },
+  {
+    "from": "assistantBrowser",
+    "to": "assistantBrowser",
+    "sMsg": "[Client TTS]",
+    "lMsg": "Speech synthesis in browser",
+    "noteColor": "cassandra"
+  },
+  {
+    "from": "assistantBrowser",
+    "to": "human",
+    "sMsg": "Hi Emmett! How can I assist you today?",
+    "lMsg": "Hi Emmett! How can I assist you today?",
+    "noteColor": "cassandra"
+  },
+  {
+    "from": "human",
+    "to": "assistantBrowser",
+    "sMsg": "I need to check with the hardware store to see if my ch",
+    "lMsg": "I need to check with the hardware store to see if my chainsaw repair is finished",
+    "noteColor": ""
+  },
+  {
+    "from": "assistantBrowser",
+    "to": "assistantBrowser",
+    "sMsg": "[Client ASR]",
+    "lMsg": "Speech recognition via browser webKit",
+    "noteColor": ""
+  },
+  {
+    "from": "assistantBrowser",
+    "to": "cassandra",
+    "sMsg": "utterance[ASR]",
+    "lMsg": "OVON Event string sent to Assistant",
+    "noteColor": ""
+  },
+  {
+    "from": "cassandra",
+    "to": "cassandra",
+    "sMsg": "[NLU/DIALOG]",
+    "lMsg": "Understand the words and do dialog management and biz logic",
+    "noteColor": ""
+  },
+  {
+    "from": "assistantBrowser",
+    "to": "assistantBrowser",
+    "sMsg": "[New CONN by DELEGATION]",
+    "lMsg": "Delegate the new connection",
+    "noteColor": ""
+  },
+  {
+    "from": "assistantBrowser",
+    "to": "hardware",
+    "sMsg": "invite hardware",
+    "lMsg": "Invite for initial connection",
+    "noteColor": ""
+  },
+  {
+    "from": "hardware",
+    "to": "hardware",
+    "sMsg": "[DELEGATE]",
+    "lMsg": "Set up for first contact with the new assistant",
+    "noteColor": ""
+  },
+  {
+    "from": "assistantBrowser",
+    "to": "hardware",
+    "sMsg": "action=invite:hardware",
+    "lMsg": "Internal propietary command for the platform",
+    "noteColor": ""
+  },
+  {
+    "from": "cassandra",
+    "to": "assistantBrowser",
+    "sMsg": "utterance[TTS] w/ whisper",
+    "lMsg": "Send text to be spoken on the Client",
+    "noteColor": ""
+  },
+  {
+    "from": "assistantBrowser",
+    "to": "assistantBrowser",
+    "sMsg": "[Client TTS]",
+    "lMsg": "Speech synthesis in browser",
+    "noteColor": "cassandra"
+  },
+  {
+    "from": "assistantBrowser",
+    "to": "human",
+    "sMsg": "Sure thing, Emmett! I'll check with the hardware store ",
+    "lMsg": "Sure thing, Emmett! I'll check with the hardware store for you. One moment please.",
+    "whisper": {
+      "dialogEvent": {
+        "speakerId": "cassandra",
+        "span": {
+          "startTime": "2024-07-26T11:46:12.970Z"
+        },
+        "features": {
+          "text": {
+            "mimeType": "text/plain",
+            "tokens": [
+              {
+                "value": "action=invite:hardware"
+              }
+            ]
+          }
+        }
+      }
+    },
+    "noteColor": "cassandra"
+  },
+  {
+    "from": "hardware",
+    "to": "assistantBrowser",
+    "sMsg": "utterance[TTS]",
+    "lMsg": "Send text to be spoken on the Client",
+    "noteColor": ""
+  },
+  {
+    "from": "assistantBrowser",
+    "to": "assistantBrowser",
+    "sMsg": "[Client TTS]",
+    "lMsg": "Speech synthesis in browser",
+    "noteColor": "hardware"
+  },
+  {
+    "from": "assistantBrowser",
+    "to": "human",
+    "sMsg": "Hi Emmett! How can I help you today? Need anything from",
+    "lMsg": "Hi Emmett! How can I help you today? Need anything from the store or checking on a repair?",
+    "noteColor": "hardware"
+  },
+  {
+    "from": "human",
+    "to": "assistantBrowser",
+    "sMsg": "I want to know if my chainsaw repair is finished",
+    "lMsg": "I want to know if my chainsaw repair is finished",
+    "noteColor": ""
+  },
+  {
+    "from": "assistantBrowser",
+    "to": "assistantBrowser",
+    "sMsg": "[Client ASR]",
+    "lMsg": "Speech recognition via browser webKit",
+    "noteColor": ""
+  },
+  {
+    "from": "assistantBrowser",
+    "to": "hardware",
+    "sMsg": "utterance[ASR]",
+    "lMsg": "OVON Event string sent to Assistant",
+    "noteColor": ""
+  },
+  {
+    "from": "hardware",
+    "to": "hardware",
+    "sMsg": "[NLU/DIALOG]",
+    "lMsg": "Understand the words and do dialog management and biz logic",
+    "noteColor": ""
+  },
+  {
+    "from": "hardware",
+    "to": "assistantBrowser",
+    "sMsg": "utterance[TTS] w/ whisper",
+    "lMsg": "Send text to be spoken on the Client",
+    "noteColor": ""
+  },
+  {
+    "from": "assistantBrowser",
+    "to": "assistantBrowser",
+    "sMsg": "[Client TTS]",
+    "lMsg": "Speech synthesis in browser",
+    "noteColor": "hardware"
+  },
+  {
+    "from": "assistantBrowser",
+    "to": "human",
+    "sMsg": "Hi Emmett! Let me check on that for you. Ah, yes, your ",
+    "lMsg": "Hi Emmett! Let me check on that for you. Ah, yes, your chainsaw will be ready by tomorrow afternoon. Anything else I can help you with?",
+    "whisper": {
+      "concepts": [
+        {
+          "concept": "no",
+          "matchedWords": [
+            "no"
+          ]
+        }
+      ]
+    },
+    "noteColor": "hardware"
+  },
+  {
+    "from": "human",
+    "to": "assistantBrowser",
+    "sMsg": "No that's all Thanks. Goodbye.",
+    "lMsg": "No that's all Thanks. Goodbye.",
+    "noteColor": ""
+  },
+  {
+    "from": "assistantBrowser",
+    "to": "assistantBrowser",
+    "sMsg": "[Client ASR]",
+    "lMsg": "Speech recognition via browser webKit",
+    "noteColor": ""
+  },
+  {
+    "from": "assistantBrowser",
+    "to": "hardware",
+    "sMsg": "utterance[ASR]",
+    "lMsg": "OVON Event string sent to Assistant",
+    "noteColor": ""
+  },
+  {
+    "from": "hardware",
+    "to": "hardware",
+    "sMsg": "[NLU/DIALOG]",
+    "lMsg": "Understand the words and do dialog management and biz logic",
+    "noteColor": ""
+  },
+  {
+    "from": "assistantBrowser",
+    "to": "assistantBrowser",
+    "sMsg": "[New CONN by DELEGATION]",
+    "lMsg": "Delegate the new connection",
+    "noteColor": ""
+  },
+  {
+    "from": "assistantBrowser",
+    "to": "cassandra",
+    "sMsg": "invite cassandra",
+    "lMsg": "Invite for initial connection",
+    "noteColor": ""
+  },
+  {
+    "from": "cassandra",
+    "to": "cassandra",
+    "sMsg": "[DELEGATE]",
+    "lMsg": "Set up for first contact with the new assistant",
+    "noteColor": ""
+  },
+  {
+    "from": "assistantBrowser",
+    "to": "cassandra",
+    "sMsg": "action=invite:cassandra",
+    "lMsg": "Internal propietary command for the platform",
+    "noteColor": ""
+  },
+  {
+    "from": "hardware",
+    "to": "assistantBrowser",
+    "sMsg": "utterance[TTS] w/ whisper",
+    "lMsg": "Send text to be spoken on the Client",
+    "noteColor": ""
+  },
+  {
+    "from": "assistantBrowser",
+    "to": "assistantBrowser",
+    "sMsg": "[Client TTS]",
+    "lMsg": "Speech synthesis in browser",
+    "noteColor": "hardware"
+  },
+  {
+    "from": "assistantBrowser",
+    "to": "human",
+    "sMsg": "Hi Emmett! Your chainsaw repair will be ready by tomorr",
+    "lMsg": "Hi Emmett! Your chainsaw repair will be ready by tomorrow afternoon. Thanks for checking in. Goodbye!",
+    "whisper": {
+      "dialogEvent": {
+        "speakerId": "cassandra",
+        "span": {
+          "startTime": "2024-07-26T11:46:53.833Z"
+        },
+        "features": {
+          "text": {
+            "mimeType": "text/plain",
+            "tokens": [
+              {
+                "value": "action=invite:cassandra"
+              }
+            ]
+          }
+        }
+      }
+    },
+    "noteColor": "hardware"
+  },
+  {
+    "from": "cassandra",
+    "to": "assistantBrowser",
+    "sMsg": "utterance[TTS]",
+    "lMsg": "Send text to be spoken on the Client",
+    "noteColor": ""
+  },
+  {
+    "from": "assistantBrowser",
+    "to": "assistantBrowser",
+    "sMsg": "[Client TTS]",
+    "lMsg": "Speech synthesis in browser",
+    "noteColor": "cassandra"
+  },
+  {
+    "from": "assistantBrowser",
+    "to": "human",
+    "sMsg": "Hi Emmett! How can I assist you today?",
+    "lMsg": "Hi Emmett! How can I assist you today?",
+    "noteColor": "cassandra"
+  },
+  {
+    "from": "human",
+    "to": "assistantBrowser",
+    "sMsg": "I want to order a carry out from my Thai restaurant",
+    "lMsg": "I want to order a carry out from my Thai restaurant",
+    "noteColor": ""
+  },
+  {
+    "from": "assistantBrowser",
+    "to": "assistantBrowser",
+    "sMsg": "[Client ASR]",
+    "lMsg": "Speech recognition via browser webKit",
+    "noteColor": ""
+  },
+  {
+    "from": "assistantBrowser",
+    "to": "cassandra",
+    "sMsg": "utterance[ASR]",
+    "lMsg": "OVON Event string sent to Assistant",
+    "noteColor": ""
+  },
+  {
+    "from": "cassandra",
+    "to": "cassandra",
+    "sMsg": "[NLU/DIALOG]",
+    "lMsg": "Understand the words and do dialog management and biz logic",
+    "noteColor": ""
+  },
+  {
+    "from": "assistantBrowser",
+    "to": "assistantBrowser",
+    "sMsg": "[New CONN by DELEGATION]",
+    "lMsg": "Delegate the new connection",
+    "noteColor": ""
+  },
+  {
+    "from": "assistantBrowser",
+    "to": "thai_palace",
+    "sMsg": "invite thai_palace",
+    "lMsg": "Invite for initial connection",
+    "noteColor": ""
+  },
+  {
+    "from": "thai_palace",
+    "to": "thai_palace",
+    "sMsg": "[DELEGATE]",
+    "lMsg": "Set up for first contact with the new assistant",
+    "noteColor": ""
+  },
+  {
+    "from": "assistantBrowser",
+    "to": "thai_palace",
+    "sMsg": "action=invite:thai_palace",
+    "lMsg": "Internal propietary command for the platform",
+    "noteColor": ""
+  },
+  {
+    "from": "cassandra",
+    "to": "assistantBrowser",
+    "sMsg": "utterance[TTS] w/ whisper",
+    "lMsg": "Send text to be spoken on the Client",
+    "noteColor": ""
+  },
+  {
+    "from": "assistantBrowser",
+    "to": "assistantBrowser",
+    "sMsg": "[Client TTS]",
+    "lMsg": "Speech synthesis in browser",
+    "noteColor": "cassandra"
+  },
+  {
+    "from": "assistantBrowser",
+    "to": "human",
+    "sMsg": "Sure thing, Emmett! I'll connect you with your favorite",
+    "lMsg": "Sure thing, Emmett! I'll connect you with your favorite Thai restaurant.",
+    "whisper": {
+      "dialogEvent": {
+        "speakerId": "cassandra",
+        "span": {
+          "startTime": "2024-07-26T11:47:45.230Z"
+        },
+        "features": {
+          "text": {
+            "mimeType": "text/plain",
+            "tokens": [
+              {
+                "value": "action=invite:thai_palace"
+              }
+            ]
+          }
+        }
+      }
+    },
+    "noteColor": "cassandra"
+  },
+  {
+    "from": "thai_palace",
+    "to": "assistantBrowser",
+    "sMsg": "utterance[TTS]",
+    "lMsg": "Send text to be spoken on the Client",
+    "noteColor": ""
+  },
+  {
+    "from": "assistantBrowser",
+    "to": "assistantBrowser",
+    "sMsg": "[Client TTS]",
+    "lMsg": "Speech synthesis in browser",
+    "noteColor": "thai_palace"
+  },
+  {
+    "from": "assistantBrowser",
+    "to": "human",
+    "sMsg": "Hello, Emmett! I'm Sukanya, the Restaurant Manager. How",
+    "lMsg": "Hello, Emmett! I'm Sukanya, the Restaurant Manager. How can I help you with your carryout order today? Our special of the day is Pad Thai with shrimp. Would you like to try it?",
+    "noteColor": "thai_palace"
+  },
+  {
+    "from": "human",
+    "to": "assistantBrowser",
+    "sMsg": "Yes I'll take one order of the pad Thai with shrimp and",
+    "lMsg": "Yes I'll take one order of the pad Thai with shrimp and make it spicy",
+    "noteColor": ""
+  },
+  {
+    "from": "assistantBrowser",
+    "to": "assistantBrowser",
+    "sMsg": "[Client ASR]",
+    "lMsg": "Speech recognition via browser webKit",
+    "noteColor": ""
+  },
+  {
+    "from": "assistantBrowser",
+    "to": "thai_palace",
+    "sMsg": "utterance[ASR]",
+    "lMsg": "OVON Event string sent to Assistant",
+    "noteColor": ""
+  },
+  {
+    "from": "thai_palace",
+    "to": "thai_palace",
+    "sMsg": "[NLU/DIALOG]",
+    "lMsg": "Understand the words and do dialog management and biz logic",
+    "noteColor": ""
+  },
+  {
+    "from": "thai_palace",
+    "to": "assistantBrowser",
+    "sMsg": "utterance[TTS] w/ whisper",
+    "lMsg": "Send text to be spoken on the Client",
+    "noteColor": ""
+  },
+  {
+    "from": "assistantBrowser",
+    "to": "assistantBrowser",
+    "sMsg": "[Client TTS]",
+    "lMsg": "Speech synthesis in browser",
+    "noteColor": "thai_palace"
+  },
+  {
+    "from": "assistantBrowser",
+    "to": "human",
+    "sMsg": "Great choice, Emmett! Would you like to add our special",
+    "lMsg": "Great choice, Emmett! Would you like to add our special appetizer of the day, crispy spring rolls?",
+    "whisper": {
+      "concepts": [
+        {
+          "concept": "yes",
+          "matchedWords": [
+            "yes"
+          ]
+        }
+      ]
+    },
+    "noteColor": "thai_palace"
+  },
+  {
+    "from": "human",
+    "to": "assistantBrowser",
+    "sMsg": "Yes add 2 spring rolls",
+    "lMsg": "Yes add 2 spring rolls",
+    "noteColor": ""
+  },
+  {
+    "from": "assistantBrowser",
+    "to": "assistantBrowser",
+    "sMsg": "[Client ASR]",
+    "lMsg": "Speech recognition via browser webKit",
+    "noteColor": ""
+  },
+  {
+    "from": "assistantBrowser",
+    "to": "thai_palace",
+    "sMsg": "utterance[ASR]",
+    "lMsg": "OVON Event string sent to Assistant",
+    "noteColor": ""
+  },
+  {
+    "from": "thai_palace",
+    "to": "thai_palace",
+    "sMsg": "[NLU/DIALOG]",
+    "lMsg": "Understand the words and do dialog management and biz logic",
+    "noteColor": ""
+  },
+  {
+    "from": "thai_palace",
+    "to": "assistantBrowser",
+    "sMsg": "utterance[TTS] w/ whisper",
+    "lMsg": "Send text to be spoken on the Client",
+    "noteColor": ""
+  },
+  {
+    "from": "assistantBrowser",
+    "to": "assistantBrowser",
+    "sMsg": "[Client TTS]",
+    "lMsg": "Speech synthesis in browser",
+    "noteColor": "thai_palace"
+  },
+  {
+    "from": "assistantBrowser",
+    "to": "human",
+    "sMsg": "Great choice, Emmett! Would you like to try our special",
+    "lMsg": "Great choice, Emmett! Would you like to try our special of the day, Mango Sticky Rice for dessert? When would you like to pick up your order?",
+    "whisper": {
+      "concepts": [
+        {
+          "concept": "yes",
+          "matchedWords": [
+            "yes"
+          ]
+        }
+      ]
+    },
+    "noteColor": "thai_palace"
+  },
+  {
+    "from": "human",
+    "to": "assistantBrowser",
+    "sMsg": "No dessert today but I'd like to pick up my order in ab",
+    "lMsg": "No dessert today but I'd like to pick up my order in about an hour",
+    "noteColor": ""
+  },
+  {
+    "from": "assistantBrowser",
+    "to": "assistantBrowser",
+    "sMsg": "[Client ASR]",
+    "lMsg": "Speech recognition via browser webKit",
+    "noteColor": ""
+  },
+  {
+    "from": "assistantBrowser",
+    "to": "thai_palace",
+    "sMsg": "utterance[ASR]",
+    "lMsg": "OVON Event string sent to Assistant",
+    "noteColor": ""
+  },
+  {
+    "from": "thai_palace",
+    "to": "thai_palace",
+    "sMsg": "[NLU/DIALOG]",
+    "lMsg": "Understand the words and do dialog management and biz logic",
+    "noteColor": ""
+  },
+  {
+    "from": "assistantBrowser",
+    "to": "assistantBrowser",
+    "sMsg": "[New CONN by DELEGATION]",
+    "lMsg": "Delegate the new connection",
+    "noteColor": ""
+  },
+  {
+    "from": "assistantBrowser",
+    "to": "cassandra",
+    "sMsg": "invite cassandra",
+    "lMsg": "Invite for initial connection",
+    "noteColor": ""
+  },
+  {
+    "from": "cassandra",
+    "to": "cassandra",
+    "sMsg": "[DELEGATE]",
+    "lMsg": "Set up for first contact with the new assistant",
+    "noteColor": ""
+  },
+  {
+    "from": "assistantBrowser",
+    "to": "cassandra",
+    "sMsg": "action=invite:cassandra",
+    "lMsg": "Internal propietary command for the platform",
+    "noteColor": ""
+  },
+  {
+    "from": "thai_palace",
+    "to": "assistantBrowser",
+    "sMsg": "utterance[TTS] w/ whisper",
+    "lMsg": "Send text to be spoken on the Client",
+    "noteColor": ""
+  },
+  {
+    "from": "assistantBrowser",
+    "to": "assistantBrowser",
+    "sMsg": "[Client TTS]",
+    "lMsg": "Speech synthesis in browser",
+    "noteColor": "thai_palace"
+  },
+  {
+    "from": "assistantBrowser",
+    "to": "human",
+    "sMsg": "Got it, Emmett! One spicy shrimp Pad Thai and two sprin",
+    "lMsg": "Got it, Emmett! One spicy shrimp Pad Thai and two spring rolls. Ready for pick-up in an hour. Thank you and see you soon!",
+    "whisper": {
+      "dialogEvent": {
+        "speakerId": "cassandra",
+        "span": {
+          "startTime": "2024-07-26T11:49:04.870Z"
+        },
+        "features": {
+          "text": {
+            "mimeType": "text/plain",
+            "tokens": [
+              {
+                "value": "action=invite:cassandra"
+              }
+            ]
+          }
+        }
+      }
+    },
+    "noteColor": "thai_palace"
+  },
+  {
+    "from": "cassandra",
+    "to": "assistantBrowser",
+    "sMsg": "utterance[TTS]",
+    "lMsg": "Send text to be spoken on the Client",
+    "noteColor": ""
+  },
+  {
+    "from": "assistantBrowser",
+    "to": "assistantBrowser",
+    "sMsg": "[Client TTS]",
+    "lMsg": "Speech synthesis in browser",
+    "noteColor": "cassandra"
+  },
+  {
+    "from": "assistantBrowser",
+    "to": "human",
+    "sMsg": "Hi Emmett! How can I assist you today?",
+    "lMsg": "Hi Emmett! How can I assist you today?",
+    "noteColor": "cassandra"
+  },
+  {
+    "from": "human",
+    "to": "assistantBrowser",
+    "sMsg": "How much does it cost to mail a 2 LB package to Califor",
+    "lMsg": "How much does it cost to mail a 2 LB package to California",
+    "noteColor": ""
+  },
+  {
+    "from": "assistantBrowser",
+    "to": "assistantBrowser",
+    "sMsg": "[Client ASR]",
+    "lMsg": "Speech recognition via browser webKit",
+    "noteColor": ""
+  },
+  {
+    "from": "assistantBrowser",
+    "to": "cassandra",
+    "sMsg": "utterance[ASR]",
+    "lMsg": "OVON Event string sent to Assistant",
+    "noteColor": ""
+  },
+  {
+    "from": "cassandra",
+    "to": "cassandra",
+    "sMsg": "[NLU/DIALOG]",
+    "lMsg": "Understand the words and do dialog management and biz logic",
+    "noteColor": ""
+  },
+  {
+    "from": "assistantBrowser",
+    "to": "assistantBrowser",
+    "sMsg": "[New CONN by DELEGATION]",
+    "lMsg": "Delegate the new connection",
+    "noteColor": ""
+  },
+  {
+    "from": "assistantBrowser",
+    "to": "postman",
+    "sMsg": "invite postman",
+    "lMsg": "Invite for initial connection",
+    "noteColor": ""
+  },
+  {
+    "from": "postman",
+    "to": "postman",
+    "sMsg": "[DELEGATE]",
+    "lMsg": "Set up for first contact with the new assistant",
+    "noteColor": ""
+  },
+  {
+    "from": "assistantBrowser",
+    "to": "postman",
+    "sMsg": "action=invite:postman",
+    "lMsg": "Internal propietary command for the platform",
+    "noteColor": ""
+  },
+  {
+    "from": "cassandra",
+    "to": "assistantBrowser",
+    "sMsg": "utterance[TTS] w/ whisper",
+    "lMsg": "Send text to be spoken on the Client",
+    "noteColor": ""
+  },
+  {
+    "from": "assistantBrowser",
+    "to": "assistantBrowser",
+    "sMsg": "[Client TTS]",
+    "lMsg": "Speech synthesis in browser",
+    "noteColor": "cassandra"
+  },
+  {
+    "from": "assistantBrowser",
+    "to": "human",
+    "sMsg": "Hi Emmett! I can help with that. Let me connect you to ",
+    "lMsg": "Hi Emmett! I can help with that. Let me connect you to the post office for accurate pricing.",
+    "whisper": {
+      "dialogEvent": {
+        "speakerId": "cassandra",
+        "span": {
+          "startTime": "2024-07-26T11:49:41.699Z"
+        },
+        "features": {
+          "text": {
+            "mimeType": "text/plain",
+            "tokens": [
+              {
+                "value": "action=invite:postman"
+              }
+            ]
+          }
+        }
+      }
+    },
+    "noteColor": "cassandra"
+  },
+  {
+    "from": "postman",
+    "to": "assistantBrowser",
+    "sMsg": "utterance[TTS]",
+    "lMsg": "Send text to be spoken on the Client",
+    "noteColor": ""
+  },
+  {
+    "from": "assistantBrowser",
+    "to": "assistantBrowser",
+    "sMsg": "[Client TTS]",
+    "lMsg": "Speech synthesis in browser",
+    "noteColor": "postman"
+  },
+  {
+    "from": "assistantBrowser",
+    "to": "human",
+    "sMsg": "Hi Emmett! I'm Andrew, the Postmaster. How can I assist",
+    "lMsg": "Hi Emmett! I'm Andrew, the Postmaster. How can I assist you with sending mail and packages through the United States Postal Service today?",
+    "noteColor": "postman"
+  },
+  {
+    "from": "human",
+    "to": "assistantBrowser",
+    "sMsg": "How much does a 2 LB package going to California cost",
+    "lMsg": "How much does a 2 LB package going to California cost",
+    "noteColor": ""
+  },
+  {
+    "from": "assistantBrowser",
+    "to": "assistantBrowser",
+    "sMsg": "[Client ASR]",
+    "lMsg": "Speech recognition via browser webKit",
+    "noteColor": ""
+  },
+  {
+    "from": "assistantBrowser",
+    "to": "postman",
+    "sMsg": "utterance[ASR]",
+    "lMsg": "OVON Event string sent to Assistant",
+    "noteColor": ""
+  },
+  {
+    "from": "postman",
+    "to": "postman",
+    "sMsg": "[NLU/DIALOG]",
+    "lMsg": "Understand the words and do dialog management and biz logic",
+    "noteColor": ""
+  },
+  {
+    "from": "postman",
+    "to": "assistantBrowser",
+    "sMsg": "utterance[TTS]",
+    "lMsg": "Send text to be spoken on the Client",
+    "noteColor": ""
+  },
+  {
+    "from": "assistantBrowser",
+    "to": "assistantBrowser",
+    "sMsg": "[Client TTS]",
+    "lMsg": "Speech synthesis in browser",
+    "noteColor": "postman"
+  },
+  {
+    "from": "assistantBrowser",
+    "to": "human",
+    "sMsg": "Hi Emmett! The cost depends on the shipping service you",
+    "lMsg": "Hi Emmett! The cost depends on the shipping service you choose. For example, Priority Mail starts around $8.70. Rates can vary based on dimensions and delivery speed. Need more details?",
+    "noteColor": "postman"
+  },
+  {
+    "from": "human",
+    "to": "assistantBrowser",
+    "sMsg": "No that's good Thanks. Goodbye.",
+    "lMsg": "No that's good Thanks. Goodbye.",
+    "noteColor": ""
+  },
+  {
+    "from": "assistantBrowser",
+    "to": "assistantBrowser",
+    "sMsg": "[Client ASR]",
+    "lMsg": "Speech recognition via browser webKit",
+    "noteColor": ""
+  },
+  {
+    "from": "assistantBrowser",
+    "to": "postman",
+    "sMsg": "utterance[ASR]",
+    "lMsg": "OVON Event string sent to Assistant",
+    "noteColor": ""
+  },
+  {
+    "from": "postman",
+    "to": "postman",
+    "sMsg": "[NLU/DIALOG]",
+    "lMsg": "Understand the words and do dialog management and biz logic",
+    "noteColor": ""
+  },
+  {
+    "from": "assistantBrowser",
+    "to": "assistantBrowser",
+    "sMsg": "[New CONN by DELEGATION]",
+    "lMsg": "Delegate the new connection",
+    "noteColor": ""
+  },
+  {
+    "from": "assistantBrowser",
+    "to": "cassandra",
+    "sMsg": "invite cassandra",
+    "lMsg": "Invite for initial connection",
+    "noteColor": ""
+  },
+  {
+    "from": "cassandra",
+    "to": "cassandra",
+    "sMsg": "[DELEGATE]",
+    "lMsg": "Set up for first contact with the new assistant",
+    "noteColor": ""
+  },
+  {
+    "from": "assistantBrowser",
+    "to": "cassandra",
+    "sMsg": "action=invite:cassandra",
+    "lMsg": "Internal propietary command for the platform",
+    "noteColor": ""
+  },
+  {
+    "from": "postman",
+    "to": "assistantBrowser",
+    "sMsg": "utterance[TTS] w/ whisper",
+    "lMsg": "Send text to be spoken on the Client",
+    "noteColor": ""
+  },
+  {
+    "from": "assistantBrowser",
+    "to": "assistantBrowser",
+    "sMsg": "[Client TTS]",
+    "lMsg": "Speech synthesis in browser",
+    "noteColor": "postman"
+  },
+  {
+    "from": "assistantBrowser",
+    "to": "human",
+    "sMsg": "Goodbye, Emmett.",
+    "lMsg": "Goodbye, Emmett.",
+    "whisper": {
+      "dialogEvent": {
+        "speakerId": "cassandra",
+        "span": {
+          "startTime": "2024-07-26T11:50:33.032Z"
+        },
+        "features": {
+          "text": {
+            "mimeType": "text/plain",
+            "tokens": [
+              {
+                "value": "action=invite:cassandra"
+              }
+            ]
+          }
+        }
+      }
+    },
+    "noteColor": "postman"
+  },
+  {
+    "from": "cassandra",
+    "to": "assistantBrowser",
+    "sMsg": "utterance[TTS]",
+    "lMsg": "Send text to be spoken on the Client",
+    "noteColor": ""
+  },
+  {
+    "from": "assistantBrowser",
+    "to": "assistantBrowser",
+    "sMsg": "[Client TTS]",
+    "lMsg": "Speech synthesis in browser",
+    "noteColor": "cassandra"
+  },
+  {
+    "from": "assistantBrowser",
+    "to": "human",
+    "sMsg": "Hi Emmett! How can I assist you today?",
+    "lMsg": "Hi Emmett! How can I assist you today?",
+    "noteColor": "cassandra"
+  },
+  {
+    "from": "human",
+    "to": "assistantBrowser",
+    "sMsg": "That's all I needed Have a good day.",
+    "lMsg": "That's all I needed Have a good day.",
+    "noteColor": ""
+  },
+  {
+    "from": "assistantBrowser",
+    "to": "assistantBrowser",
+    "sMsg": "[Client ASR]",
+    "lMsg": "Speech recognition via browser webKit",
+    "noteColor": ""
+  },
+  {
+    "from": "assistantBrowser",
+    "to": "cassandra",
+    "sMsg": "utterance[ASR]",
+    "lMsg": "OVON Event string sent to Assistant",
+    "noteColor": ""
+  },
+  {
+    "from": "cassandra",
+    "to": "cassandra",
+    "sMsg": "[NLU/DIALOG]",
+    "lMsg": "Understand the words and do dialog management and biz logic",
+    "noteColor": ""
+  },
+  {
+    "from": "cassandra",
+    "to": "assistantBrowser",
+    "sMsg": "utterance[TTS] w/ whisper",
+    "lMsg": "Send text to be spoken on the Client",
+    "noteColor": ""
+  },
+  {
+    "from": "assistantBrowser",
+    "to": "assistantBrowser",
+    "sMsg": "[Client TTS]",
+    "lMsg": "Speech synthesis in browser",
+    "noteColor": "cassandra"
+  },
+  {
+    "from": "assistantBrowser",
+    "to": "human",
+    "sMsg": "Thank you, Emmett! Have a wonderful day!",
+    "lMsg": "Thank you, Emmett! Have a wonderful day!",
+    "whisper": {
+      "concepts": [
+        {
+          "concept": "bye",
+          "matchedWords": [
+            "have a good day"
+          ]
+        }
+      ]
+    },
+    "noteColor": "cassandra"
+  }
+]

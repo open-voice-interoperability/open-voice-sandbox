@@ -1,0 +1,16 @@
+https://www.asteroute.com/ovontest
+https://dev.buerokratt.ee/ovonr/conversation
+https://ovon.xcally.com/smartlibrary
+internal:discovery
+https://ejtalk.com/ejAI/cassandra.php
+internal:cassandra
+internal:florist
+internal:tennis
+internal:sandy
+http://localhost:6006
+internal:basic
+https://lrb24.pythonanywhere.com
+http://localhost:8242/
+http://localhost:8276/
+http://localhost:8243/
+http://localhost:8222/

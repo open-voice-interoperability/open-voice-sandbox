@@ -1,0 +1,312 @@
+[
+  {
+    "assistant": {
+      "name": "human",
+      "voiceIndex": 666,
+      "markerColor": "#ff0202",
+      "serviceName": "HumanUser",
+      "serviceAddress": "OriginationPoint",
+      "authCode": "hugi666ikjjerg"
+    }
+  },
+  {
+    "assistant": {
+      "name": "assistantBrowser",
+      "voiceIndex": 999,
+      "markerColor": "#56585d",
+      "serviceName": "AssistantCommunications",
+      "serviceAddress": "localhost:6002",
+      "authCode": "456398nns"
+    }
+  },
+  {
+    "assistant": {
+      "name": "wizard",
+      "displayName": "Wizard",
+      "voice": {
+        "index": 263,
+        "name": "Microsoft Thomas Online (Natural) - English (United Kingdom)",
+        "lang": "en-GB",
+        "platform": ""
+      },
+      "markerColor": "#29a3a3",
+      "serviceName": "DaVinci_LLM",
+      "serviceAddress": "https://www.asteroute.com/ovontest",
+      "authCode": "69jjg45cf0",
+      "contentType": "none"
+    }
+  },
+  {
+    "assistant": {
+      "name": "library",
+      "displayName": "Smart Library",
+      "voice": {
+        "index": 91,
+        "name": "Microsoft Asilia Online (Natural) - English (Kenya)",
+        "lang": "en-KE",
+        "platform": ""
+      },
+      "markerColor": "#555354",
+      "serviceName": "PrimaryAssistant",
+      "serviceAddress": "https://ovon.xcally.com/smartlibrary",
+      "authCode": "AuZ9SYtXn",
+      "contentType": "application/json"
+    }
+  },
+  {
+    "assistant": {
+      "name": "discovery",
+      "displayName": "Discovery",
+      "voice": {
+        "index": 122,
+        "name": "Microsoft Guy Online (Natural) - English (United States)",
+        "lang": "en-US",
+        "platform": ""
+      },
+      "markerColor": "#d100a4",
+      "serviceName": "PrimaryAssistant",
+      "serviceAddress": "internal:discovery",
+      "authCode": "zz8h00ji",
+      "contentType": "application/json"
+    }
+  },
+  {
+    "assistant": {
+      "name": "jonathan",
+      "displayName": "Jonathan",
+      "voice": {
+        "index": 125,
+        "name": "Microsoft Roger Online (Natural) - English (United States)",
+        "lang": "en-US",
+        "platform": ""
+      },
+      "markerColor": "#d100a4",
+      "serviceName": "ejTalk Expert",
+      "serviceAddress": "https://ejtalk.com/ejAI/cassandra.php",
+      "authCode": "zz8h00ee45",
+      "contentType": "none",
+      "pitch": 1,
+      "volume": 1,
+      "rate": 1
+    }
+  },
+  {
+    "assistant": {
+      "name": "cassandra",
+      "displayName": "Cassandra",
+      "voice": {
+        "index": 277,
+        "name": "Microsoft Jenny Online (Natural) - English (United States)",
+        "lang": "en-US",
+        "platform": ""
+      },
+      "markerColor": "#d100a4",
+      "serviceName": "ejTalk Expert",
+      "serviceAddress": "internal:cassandra",
+      "authCode": "zz8h00ee45",
+      "contentType": "none",
+      "pitch": 1,
+      "volume": 1,
+      "rate": 1
+    }
+  },
+  {
+    "assistant": {
+      "name": "florist",
+      "displayName": "Pat",
+      "voice": {
+        "index": 273,
+        "name": "Microsoft Aria Online (Natural) - English (United States)",
+        "lang": "en-US",
+        "platform": ""
+      },
+      "markerColor": "#288a2a",
+      "serviceName": "ejTalk Expert",
+      "serviceAddress": "internal:florist",
+      "authCode": "zz8h00ee45",
+      "contentType": "none",
+      "pitch": 1,
+      "volume": 1,
+      "rate": 1
+    }
+  },
+  {
+    "assistant": {
+      "name": "thai_palace",
+      "displayName": "Sukanya",
+      "voice": {
+        "index": 304,
+        "name": "Microsoft Premwadee Online (Natural) - Thai (Thailand)",
+        "lang": "th-TH",
+        "platform": ""
+      },
+      "markerColor": "#d1d411",
+      "serviceName": "Thai Palace Restaurant",
+      "serviceAddress": "internal:thai_palace",
+      "authCode": "zz8h00ee45",
+      "contentType": "none",
+      "pitch": 1,
+      "volume": 1,
+      "rate": 1
+    }
+  },
+  {
+    "assistant": {
+      "name": "postman",
+      "displayName": "Andrew",
+      "voice": {
+        "index": 120,
+        "name": "Microsoft Christopher Online (Natural) - English (United States)",
+        "lang": "en-US",
+        "platform": ""
+      },
+      "markerColor": "#8d2994",
+      "serviceName": "Postal Expert",
+      "serviceAddress": "internal:postman",
+      "authCode": "zz8h00ee45",
+      "contentType": "none",
+      "pitch": 1,
+      "volume": 1,
+      "rate": 1
+    }
+  },
+  {
+    "assistant": {
+      "name": "hardware",
+      "displayName": "Charles",
+      "voice": {
+        "index": 126,
+        "name": "Microsoft Steffan Online (Natural) - English (United States)",
+        "lang": "en-US",
+        "platform": ""
+      },
+      "markerColor": "#8d2994",
+      "serviceName": "Acme Hardware",
+      "serviceAddress": "internal:hardware",
+      "authCode": "zz8h00ee45",
+      "contentType": "none",
+      "pitch": 1,
+      "volume": 1,
+      "rate": 1
+    }
+  },
+  {
+    "assistant": {
+      "name": "tennis",
+      "displayName": "Tennis",
+      "voice": {
+        "index": "117",
+        "name": "",
+        "lang": "en-US",
+        "platform": ""
+      },
+      "markerColor": "#d100a4",
+      "serviceName": "Tennis Expert",
+      "serviceAddress": "internal:tennis",
+      "authCode": "zz8h00ee45",
+      "contentType": "application/json"
+    }
+  },
+  {
+    "assistant": {
+      "name": "sandy",
+      "displayName": "Sandy",
+      "voice": {
+        "index": 121,
+        "name": "Microsoft Eric Online (Natural) - English (United States)",
+        "lang": "en-US",
+        "platform": ""
+      },
+      "markerColor": "#905d23",
+      "serviceName": "Sandbox Expert",
+      "serviceAddress": "internal:sandy",
+      "authCode": "zz8h00ee45",
+      "contentType": "application/json"
+    }
+  },
+  {
+    "assistant": {
+      "name": "basic",
+      "displayName": "BasicJS",
+      "voice": {
+        "index": 265,
+        "name": "Microsoft AndrewMultilingual Online (Natural) - English (United States)",
+        "lang": "en-US",
+        "platform": ""
+      },
+      "markerColor": "#cc0088",
+      "serviceName": "PrimaryAssistant",
+      "serviceAddress": "internal:basic",
+      "authCode": "zz8h00ji",
+      "contentType": "application/json"
+    }
+  },
+  {
+    "assistant": {
+      "name": "pete",
+      "displayName": "PetePyAnywhere",
+      "voice": {
+        "index": 237,
+        "name": "Microsoft Liam Online (Natural) - English (Canada)",
+        "lang": "en-CA",
+        "platform": ""
+      },
+      "markerColor": "#cc0088",
+      "serviceName": "PythonAnywhere",
+      "serviceAddress": "http://lrb24.pythonanywhere.com",
+      "authCode": "AuZ9SYtXn",
+      "contentType": "application/json"
+    }
+  },
+  {
+    "assistant": {
+      "name": "Sam",
+      "displayName": "Sam",
+      "voice": {
+        "index": 237,
+        "name": "Microsoft Liam Online (Natural) - English (Canada)",
+        "lang": "en-CA",
+        "platform": ""
+      },
+      "markerColor": "#fa7000",
+      "serviceName": "sam Basic",
+      "serviceAddress": "http://localhost:8242/",
+      "authCode": "AuZ9SYtXn",
+      "contentType": "application/json"
+    }
+  },
+  {
+    "assistant": {
+      "name": "ben",
+      "displayName": "BenOpenAI",
+      "voice": {
+        "index": 237,
+        "name": "Microsoft Liam Online (Natural) - English (Canada)",
+        "lang": "en-CA",
+        "platform": ""
+      },
+      "markerColor": "#2e89ff",
+      "serviceName": "OpenAI",
+      "serviceAddress": "http://localhost:8243/",
+      "authCode": "AuZ9SYtXn",
+      "contentType": "application/json"
+    }
+  },
+  {
+    "assistant": {
+      "name": "echo",
+      "displayName": "EchoDiscover",
+      "voice": {
+        "index": 237,
+        "name": "Microsoft Liam Online (Natural) - English (Canada)",
+        "lang": "en-Ca",
+        "platform": ""
+      },
+      "markerColor": "#00ad91",
+      "serviceName": "discovery",
+      "serviceAddress": "http://localhost:8222/",
+      "authCode": "AuZ9SYtXn",
+      "contentType": "application/json"
+    }
+  }
+]

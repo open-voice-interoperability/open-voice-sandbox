@@ -1,0 +1,167 @@
+{
+  "concepts": [
+    {
+      "name": "assistantDescription",
+      "examples": [
+        "what can the assistants do",
+        "what are the assistants capable of",
+        "what are their capabilities",
+        "what are the assistant descriptions",
+        "what are the desriptions of the assistants"
+      ]
+    },
+    {
+      "name": "bye",
+      "examples": [
+        "Goodbye",
+        "Farewell",
+        "bye",
+        "see you",
+        "have a good day",
+        "goodnight"
+      ]
+    },
+    {
+      "name": "yes",
+      "examples": [
+        "yes",
+        "yeah",
+        "okay",
+        "why not"
+      ]
+    },
+    {
+      "name": "no",
+      "examples": [
+        "no",
+        "not now",
+        "never"
+      ]
+    },
+    {
+      "name": "stillThere",
+      "examples": [
+        "are you still there",
+        "are you there",
+        "are you listening",
+        "can you here me"
+      ]
+    },
+    {
+      "name": "politeness",
+      "examples": [
+        "thank you",
+        "excuse me",
+        "please",
+        "sorry",
+        "do you mind",
+        "pardon me",
+        "you're welcome",
+        "you are welcome",
+        "excuse me"
+      ]
+    },
+    {
+      "name": "greeting",
+      "examples": [
+        "hello",
+        "hi",
+        "hey",
+        "how is it going",
+        "good morning",
+        "good afternoon"
+      ]
+    },
+    {
+      "name": "delegate",
+      "examples": [
+        "transfer to",
+        "transfer me to",
+        "go to",
+        "talk with",
+        "chat with",
+        "talk to"
+      ]
+    },
+    {
+      "name": "happyReturn",
+      "examples": [
+        "return to",
+        "go back to",
+        "continue with"
+      ]
+    },
+    {
+      "name": "assistantName",
+      "examples": [
+        "wizard",
+        "discovery",
+        "sam",
+        "library",
+        "pete",
+        "ben",
+        "basic",
+        "echo",
+        "tennis",
+        "cassandra"
+      ]
+    },
+    {
+      "name": "discovery",
+      "examples": [
+        "discover an assistant",
+        "discover assistant",
+        "find an assistant",
+        "search for",
+        "need help finding",
+        "some assistant that",
+        "some assistant to",
+        "know some assistant",
+        "help with"
+      ]
+    },
+    {
+      "name": "manifest",
+      "examples": [
+        "show me your manifest",
+        "show manifest",
+        "what can you do",
+        "show me your features",
+        "show features",
+        "what capabilities"
+      ]
+    },
+    {
+      "name": "repeatLastUtt",
+      "examples": [
+        "repeat that",
+        "mind repeating that",
+        "say that again",
+        "say again",
+        "come again",
+        "one more time",
+        "what was that",
+        "what did you say",
+        "didn't catch that",
+        "I missed that"
+      ]
+    },
+    {
+      "name": "location",
+      "examples": [
+        "estonia",
+        "italy",
+        "england"
+      ]
+    },
+    {
+      "name": "travel",
+      "examples": [
+        "travel",
+        "visit",
+        "vacation",
+        "trip"
+      ]
+    }
+  ]
+}

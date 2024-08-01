@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<head>
+  <meta charset="UTF-8">
+  <!-- <meta http-equiv="refresh" content="5"> -->
+  <title>Sequence Diagram</title>
+  <script src="https://d3js.org/d3.v3.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.4/lodash.min.js"></script>
+
+  <link rel="stylesheet" href="../Scripts/css/styles.css">
+  <script language="JavaScript" src= "../Scripts/sbAssistantMgr.js"></script>
+  <script language="JavaScript" src= "../Scripts/sbHomepage.js"></script>
+  <script language="JavaScript" src= "../Scripts/sbHttpComm.js"></script>
+  <script language="JavaScript" src= "../Scripts/sbEnvelopeTools.js"></script>
+  <script language="JavaScript" src= "../Scripts/sbSpeech.js"></script>
+  <script language="JavaScript" src= "../Scripts/sbSeqDiag.js"></script>
+
+  <style>
+    .class-rect{
+      border: 1;
+      fill: whitesmoke;
+      stroke-width: 1px;
+      stroke: black;
+    }
+    .classInnerAgentMsg{
+      border: 1;
+      fill: whitesmoke;
+      stroke-width: 1px;
+      stroke: black;
+    }
+    .classArrowMsg{
+      border: 1;
+      fill: whitesmoke;
+      stroke-width: 1px;
+      stroke: whitesmoke;
+    }
+    .class-label{
+      font-size: large;
+      font-weight: bold;
+    }
+    .sMsg-rect{
+      border: 1;
+      fill: green;
+      stroke-width: 1px;
+      stroke: black;
+    }
+    .reload-message {
+      display: none;
+      background-color: #dddddd;
+      border: 1px solid #ddd;
+      padding: 5px;
+      position: fixed;
+      top: 10px;
+      right: 25px;
+      
+    }
+  </style>
+</head>
+<body onload="initializeAssistantData(sbLoadSeq);">
+  <table class="centerTable">
+    <tr >
+        <td>
+            <h2><img src="../Media/img/Interoperability_Logo_color.jpg" alt="Interop graphic" height="60" width="300"/></h2>
+        </td>
+        <td>
+          <div id="centerDiv">
+            <h2 id="titleHead"><b>Sandbox - Sequence Diagram</b> </h2>
+            <div class="browserAndOs">
+                <b>Browser: <span id="BrowserType" style="color:rgb(192, 25, 38);"></span></b>
+                <b>OS: <span id="OSType" style="color:rgb(53, 36, 197);"></span></b><br/>
+          </div>
+          </div>
+        </td>
+        <td>
+          <div id="imageContainer" class="image-container"></div>
+      </td>
+    </tr>
+  </table>
+  </div>
+  <div class="reload-message" id="reloadMessage">
+    The page has been reloaded!
+  </div>
+  <table>
+    <tr>
+      <td align="left"><button class="converseBtn" id="reloadBtn" onclick="location.reload();">REFRESH</button></td>
+      <span class="tooltiptext" id="reloadTooltip"></span>
+      <td align="left"><button class="converseBtn" onclick="sbSaveSequenceDiagram();location.reload();">Save Diagram</button></td>
+      <td>
+        <label for="SDFileDropdown">Select File:</label>
+        <select id="SDFileDropdown"></select>     
+      </td>
+      <td align="left"><button class="converseBtn" onclick="ejClearSeqDiag();">CLEAR</button></td>
+    </tr>
+  </table>
+  <div id="selectedFileInfo"></div>
+  <svg id="sbSeqDiag" width="1200" height="600"></svg>
+  <script>
+
+    fetchSequenceFiles();
+    document.addEventListener('mousemove', function (e) {
+        var tooltipText = '';
+        var tooltipId;
+        var targetId = e.target ? e.target.id : null;
+        if (targetId === 'reloadBtn') {
+            tooltipText = 'Click to refresh diagram after TTS is finished';
+            tooltipId = 'reloadTooltip';
+        }
+        else{
+            var tooltips = document.querySelectorAll('.tooltiptext');
+            tooltips.forEach(function (tooltip) {
+                tooltip.style.visibility = 'hidden';
+            });
+            return;
+        }
+        var tooltip = document.getElementById(tooltipId);
+        if (tooltipText !== '') {
+            tooltip.textContent = tooltipText;
+            tooltip.style.left = e.clientX + 'px';
+            tooltip.style.top = e.clientY + 'px';
+            tooltip.style.visibility = 'visible';
+        } else {
+            tooltip.style.visibility = 'hidden';
+        }
+});
+  </script>
+</body>

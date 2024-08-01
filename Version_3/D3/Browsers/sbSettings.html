@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="../Scripts/css/styles.css">
+    <title >Sandbox Settings</title>
+    <script language="JavaScript" src= "../Scripts/sbAssistantMgr.js"></script>
+    <script language="JavaScript" src= "../Scripts/sbHomepage.js"></script>
+    <script language="JavaScript" src= "../Scripts/sbHttpComm.js"></script>
+    <script language="JavaScript" src= "../Scripts/sbEnvelopeTools.js"></script>
+    <script language="JavaScript" src= "../Scripts/sbSpeech.js"></script>
+    <script language="JavaScript" src= "../Scripts/sbSeqDiag.js"></script>
+    <script language="JavaScript" src= "../Scripts/sbLLM.js"></script>
+    <style>
+        .responseWrap {
+          width:400px;
+          word-wrap: break-word;
+        }
+        .assistantTable {
+            display: flex;
+            flex-direction: row;
+            align-items: flex-start;
+        }
+        .leftSection {
+            align-self: flex-start;
+        }
+
+        .rightSection > div {
+            margin-bottom: 20px;
+        }
+        .rightSection {
+            margin-top: 20px;
+            margin-left: 30px;
+            margin-right: 30px;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+        }
+        .whisper textarea {
+            width: 100%;
+        }
+    </style>        
+</head>
+<body onload="loadSettingsValues()">
+    <table class="centerTable">
+        <tr >
+            <td>
+                <h2><img src="../Media/img/Interoperability_Logo_color.jpg" alt="Interop graphic" height="60" width="300"/></h2>
+            </td>
+            <td>
+                <div id="centerDiv">
+                    <h2 id="titleHead"><b>Sandbox - Settings</b> </h2>
+                    <div class="browserAndOs">
+                    <b>Browser: <span id="BrowserType" style="color:rgb(192, 25, 38);"></span></b>
+                    <b>OS: <span id="OSType" style="color:rgb(53, 36, 197);"></span></b>
+                    </div>
+                </div>
+            </td>
+            <td>
+                <div id="imageContainer" class="image-container"></div>
+            </td>
+        </tr>
+      </table>
+    <div id="lineSeparator"></div>
+
+    <button onclick="openWindow('sbHome.html')" class="settingBtn">Back Home</button>        
+    <div class="assistantTable">
+        <div class="leftSection">
+            <table>
+                <tr>
+                    <td><h3>Your Firstname:</h3></td>
+                    <td>
+                        <input type="text" id="firstName" placeholder="Type your first name" onchange="setFirstName();">
+                    </td>
+                </tr>
+                <tr>
+                    <td><h3>API Keys</h3></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td><h3>OpenAI:</h3></td>
+                    <td>
+                        <input type="text" id="OpenAI" placeholder="your secret key" onchange="setOpenAIKey();">
+                    </td>
+                </tr>
+                <tr>
+                    <td><h3>OpenAI Temperature:</h3></td>
+                    <td>
+                        <input type="text" id="AITemp" placeholder="0.3" onchange="setAITemp();">
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <h3>Initialize</h3>
+                        <input type="text" id="initPromptLLM" placeholder="Initial Instruction" onchange="sbInitialLLMPrompt(document.getElementById('initPromptLLM').value);">
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <div class="rightSection">
+            <div class="assistantSelectDiv"><span id="assistantSelect"></span> </div>
+            <button class="homeBtn"  onclick="bareInviteWindow()"><b>Bare Invite</b></a></button>
+    <br/>
+    <br/>
+    <div class="whisper">
+        <button class="homeBtn" onclick="inviteWithUtterance()"><b>Invite w/ WHISPER</b></button>
+        <textarea rows=1 type="text" id="whisperMessage" placeholder="Enter WHISPER message here ..."></textarea>
+    </div>
+        </div>
+        <div>
+            <div id="assistantSettings" style="display: none;"></div>
+        </div>
+    </div>
+</body>
+<script>
+    document.getElementById("assistantSelect").addEventListener("change", function() {
+            handleAssistantSelectionChange();
+        });
+</script>
+</html>

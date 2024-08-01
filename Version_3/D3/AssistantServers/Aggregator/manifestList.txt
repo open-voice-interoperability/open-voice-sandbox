@@ -1,0 +1,216 @@
+Service Address: https://www.asteroute.com/ovontest
+{
+    "identification": {
+        "conversationalName": "wizard",
+        "serviceName": "basic, open AI",
+        "organization": "Allan Wylie",
+        "serviceEndpoint": "https://www.asteroute.com/ovontest",
+        "role": "Simple Conversationalist",
+        "synopsis": " "
+    },
+    "capabilities": {
+        "keyphrases": [
+            "basic",
+            "general",
+            "open AI"
+        ],
+        "languages": [
+            "en-us"
+        ],
+        "descriptions": "basic assistant that searches for intent and generates a response ",
+        "supportedLayers": [
+            "text",
+            "voice"
+        ]
+    }
+}
+
+Service Address: https://dev.buerokratt.ee/ovonr/conversation
+{
+    "identification": {
+        "conversationalName": "bureaucrat",
+        "serviceName": "Passport Office",
+        "organization": "Government of Estonia",
+        "serviceEndpoint": "https://dev.buerokratt.ee/ovonr/conversation",
+        "role": "Immagration Specialist",
+        "synopsis": "Immigration specialist as part of the Beurocrat system."
+    },
+    "capabilities": {
+        "keyphrases": [
+            "visa",
+            "immigration",
+            "passport",
+            "permanent resident"
+        ],
+        "languages": [
+            "en-us"
+        ],
+        "descriptions": "international travel to and from Estonia",
+        "supportedLayers": [
+            "text",
+            "voice"
+        ]
+    }
+}
+
+Service Address: https://ovon.xcally.com/smartlibrary
+{
+    "identification": {
+        "conversationalName": "library",
+        "serviceName": "Smart Library",
+        "organization": "xcally",
+        "serviceEndpoint": "https://ovon.xcally.com/smartlibrary",
+        "role": "Smart Library",
+        "synopsis": "Able to identify many things based on different keywords or the ISBN number."
+    },
+    "capabilities": {
+        "keyphrases": [
+            "library",
+            "books",
+            "literature"
+        ],
+        "languages": [
+            "en-us"
+        ],
+        "descriptions": "knows about books and authors",
+        "supportedLayers": [
+            "text",
+            "voice"
+        ]
+    }
+}
+
+Service Address: internal:discovery
+{
+    "identification": {
+        "conversationalName": "discovery",
+        "serviceName": "Discovery",
+        "organization": "Emmett",
+        "serviceEndpoint": "internal:discovery",
+        "role": "Discovery",
+        "synopsis": "Able to have many different conversations, uses openAI key, also uses LLM."
+    },
+    "capabilities": {
+        "keyphrases": [
+            "openAI",
+            "discovery"
+        ],
+        "languages": [
+            "en-us"
+        ],
+        "descriptions": "knows about many things",
+        "supportedLayers": [
+            "text",
+            "voice"
+        ]
+    }
+}
+
+Service Address: internal:basic
+{
+    "identification": {
+        "conversationalName": "basic",
+        "serviceName": "Basic JavaScript",
+        "organization": "Emmett",
+        "serviceEndpoint": "internal:basic",
+        "role": "Basic",
+        "synopsis": "Basic JS assistant."
+    },
+    "capabilities": {
+        "keyphrases": [
+            "basic",
+            "lazy",
+            "non informative"
+        ],
+        "languages": [
+            "en-us"
+        ],
+        "descriptions": "doesn't know about much",
+        "supportedLayers": [
+            "text",
+            "voice"
+        ]
+    }
+}
+
+Service Address: https://lrb24.pythonanywhere.com
+{
+    "identification": {
+        "conversationalName": "pete",
+        "serviceName": "PythonAnyWhere Assistant",
+        "organization": "Leah",
+        "serviceEndpoint": "https://lrb24.pythonanywhere.com",
+        "role": "Simple Conversationalist",
+        "synopsis": "Can say very few phrases, hosted on python anywhere."
+    },
+    "capabilities": {
+        "keyphrases": [
+            "basic",
+            "lazy",
+            "general",
+            "non informative"
+        ],
+        "languages": [
+            "en-us"
+        ],
+        "descriptions": "basic assistant that searches for intent and generates a response ",
+        "supportedLayers": [
+            "text",
+            "voice"
+        ]
+    }
+}
+
+Service Address: http://localhost:8242/
+{
+    "identification": {
+        "conversationalName": "sam",
+        "serviceName": "Python Basic",
+        "organization": "Leah",
+        "serviceEndpoint": "http://localhost:8242/",
+        "role": "Simple Conversationalist",
+        "synopsis": "Can say very few phrases, look at code to enhance."
+    },
+    "capabilities": {
+        "keyphrases": [
+            "basic",
+            "general",
+            "non informative"
+        ],
+        "languages": [
+            "en-US"
+        ],
+        "descriptions": "basic assistant that searches for intent and generates a response ",
+        "supportedLayers": [
+            "text",
+            "voice"
+        ]
+    }
+}
+
+Service Address: http://localhost:8222/
+{
+    "identification": {
+        "conversationalName": "Echo",
+        "serviceName": "Python Discovery",
+        "organization": "Leah",
+        "serviceEndpoint": "http://localhost:8222/",
+        "role": "Simple Conversationalist",
+        "synopsis": "Uses openAI to have a conversation, needs API key."
+    },
+    "capabilities": {
+        "keyphrases": [
+            "discovery",
+            "open AI"
+        ],
+        "languages": [
+            "en-us"
+        ],
+        "descriptions": "basic assistant that searches for intent and generates a response ",
+        "supportedLayers": [
+            "text",
+            "voice"
+        ]
+    }
+}
+

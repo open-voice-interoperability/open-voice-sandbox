@@ -1,0 +1,2616 @@
+{
+  "ovon": {
+    "conversation": {
+      "id": "convoID8403984",
+      "startTime": "07-26-2024_07:42:30"
+    },
+    "schema": {
+      "version": "0.9.0",
+      "url": "not_published_yet"
+    },
+    "sender": {
+      "from": "Emmett"
+    },
+    "events": [
+      {
+        "eventType": "invite"
+      }
+    ]
+  }
+}
+
+{
+  "ovon": {
+    "conversation": {
+      "id": "convoID8403984",
+      "startTime": "07-26-2024_07:42:30"
+    },
+    "schema": {
+      "version": "0.9.0",
+      "url": "not_published_yet"
+    },
+    "sender": {
+      "from": "internal:cassandra"
+    },
+    "events": []
+  }
+}
+
+{
+  "ovon": {
+    "conversation": {
+      "id": "convoID8403984",
+      "startTime": "07-26-2024_07:42:30"
+    },
+    "schema": {
+      "version": "0.9.0",
+      "url": "not_published_yet"
+    },
+    "sender": {
+      "from": "internal:cassandra"
+    },
+    "events": [
+      {
+        "to": "internal:cassandra",
+        "eventType": "utterance",
+        "parameters": {
+          "dialogEvent": {
+            "speakerId": "cassandra",
+            "features": {
+              "text": {
+                "mimeType": "text/plain",
+                "tokens": [
+                  {
+                    "value": "Hi Emmett! How can I assist you today?"
+                  }
+                ]
+              }
+            }
+          }
+        }
+      }
+    ]
+  }
+}
+
+{
+  "ovon": {
+    "conversation": {
+      "id": "convoID8403984",
+      "startTime": "07-26-2024_07:44:12"
+    },
+    "schema": {
+      "version": "0.9.0",
+      "url": "not_published_yet"
+    },
+    "sender": {
+      "from": "Emmett"
+    },
+    "events": [
+      {
+        "to": "internal:cassandra",
+        "eventType": "utterance",
+        "parameters": {
+          "dialogEvent": {
+            "speakerId": "Emmett",
+            "features": {
+              "text": {
+                "mimeType": "text/plain",
+                "tokens": [
+                  {
+                    "value": "I do need to order some flowers for my wife's birthday"
+                  }
+                ]
+              }
+            }
+          }
+        }
+      }
+    ]
+  }
+}
+
+{
+  "ovon": {
+    "conversation": {
+      "id": "convoID8403984",
+      "startTime": "07-26-2024_07:44:12"
+    },
+    "schema": {
+      "version": "0.9.0",
+      "url": "not_published_yet"
+    },
+    "sender": {
+      "from": "internal:cassandra"
+    },
+    "events": []
+  }
+}
+
+{
+  "ovon": {
+    "conversation": {
+      "id": "convoID8403984",
+      "startTime": "07-26-2024_07:44:12"
+    },
+    "schema": {
+      "version": "0.9.0",
+      "url": "not_published_yet"
+    },
+    "sender": {
+      "from": "internal:cassandra"
+    },
+    "events": [
+      {
+        "to": "internal:cassandra",
+        "eventType": "whisper",
+        "parameters": {
+          "dialogEvent": {
+            "speakerId": "cassandra",
+            "span": {
+              "startTime": "2024-07-26T11:44:12.294Z"
+            },
+            "features": {
+              "text": {
+                "mimeType": "text/plain",
+                "tokens": [
+                  {
+                    "value": "action=invite:florist"
+                  }
+                ]
+              }
+            }
+          }
+        }
+      },
+      {
+        "to": "internal:cassandra",
+        "eventType": "utterance",
+        "parameters": {
+          "dialogEvent": {
+            "speakerId": "cassandra",
+            "features": {
+              "text": {
+                "mimeType": "text/plain",
+                "tokens": [
+                  {
+                    "value": "Sure thing, Emmett! I'll connect you with the local florist shop."
+                  }
+                ]
+              }
+            }
+          }
+        }
+      }
+    ]
+  }
+}
+
+{
+  "ovon": {
+    "conversation": {
+      "id": "convoID8403984",
+      "startTime": "07-26-2024_07:44:13"
+    },
+    "schema": {
+      "version": "0.9.0",
+      "url": "not_published_yet"
+    },
+    "sender": {
+      "from": "Emmett"
+    },
+    "events": [
+      {
+        "eventType": "invite"
+      }
+    ]
+  }
+}
+
+{
+  "ovon": {
+    "conversation": {
+      "id": "convoID8403984",
+      "startTime": "07-26-2024_07:44:13"
+    },
+    "schema": {
+      "version": "0.9.0",
+      "url": "not_published_yet"
+    },
+    "sender": {
+      "from": "internal:florist"
+    },
+    "events": []
+  }
+}
+
+{
+  "ovon": {
+    "conversation": {
+      "id": "convoID8403984",
+      "startTime": "07-26-2024_07:44:13"
+    },
+    "schema": {
+      "version": "0.9.0",
+      "url": "not_published_yet"
+    },
+    "sender": {
+      "from": "internal:florist"
+    },
+    "events": [
+      {
+        "to": "internal:florist",
+        "eventType": "utterance",
+        "parameters": {
+          "dialogEvent": {
+            "speakerId": "cassandra",
+            "features": {
+              "text": {
+                "mimeType": "text/plain",
+                "tokens": [
+                  {
+                    "value": "Hi Emmett! I'm Pat, your friendly florist. How can I help you with your flower selection today? Are you looking for something specific or need suggestions?"
+                  }
+                ]
+              }
+            }
+          }
+        }
+      }
+    ]
+  }
+}
+
+{
+  "ovon": {
+    "conversation": {
+      "id": "convoID8403984",
+      "startTime": "07-26-2024_07:44:41"
+    },
+    "schema": {
+      "version": "0.9.0",
+      "url": "not_published_yet"
+    },
+    "sender": {
+      "from": "Emmett"
+    },
+    "events": [
+      {
+        "to": "internal:florist",
+        "eventType": "utterance",
+        "parameters": {
+          "dialogEvent": {
+            "speakerId": "Emmett",
+            "features": {
+              "text": {
+                "mimeType": "text/plain",
+                "tokens": [
+                  {
+                    "value": "Do you have any red Proteas"
+                  }
+                ]
+              }
+            }
+          }
+        }
+      }
+    ]
+  }
+}
+
+{
+  "ovon": {
+    "conversation": {
+      "id": "convoID8403984",
+      "startTime": "07-26-2024_07:44:41"
+    },
+    "schema": {
+      "version": "0.9.0",
+      "url": "not_published_yet"
+    },
+    "sender": {
+      "from": "internal:florist"
+    },
+    "events": []
+  }
+}
+
+{
+  "ovon": {
+    "conversation": {
+      "id": "convoID8403984",
+      "startTime": "07-26-2024_07:44:41"
+    },
+    "schema": {
+      "version": "0.9.0",
+      "url": "not_published_yet"
+    },
+    "sender": {
+      "from": "internal:florist"
+    },
+    "events": [
+      {
+        "to": "internal:florist",
+        "eventType": "utterance",
+        "parameters": {
+          "dialogEvent": {
+            "speakerId": "cassandra",
+            "features": {
+              "text": {
+                "mimeType": "text/plain",
+                "tokens": [
+                  {
+                    "value": "Hi Emmett! Yes, we do have red Proteas. They're stunning and make a bold statement. Would you like to include them in your arrangement?"
+                  }
+                ]
+              }
+            }
+          }
+        }
+      }
+    ]
+  }
+}
+
+{
+  "ovon": {
+    "conversation": {
+      "id": "convoID8403984",
+      "startTime": "07-26-2024_07:45:02"
+    },
+    "schema": {
+      "version": "0.9.0",
+      "url": "not_published_yet"
+    },
+    "sender": {
+      "from": "Emmett"
+    },
+    "events": [
+      {
+        "to": "internal:florist",
+        "eventType": "utterance",
+        "parameters": {
+          "dialogEvent": {
+            "speakerId": "Emmett",
+            "features": {
+              "text": {
+                "mimeType": "text/plain",
+                "tokens": [
+                  {
+                    "value": "Yes and add some eucalyptus in a clear vase, please"
+                  }
+                ]
+              }
+            }
+          }
+        }
+      }
+    ]
+  }
+}
+
+{
+  "ovon": {
+    "conversation": {
+      "id": "convoID8403984",
+      "startTime": "07-26-2024_07:45:02"
+    },
+    "schema": {
+      "version": "0.9.0",
+      "url": "not_published_yet"
+    },
+    "sender": {
+      "from": "internal:florist"
+    },
+    "events": [
+      {
+        "eventType": "whisper",
+        "parameters": {
+          "concepts": [
+            {
+              "concept": "yes",
+              "matchedWords": [
+                "yes"
+              ]
+            },
+            {
+              "concept": "politeness",
+              "matchedWords": [
+                "please"
+              ]
+            }
+          ]
+        }
+      }
+    ]
+  }
+}
+
+{
+  "ovon": {
+    "conversation": {
+      "id": "convoID8403984",
+      "startTime": "07-26-2024_07:45:02"
+    },
+    "schema": {
+      "version": "0.9.0",
+      "url": "not_published_yet"
+    },
+    "sender": {
+      "from": "internal:florist"
+    },
+    "events": [
+      {
+        "eventType": "whisper",
+        "parameters": {
+          "concepts": [
+            {
+              "concept": "yes",
+              "matchedWords": [
+                "yes"
+              ]
+            },
+            {
+              "concept": "politeness",
+              "matchedWords": [
+                "please"
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "to": "internal:florist",
+        "eventType": "utterance",
+        "parameters": {
+          "dialogEvent": {
+            "speakerId": "cassandra",
+            "features": {
+              "text": {
+                "mimeType": "text/plain",
+                "tokens": [
+                  {
+                    "value": "Great choice, Emmett! Red Proteas with eucalyptus in a clear vase will look stunning. Would you like to add any other flowers or accents?"
+                  }
+                ]
+              }
+            }
+          }
+        }
+      }
+    ]
+  }
+}
+
+{
+  "ovon": {
+    "conversation": {
+      "id": "convoID8403984",
+      "startTime": "07-26-2024_07:45:19"
+    },
+    "schema": {
+      "version": "0.9.0",
+      "url": "not_published_yet"
+    },
+    "sender": {
+      "from": "Emmett"
+    },
+    "events": [
+      {
+        "to": "internal:florist",
+        "eventType": "utterance",
+        "parameters": {
+          "dialogEvent": {
+            "speakerId": "Emmett",
+            "features": {
+              "text": {
+                "mimeType": "text/plain",
+                "tokens": [
+                  {
+                    "value": "No that's fine, send it to my home"
+                  }
+                ]
+              }
+            }
+          }
+        }
+      }
+    ]
+  }
+}
+
+{
+  "ovon": {
+    "conversation": {
+      "id": "convoID8403984",
+      "startTime": "07-26-2024_07:45:19"
+    },
+    "schema": {
+      "version": "0.9.0",
+      "url": "not_published_yet"
+    },
+    "sender": {
+      "from": "internal:florist"
+    },
+    "events": [
+      {
+        "eventType": "whisper",
+        "parameters": {
+          "concepts": [
+            {
+              "concept": "no",
+              "matchedWords": [
+                "no"
+              ]
+            }
+          ]
+        }
+      }
+    ]
+  }
+}
+
+{
+  "ovon": {
+    "conversation": {
+      "id": "convoID8403984",
+      "startTime": "07-26-2024_07:45:19"
+    },
+    "schema": {
+      "version": "0.9.0",
+      "url": "not_published_yet"
+    },
+    "sender": {
+      "from": "internal:florist"
+    },
+    "events": [
+      {
+        "eventType": "whisper",
+        "parameters": {
+          "concepts": [
+            {
+              "concept": "no",
+              "matchedWords": [
+                "no"
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "to": "internal:florist",
+        "eventType": "utterance",
+        "parameters": {
+          "dialogEvent": {
+            "speakerId": "cassandra",
+            "features": {
+              "text": {
+                "mimeType": "text/plain",
+                "tokens": [
+                  {
+                    "value": "Great choice, Emmett! Shall I use the credit card on file for this order?"
+                  }
+                ]
+              }
+            }
+          }
+        }
+      }
+    ]
+  }
+}
+
+{
+  "ovon": {
+    "conversation": {
+      "id": "convoID8403984",
+      "startTime": "07-26-2024_07:45:30"
+    },
+    "schema": {
+      "version": "0.9.0",
+      "url": "not_published_yet"
+    },
+    "sender": {
+      "from": "Emmett"
+    },
+    "events": [
+      {
+        "to": "internal:florist",
+        "eventType": "utterance",
+        "parameters": {
+          "dialogEvent": {
+            "speakerId": "Emmett",
+            "features": {
+              "text": {
+                "mimeType": "text/plain",
+                "tokens": [
+                  {
+                    "value": "Yes use the card on file"
+                  }
+                ]
+              }
+            }
+          }
+        }
+      }
+    ]
+  }
+}
+
+{
+  "ovon": {
+    "conversation": {
+      "id": "convoID8403984",
+      "startTime": "07-26-2024_07:45:30"
+    },
+    "schema": {
+      "version": "0.9.0",
+      "url": "not_published_yet"
+    },
+    "sender": {
+      "from": "internal:florist"
+    },
+    "events": [
+      {
+        "eventType": "whisper",
+        "parameters": {
+          "concepts": [
+            {
+              "concept": "yes",
+              "matchedWords": [
+                "yes"
+              ]
+            }
+          ]
+        }
+      }
+    ]
+  }
+}
+
+{
+  "ovon": {
+    "conversation": {
+      "id": "convoID8403984",
+      "startTime": "07-26-2024_07:45:30"
+    },
+    "schema": {
+      "version": "0.9.0",
+      "url": "not_published_yet"
+    },
+    "sender": {
+      "from": "internal:florist"
+    },
+    "events": [
+      {
+        "eventType": "whisper",
+        "parameters": {
+          "concepts": [
+            {
+              "concept": "yes",
+              "matchedWords": [
+                "yes"
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "to": "internal:florist",
+        "eventType": "whisper",
+        "parameters": {
+          "dialogEvent": {
+            "speakerId": "cassandra",
+            "span": {
+              "startTime": "2024-07-26T11:45:30.310Z"
+            },
+            "features": {
+              "text": {
+                "mimeType": "text/plain",
+                "tokens": [
+                  {
+                    "value": "action=invite:cassandra"
+                  }
+                ]
+              }
+            }
+          }
+        }
+      },
+      {
+        "to": "internal:florist",
+        "eventType": "utterance",
+        "parameters": {
+          "dialogEvent": {
+            "speakerId": "cassandra",
+            "features": {
+              "text": {
+                "mimeType": "text/plain",
+                "tokens": [
+                  {
+                    "value": "Great choice, Emmett! Your red Proteas with eucalyptus in a clear vase will be sent to your home. Thanks for your order!\n\nHave a blooming day!"
+                  }
+                ]
+              }
+            }
+          }
+        }
+      }
+    ]
+  }
+}
+
+{
+  "ovon": {
+    "conversation": {
+      "id": "convoID8403984",
+      "startTime": "07-26-2024_07:45:31"
+    },
+    "schema": {
+      "version": "0.9.0",
+      "url": "not_published_yet"
+    },
+    "sender": {
+      "from": "Emmett"
+    },
+    "events": [
+      {
+        "eventType": "invite"
+      }
+    ]
+  }
+}
+
+{
+  "ovon": {
+    "conversation": {
+      "id": "convoID8403984",
+      "startTime": "07-26-2024_07:45:31"
+    },
+    "schema": {
+      "version": "0.9.0",
+      "url": "not_published_yet"
+    },
+    "sender": {
+      "from": "internal:cassandra"
+    },
+    "events": []
+  }
+}
+
+{
+  "ovon": {
+    "conversation": {
+      "id": "convoID8403984",
+      "startTime": "07-26-2024_07:45:31"
+    },
+    "schema": {
+      "version": "0.9.0",
+      "url": "not_published_yet"
+    },
+    "sender": {
+      "from": "internal:cassandra"
+    },
+    "events": [
+      {
+        "to": "internal:cassandra",
+        "eventType": "utterance",
+        "parameters": {
+          "dialogEvent": {
+            "speakerId": "cassandra",
+            "features": {
+              "text": {
+                "mimeType": "text/plain",
+                "tokens": [
+                  {
+                    "value": "Hi Emmett! How can I assist you today?"
+                  }
+                ]
+              }
+            }
+          }
+        }
+      }
+    ]
+  }
+}
+
+{
+  "ovon": {
+    "conversation": {
+      "id": "convoID8403984",
+      "startTime": "07-26-2024_07:46:12"
+    },
+    "schema": {
+      "version": "0.9.0",
+      "url": "not_published_yet"
+    },
+    "sender": {
+      "from": "Emmett"
+    },
+    "events": [
+      {
+        "to": "internal:cassandra",
+        "eventType": "utterance",
+        "parameters": {
+          "dialogEvent": {
+            "speakerId": "Emmett",
+            "features": {
+              "text": {
+                "mimeType": "text/plain",
+                "tokens": [
+                  {
+                    "value": "I need to check with the hardware store to see if my chainsaw repair is finished"
+                  }
+                ]
+              }
+            }
+          }
+        }
+      }
+    ]
+  }
+}
+
+{
+  "ovon": {
+    "conversation": {
+      "id": "convoID8403984",
+      "startTime": "07-26-2024_07:46:12"
+    },
+    "schema": {
+      "version": "0.9.0",
+      "url": "not_published_yet"
+    },
+    "sender": {
+      "from": "internal:cassandra"
+    },
+    "events": []
+  }
+}
+
+{
+  "ovon": {
+    "conversation": {
+      "id": "convoID8403984",
+      "startTime": "07-26-2024_07:46:12"
+    },
+    "schema": {
+      "version": "0.9.0",
+      "url": "not_published_yet"
+    },
+    "sender": {
+      "from": "internal:cassandra"
+    },
+    "events": [
+      {
+        "to": "internal:cassandra",
+        "eventType": "whisper",
+        "parameters": {
+          "dialogEvent": {
+            "speakerId": "cassandra",
+            "span": {
+              "startTime": "2024-07-26T11:46:12.970Z"
+            },
+            "features": {
+              "text": {
+                "mimeType": "text/plain",
+                "tokens": [
+                  {
+                    "value": "action=invite:hardware"
+                  }
+                ]
+              }
+            }
+          }
+        }
+      },
+      {
+        "to": "internal:cassandra",
+        "eventType": "utterance",
+        "parameters": {
+          "dialogEvent": {
+            "speakerId": "cassandra",
+            "features": {
+              "text": {
+                "mimeType": "text/plain",
+                "tokens": [
+                  {
+                    "value": "Sure thing, Emmett! I'll check with the hardware store for you. One moment please."
+                  }
+                ]
+              }
+            }
+          }
+        }
+      }
+    ]
+  }
+}
+
+{
+  "ovon": {
+    "conversation": {
+      "id": "convoID8403984",
+      "startTime": "07-26-2024_07:46:13"
+    },
+    "schema": {
+      "version": "0.9.0",
+      "url": "not_published_yet"
+    },
+    "sender": {
+      "from": "Emmett"
+    },
+    "events": [
+      {
+        "eventType": "invite"
+      }
+    ]
+  }
+}
+
+{
+  "ovon": {
+    "conversation": {
+      "id": "convoID8403984",
+      "startTime": "07-26-2024_07:46:14"
+    },
+    "schema": {
+      "version": "0.9.0",
+      "url": "not_published_yet"
+    },
+    "sender": {
+      "from": "internal:hardware"
+    },
+    "events": []
+  }
+}
+
+{
+  "ovon": {
+    "conversation": {
+      "id": "convoID8403984",
+      "startTime": "07-26-2024_07:46:14"
+    },
+    "schema": {
+      "version": "0.9.0",
+      "url": "not_published_yet"
+    },
+    "sender": {
+      "from": "internal:hardware"
+    },
+    "events": [
+      {
+        "to": "internal:hardware",
+        "eventType": "utterance",
+        "parameters": {
+          "dialogEvent": {
+            "speakerId": "cassandra",
+            "features": {
+              "text": {
+                "mimeType": "text/plain",
+                "tokens": [
+                  {
+                    "value": "Hi Emmett! How can I help you today? Need anything from the store or checking on a repair?"
+                  }
+                ]
+              }
+            }
+          }
+        }
+      }
+    ]
+  }
+}
+
+{
+  "ovon": {
+    "conversation": {
+      "id": "convoID8403984",
+      "startTime": "07-26-2024_07:46:34"
+    },
+    "schema": {
+      "version": "0.9.0",
+      "url": "not_published_yet"
+    },
+    "sender": {
+      "from": "Emmett"
+    },
+    "events": [
+      {
+        "to": "internal:hardware",
+        "eventType": "utterance",
+        "parameters": {
+          "dialogEvent": {
+            "speakerId": "Emmett",
+            "features": {
+              "text": {
+                "mimeType": "text/plain",
+                "tokens": [
+                  {
+                    "value": "I want to know if my chainsaw repair is finished"
+                  }
+                ]
+              }
+            }
+          }
+        }
+      }
+    ]
+  }
+}
+
+{
+  "ovon": {
+    "conversation": {
+      "id": "convoID8403984",
+      "startTime": "07-26-2024_07:46:34"
+    },
+    "schema": {
+      "version": "0.9.0",
+      "url": "not_published_yet"
+    },
+    "sender": {
+      "from": "internal:hardware"
+    },
+    "events": [
+      {
+        "eventType": "whisper",
+        "parameters": {
+          "concepts": [
+            {
+              "concept": "no",
+              "matchedWords": [
+                "no"
+              ]
+            }
+          ]
+        }
+      }
+    ]
+  }
+}
+
+{
+  "ovon": {
+    "conversation": {
+      "id": "convoID8403984",
+      "startTime": "07-26-2024_07:46:34"
+    },
+    "schema": {
+      "version": "0.9.0",
+      "url": "not_published_yet"
+    },
+    "sender": {
+      "from": "internal:hardware"
+    },
+    "events": [
+      {
+        "eventType": "whisper",
+        "parameters": {
+          "concepts": [
+            {
+              "concept": "no",
+              "matchedWords": [
+                "no"
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "to": "internal:hardware",
+        "eventType": "utterance",
+        "parameters": {
+          "dialogEvent": {
+            "speakerId": "cassandra",
+            "features": {
+              "text": {
+                "mimeType": "text/plain",
+                "tokens": [
+                  {
+                    "value": "Hi Emmett! Let me check on that for you. Ah, yes, your chainsaw will be ready by tomorrow afternoon. Anything else I can help you with?"
+                  }
+                ]
+              }
+            }
+          }
+        }
+      }
+    ]
+  }
+}
+
+{
+  "ovon": {
+    "conversation": {
+      "id": "convoID8403984",
+      "startTime": "07-26-2024_07:46:53"
+    },
+    "schema": {
+      "version": "0.9.0",
+      "url": "not_published_yet"
+    },
+    "sender": {
+      "from": "Emmett"
+    },
+    "events": [
+      {
+        "to": "internal:hardware",
+        "eventType": "utterance",
+        "parameters": {
+          "dialogEvent": {
+            "speakerId": "Emmett",
+            "features": {
+              "text": {
+                "mimeType": "text/plain",
+                "tokens": [
+                  {
+                    "value": "No that's all Thanks. Goodbye."
+                  }
+                ]
+              }
+            }
+          }
+        }
+      }
+    ]
+  }
+}
+
+{
+  "ovon": {
+    "conversation": {
+      "id": "convoID8403984",
+      "startTime": "07-26-2024_07:46:54"
+    },
+    "schema": {
+      "version": "0.9.0",
+      "url": "not_published_yet"
+    },
+    "sender": {
+      "from": "internal:hardware"
+    },
+    "events": [
+      {
+        "eventType": "whisper",
+        "parameters": {
+          "concepts": [
+            {
+              "concept": "bye",
+              "matchedWords": [
+                "Goodbye",
+                "bye"
+              ]
+            },
+            {
+              "concept": "no",
+              "matchedWords": [
+                "no"
+              ]
+            }
+          ]
+        }
+      }
+    ]
+  }
+}
+
+{
+  "ovon": {
+    "conversation": {
+      "id": "convoID8403984",
+      "startTime": "07-26-2024_07:46:54"
+    },
+    "schema": {
+      "version": "0.9.0",
+      "url": "not_published_yet"
+    },
+    "sender": {
+      "from": "internal:hardware"
+    },
+    "events": [
+      {
+        "eventType": "whisper",
+        "parameters": {
+          "concepts": [
+            {
+              "concept": "bye",
+              "matchedWords": [
+                "Goodbye",
+                "bye"
+              ]
+            },
+            {
+              "concept": "no",
+              "matchedWords": [
+                "no"
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "to": "internal:hardware",
+        "eventType": "whisper",
+        "parameters": {
+          "dialogEvent": {
+            "speakerId": "cassandra",
+            "span": {
+              "startTime": "2024-07-26T11:46:53.833Z"
+            },
+            "features": {
+              "text": {
+                "mimeType": "text/plain",
+                "tokens": [
+                  {
+                    "value": "action=invite:cassandra"
+                  }
+                ]
+              }
+            }
+          }
+        }
+      },
+      {
+        "to": "internal:hardware",
+        "eventType": "utterance",
+        "parameters": {
+          "dialogEvent": {
+            "speakerId": "cassandra",
+            "features": {
+              "text": {
+                "mimeType": "text/plain",
+                "tokens": [
+                  {
+                    "value": "Hi Emmett! Your chainsaw repair will be ready by tomorrow afternoon. Thanks for checking in. Goodbye!"
+                  }
+                ]
+              }
+            }
+          }
+        }
+      }
+    ]
+  }
+}
+
+{
+  "ovon": {
+    "conversation": {
+      "id": "convoID8403984",
+      "startTime": "07-26-2024_07:46:54"
+    },
+    "schema": {
+      "version": "0.9.0",
+      "url": "not_published_yet"
+    },
+    "sender": {
+      "from": "Emmett"
+    },
+    "events": [
+      {
+        "eventType": "invite"
+      }
+    ]
+  }
+}
+
+{
+  "ovon": {
+    "conversation": {
+      "id": "convoID8403984",
+      "startTime": "07-26-2024_07:46:55"
+    },
+    "schema": {
+      "version": "0.9.0",
+      "url": "not_published_yet"
+    },
+    "sender": {
+      "from": "internal:cassandra"
+    },
+    "events": []
+  }
+}
+
+{
+  "ovon": {
+    "conversation": {
+      "id": "convoID8403984",
+      "startTime": "07-26-2024_07:46:55"
+    },
+    "schema": {
+      "version": "0.9.0",
+      "url": "not_published_yet"
+    },
+    "sender": {
+      "from": "internal:cassandra"
+    },
+    "events": [
+      {
+        "to": "internal:cassandra",
+        "eventType": "utterance",
+        "parameters": {
+          "dialogEvent": {
+            "speakerId": "cassandra",
+            "features": {
+              "text": {
+                "mimeType": "text/plain",
+                "tokens": [
+                  {
+                    "value": "Hi Emmett! How can I assist you today?"
+                  }
+                ]
+              }
+            }
+          }
+        }
+      }
+    ]
+  }
+}
+
+{
+  "ovon": {
+    "conversation": {
+      "id": "convoID8403984",
+      "startTime": "07-26-2024_07:47:44"
+    },
+    "schema": {
+      "version": "0.9.0",
+      "url": "not_published_yet"
+    },
+    "sender": {
+      "from": "Emmett"
+    },
+    "events": [
+      {
+        "to": "internal:cassandra",
+        "eventType": "utterance",
+        "parameters": {
+          "dialogEvent": {
+            "speakerId": "Emmett",
+            "features": {
+              "text": {
+                "mimeType": "text/plain",
+                "tokens": [
+                  {
+                    "value": "I want to order a carry out from my Thai restaurant"
+                  }
+                ]
+              }
+            }
+          }
+        }
+      }
+    ]
+  }
+}
+
+{
+  "ovon": {
+    "conversation": {
+      "id": "convoID8403984",
+      "startTime": "07-26-2024_07:47:45"
+    },
+    "schema": {
+      "version": "0.9.0",
+      "url": "not_published_yet"
+    },
+    "sender": {
+      "from": "internal:cassandra"
+    },
+    "events": []
+  }
+}
+
+{
+  "ovon": {
+    "conversation": {
+      "id": "convoID8403984",
+      "startTime": "07-26-2024_07:47:45"
+    },
+    "schema": {
+      "version": "0.9.0",
+      "url": "not_published_yet"
+    },
+    "sender": {
+      "from": "internal:cassandra"
+    },
+    "events": [
+      {
+        "to": "internal:cassandra",
+        "eventType": "whisper",
+        "parameters": {
+          "dialogEvent": {
+            "speakerId": "cassandra",
+            "span": {
+              "startTime": "2024-07-26T11:47:45.230Z"
+            },
+            "features": {
+              "text": {
+                "mimeType": "text/plain",
+                "tokens": [
+                  {
+                    "value": "action=invite:thai_palace"
+                  }
+                ]
+              }
+            }
+          }
+        }
+      },
+      {
+        "to": "internal:cassandra",
+        "eventType": "utterance",
+        "parameters": {
+          "dialogEvent": {
+            "speakerId": "cassandra",
+            "features": {
+              "text": {
+                "mimeType": "text/plain",
+                "tokens": [
+                  {
+                    "value": "Sure thing, Emmett! I'll connect you with your favorite Thai restaurant."
+                  }
+                ]
+              }
+            }
+          }
+        }
+      }
+    ]
+  }
+}
+
+{
+  "ovon": {
+    "conversation": {
+      "id": "convoID8403984",
+      "startTime": "07-26-2024_07:47:46"
+    },
+    "schema": {
+      "version": "0.9.0",
+      "url": "not_published_yet"
+    },
+    "sender": {
+      "from": "Emmett"
+    },
+    "events": [
+      {
+        "eventType": "invite"
+      }
+    ]
+  }
+}
+
+{
+  "ovon": {
+    "conversation": {
+      "id": "convoID8403984",
+      "startTime": "07-26-2024_07:47:46"
+    },
+    "schema": {
+      "version": "0.9.0",
+      "url": "not_published_yet"
+    },
+    "sender": {
+      "from": "internal:thai_palace"
+    },
+    "events": []
+  }
+}
+
+{
+  "ovon": {
+    "conversation": {
+      "id": "convoID8403984",
+      "startTime": "07-26-2024_07:47:46"
+    },
+    "schema": {
+      "version": "0.9.0",
+      "url": "not_published_yet"
+    },
+    "sender": {
+      "from": "internal:thai_palace"
+    },
+    "events": [
+      {
+        "to": "internal:thai_palace",
+        "eventType": "utterance",
+        "parameters": {
+          "dialogEvent": {
+            "speakerId": "cassandra",
+            "features": {
+              "text": {
+                "mimeType": "text/plain",
+                "tokens": [
+                  {
+                    "value": "Hello, Emmett! I'm Sukanya, the Restaurant Manager. How can I help you with your carryout order today? Our special of the day is Pad Thai with shrimp. Would you like to try it?"
+                  }
+                ]
+              }
+            }
+          }
+        }
+      }
+    ]
+  }
+}
+
+{
+  "ovon": {
+    "conversation": {
+      "id": "convoID8403984",
+      "startTime": "07-26-2024_07:48:20"
+    },
+    "schema": {
+      "version": "0.9.0",
+      "url": "not_published_yet"
+    },
+    "sender": {
+      "from": "Emmett"
+    },
+    "events": [
+      {
+        "to": "internal:thai_palace",
+        "eventType": "utterance",
+        "parameters": {
+          "dialogEvent": {
+            "speakerId": "Emmett",
+            "features": {
+              "text": {
+                "mimeType": "text/plain",
+                "tokens": [
+                  {
+                    "value": "Yes I'll take one order of the pad Thai with shrimp and make it spicy"
+                  }
+                ]
+              }
+            }
+          }
+        }
+      }
+    ]
+  }
+}
+
+{
+  "ovon": {
+    "conversation": {
+      "id": "convoID8403984",
+      "startTime": "07-26-2024_07:48:21"
+    },
+    "schema": {
+      "version": "0.9.0",
+      "url": "not_published_yet"
+    },
+    "sender": {
+      "from": "internal:thai_palace"
+    },
+    "events": [
+      {
+        "eventType": "whisper",
+        "parameters": {
+          "concepts": [
+            {
+              "concept": "yes",
+              "matchedWords": [
+                "yes"
+              ]
+            }
+          ]
+        }
+      }
+    ]
+  }
+}
+
+{
+  "ovon": {
+    "conversation": {
+      "id": "convoID8403984",
+      "startTime": "07-26-2024_07:48:21"
+    },
+    "schema": {
+      "version": "0.9.0",
+      "url": "not_published_yet"
+    },
+    "sender": {
+      "from": "internal:thai_palace"
+    },
+    "events": [
+      {
+        "eventType": "whisper",
+        "parameters": {
+          "concepts": [
+            {
+              "concept": "yes",
+              "matchedWords": [
+                "yes"
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "to": "internal:thai_palace",
+        "eventType": "utterance",
+        "parameters": {
+          "dialogEvent": {
+            "speakerId": "cassandra",
+            "features": {
+              "text": {
+                "mimeType": "text/plain",
+                "tokens": [
+                  {
+                    "value": "Great choice, Emmett! Would you like to add our special appetizer of the day, crispy spring rolls?"
+                  }
+                ]
+              }
+            }
+          }
+        }
+      }
+    ]
+  }
+}
+
+{
+  "ovon": {
+    "conversation": {
+      "id": "convoID8403984",
+      "startTime": "07-26-2024_07:48:39"
+    },
+    "schema": {
+      "version": "0.9.0",
+      "url": "not_published_yet"
+    },
+    "sender": {
+      "from": "Emmett"
+    },
+    "events": [
+      {
+        "to": "internal:thai_palace",
+        "eventType": "utterance",
+        "parameters": {
+          "dialogEvent": {
+            "speakerId": "Emmett",
+            "features": {
+              "text": {
+                "mimeType": "text/plain",
+                "tokens": [
+                  {
+                    "value": "Yes add 2 spring rolls"
+                  }
+                ]
+              }
+            }
+          }
+        }
+      }
+    ]
+  }
+}
+
+{
+  "ovon": {
+    "conversation": {
+      "id": "convoID8403984",
+      "startTime": "07-26-2024_07:48:39"
+    },
+    "schema": {
+      "version": "0.9.0",
+      "url": "not_published_yet"
+    },
+    "sender": {
+      "from": "internal:thai_palace"
+    },
+    "events": [
+      {
+        "eventType": "whisper",
+        "parameters": {
+          "concepts": [
+            {
+              "concept": "yes",
+              "matchedWords": [
+                "yes"
+              ]
+            }
+          ]
+        }
+      }
+    ]
+  }
+}
+
+{
+  "ovon": {
+    "conversation": {
+      "id": "convoID8403984",
+      "startTime": "07-26-2024_07:48:39"
+    },
+    "schema": {
+      "version": "0.9.0",
+      "url": "not_published_yet"
+    },
+    "sender": {
+      "from": "internal:thai_palace"
+    },
+    "events": [
+      {
+        "eventType": "whisper",
+        "parameters": {
+          "concepts": [
+            {
+              "concept": "yes",
+              "matchedWords": [
+                "yes"
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "to": "internal:thai_palace",
+        "eventType": "utterance",
+        "parameters": {
+          "dialogEvent": {
+            "speakerId": "cassandra",
+            "features": {
+              "text": {
+                "mimeType": "text/plain",
+                "tokens": [
+                  {
+                    "value": "Great choice, Emmett! Would you like to try our special of the day, Mango Sticky Rice for dessert? When would you like to pick up your order?"
+                  }
+                ]
+              }
+            }
+          }
+        }
+      }
+    ]
+  }
+}
+
+{
+  "ovon": {
+    "conversation": {
+      "id": "convoID8403984",
+      "startTime": "07-26-2024_07:49:04"
+    },
+    "schema": {
+      "version": "0.9.0",
+      "url": "not_published_yet"
+    },
+    "sender": {
+      "from": "Emmett"
+    },
+    "events": [
+      {
+        "to": "internal:thai_palace",
+        "eventType": "utterance",
+        "parameters": {
+          "dialogEvent": {
+            "speakerId": "Emmett",
+            "features": {
+              "text": {
+                "mimeType": "text/plain",
+                "tokens": [
+                  {
+                    "value": "No dessert today but I'd like to pick up my order in about an hour"
+                  }
+                ]
+              }
+            }
+          }
+        }
+      }
+    ]
+  }
+}
+
+{
+  "ovon": {
+    "conversation": {
+      "id": "convoID8403984",
+      "startTime": "07-26-2024_07:49:04"
+    },
+    "schema": {
+      "version": "0.9.0",
+      "url": "not_published_yet"
+    },
+    "sender": {
+      "from": "internal:thai_palace"
+    },
+    "events": [
+      {
+        "eventType": "whisper",
+        "parameters": {
+          "concepts": [
+            {
+              "concept": "no",
+              "matchedWords": [
+                "no"
+              ]
+            }
+          ]
+        }
+      }
+    ]
+  }
+}
+
+{
+  "ovon": {
+    "conversation": {
+      "id": "convoID8403984",
+      "startTime": "07-26-2024_07:49:04"
+    },
+    "schema": {
+      "version": "0.9.0",
+      "url": "not_published_yet"
+    },
+    "sender": {
+      "from": "internal:thai_palace"
+    },
+    "events": [
+      {
+        "eventType": "whisper",
+        "parameters": {
+          "concepts": [
+            {
+              "concept": "no",
+              "matchedWords": [
+                "no"
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "to": "internal:thai_palace",
+        "eventType": "whisper",
+        "parameters": {
+          "dialogEvent": {
+            "speakerId": "cassandra",
+            "span": {
+              "startTime": "2024-07-26T11:49:04.870Z"
+            },
+            "features": {
+              "text": {
+                "mimeType": "text/plain",
+                "tokens": [
+                  {
+                    "value": "action=invite:cassandra"
+                  }
+                ]
+              }
+            }
+          }
+        }
+      },
+      {
+        "to": "internal:thai_palace",
+        "eventType": "utterance",
+        "parameters": {
+          "dialogEvent": {
+            "speakerId": "cassandra",
+            "features": {
+              "text": {
+                "mimeType": "text/plain",
+                "tokens": [
+                  {
+                    "value": "Got it, Emmett! One spicy shrimp Pad Thai and two spring rolls. Ready for pick-up in an hour. Thank you and see you soon!"
+                  }
+                ]
+              }
+            }
+          }
+        }
+      }
+    ]
+  }
+}
+
+{
+  "ovon": {
+    "conversation": {
+      "id": "convoID8403984",
+      "startTime": "07-26-2024_07:49:05"
+    },
+    "schema": {
+      "version": "0.9.0",
+      "url": "not_published_yet"
+    },
+    "sender": {
+      "from": "Emmett"
+    },
+    "events": [
+      {
+        "eventType": "invite"
+      }
+    ]
+  }
+}
+
+{
+  "ovon": {
+    "conversation": {
+      "id": "convoID8403984",
+      "startTime": "07-26-2024_07:49:06"
+    },
+    "schema": {
+      "version": "0.9.0",
+      "url": "not_published_yet"
+    },
+    "sender": {
+      "from": "internal:cassandra"
+    },
+    "events": []
+  }
+}
+
+{
+  "ovon": {
+    "conversation": {
+      "id": "convoID8403984",
+      "startTime": "07-26-2024_07:49:06"
+    },
+    "schema": {
+      "version": "0.9.0",
+      "url": "not_published_yet"
+    },
+    "sender": {
+      "from": "internal:cassandra"
+    },
+    "events": [
+      {
+        "to": "internal:cassandra",
+        "eventType": "utterance",
+        "parameters": {
+          "dialogEvent": {
+            "speakerId": "cassandra",
+            "features": {
+              "text": {
+                "mimeType": "text/plain",
+                "tokens": [
+                  {
+                    "value": "Hi Emmett! How can I assist you today?"
+                  }
+                ]
+              }
+            }
+          }
+        }
+      }
+    ]
+  }
+}
+
+{
+  "ovon": {
+    "conversation": {
+      "id": "convoID8403984",
+      "startTime": "07-26-2024_07:49:41"
+    },
+    "schema": {
+      "version": "0.9.0",
+      "url": "not_published_yet"
+    },
+    "sender": {
+      "from": "Emmett"
+    },
+    "events": [
+      {
+        "to": "internal:cassandra",
+        "eventType": "utterance",
+        "parameters": {
+          "dialogEvent": {
+            "speakerId": "Emmett",
+            "features": {
+              "text": {
+                "mimeType": "text/plain",
+                "tokens": [
+                  {
+                    "value": "How much does it cost to mail a 2 LB package to California"
+                  }
+                ]
+              }
+            }
+          }
+        }
+      }
+    ]
+  }
+}
+
+{
+  "ovon": {
+    "conversation": {
+      "id": "convoID8403984",
+      "startTime": "07-26-2024_07:49:41"
+    },
+    "schema": {
+      "version": "0.9.0",
+      "url": "not_published_yet"
+    },
+    "sender": {
+      "from": "internal:cassandra"
+    },
+    "events": []
+  }
+}
+
+{
+  "ovon": {
+    "conversation": {
+      "id": "convoID8403984",
+      "startTime": "07-26-2024_07:49:41"
+    },
+    "schema": {
+      "version": "0.9.0",
+      "url": "not_published_yet"
+    },
+    "sender": {
+      "from": "internal:cassandra"
+    },
+    "events": [
+      {
+        "to": "internal:cassandra",
+        "eventType": "whisper",
+        "parameters": {
+          "dialogEvent": {
+            "speakerId": "cassandra",
+            "span": {
+              "startTime": "2024-07-26T11:49:41.699Z"
+            },
+            "features": {
+              "text": {
+                "mimeType": "text/plain",
+                "tokens": [
+                  {
+                    "value": "action=invite:postman"
+                  }
+                ]
+              }
+            }
+          }
+        }
+      },
+      {
+        "to": "internal:cassandra",
+        "eventType": "utterance",
+        "parameters": {
+          "dialogEvent": {
+            "speakerId": "cassandra",
+            "features": {
+              "text": {
+                "mimeType": "text/plain",
+                "tokens": [
+                  {
+                    "value": "Hi Emmett! I can help with that. Let me connect you to the post office for accurate pricing."
+                  }
+                ]
+              }
+            }
+          }
+        }
+      }
+    ]
+  }
+}
+
+{
+  "ovon": {
+    "conversation": {
+      "id": "convoID8403984",
+      "startTime": "07-26-2024_07:49:42"
+    },
+    "schema": {
+      "version": "0.9.0",
+      "url": "not_published_yet"
+    },
+    "sender": {
+      "from": "Emmett"
+    },
+    "events": [
+      {
+        "eventType": "invite"
+      }
+    ]
+  }
+}
+
+{
+  "ovon": {
+    "conversation": {
+      "id": "convoID8403984",
+      "startTime": "07-26-2024_07:49:43"
+    },
+    "schema": {
+      "version": "0.9.0",
+      "url": "not_published_yet"
+    },
+    "sender": {
+      "from": "internal:postman"
+    },
+    "events": []
+  }
+}
+
+{
+  "ovon": {
+    "conversation": {
+      "id": "convoID8403984",
+      "startTime": "07-26-2024_07:49:43"
+    },
+    "schema": {
+      "version": "0.9.0",
+      "url": "not_published_yet"
+    },
+    "sender": {
+      "from": "internal:postman"
+    },
+    "events": [
+      {
+        "to": "internal:postman",
+        "eventType": "utterance",
+        "parameters": {
+          "dialogEvent": {
+            "speakerId": "cassandra",
+            "features": {
+              "text": {
+                "mimeType": "text/plain",
+                "tokens": [
+                  {
+                    "value": "Hi Emmett! I'm Andrew, the Postmaster. How can I assist you with sending mail and packages through the United States Postal Service today?"
+                  }
+                ]
+              }
+            }
+          }
+        }
+      }
+    ]
+  }
+}
+
+{
+  "ovon": {
+    "conversation": {
+      "id": "convoID8403984",
+      "startTime": "07-26-2024_07:50:08"
+    },
+    "schema": {
+      "version": "0.9.0",
+      "url": "not_published_yet"
+    },
+    "sender": {
+      "from": "Emmett"
+    },
+    "events": [
+      {
+        "to": "internal:postman",
+        "eventType": "utterance",
+        "parameters": {
+          "dialogEvent": {
+            "speakerId": "Emmett",
+            "features": {
+              "text": {
+                "mimeType": "text/plain",
+                "tokens": [
+                  {
+                    "value": "How much does a 2 LB package going to California cost"
+                  }
+                ]
+              }
+            }
+          }
+        }
+      }
+    ]
+  }
+}
+
+{
+  "ovon": {
+    "conversation": {
+      "id": "convoID8403984",
+      "startTime": "07-26-2024_07:50:09"
+    },
+    "schema": {
+      "version": "0.9.0",
+      "url": "not_published_yet"
+    },
+    "sender": {
+      "from": "internal:postman"
+    },
+    "events": []
+  }
+}
+
+{
+  "ovon": {
+    "conversation": {
+      "id": "convoID8403984",
+      "startTime": "07-26-2024_07:50:09"
+    },
+    "schema": {
+      "version": "0.9.0",
+      "url": "not_published_yet"
+    },
+    "sender": {
+      "from": "internal:postman"
+    },
+    "events": [
+      {
+        "to": "internal:postman",
+        "eventType": "utterance",
+        "parameters": {
+          "dialogEvent": {
+            "speakerId": "cassandra",
+            "features": {
+              "text": {
+                "mimeType": "text/plain",
+                "tokens": [
+                  {
+                    "value": "Hi Emmett! The cost depends on the shipping service you choose. For example, Priority Mail starts around $8.70. Rates can vary based on dimensions and delivery speed. Need more details?"
+                  }
+                ]
+              }
+            }
+          }
+        }
+      }
+    ]
+  }
+}
+
+{
+  "ovon": {
+    "conversation": {
+      "id": "convoID8403984",
+      "startTime": "07-26-2024_07:50:32"
+    },
+    "schema": {
+      "version": "0.9.0",
+      "url": "not_published_yet"
+    },
+    "sender": {
+      "from": "Emmett"
+    },
+    "events": [
+      {
+        "to": "internal:postman",
+        "eventType": "utterance",
+        "parameters": {
+          "dialogEvent": {
+            "speakerId": "Emmett",
+            "features": {
+              "text": {
+                "mimeType": "text/plain",
+                "tokens": [
+                  {
+                    "value": "No that's good Thanks. Goodbye."
+                  }
+                ]
+              }
+            }
+          }
+        }
+      }
+    ]
+  }
+}
+
+{
+  "ovon": {
+    "conversation": {
+      "id": "convoID8403984",
+      "startTime": "07-26-2024_07:50:32"
+    },
+    "schema": {
+      "version": "0.9.0",
+      "url": "not_published_yet"
+    },
+    "sender": {
+      "from": "internal:postman"
+    },
+    "events": [
+      {
+        "eventType": "whisper",
+        "parameters": {
+          "concepts": [
+            {
+              "concept": "bye",
+              "matchedWords": [
+                "Goodbye",
+                "bye"
+              ]
+            },
+            {
+              "concept": "no",
+              "matchedWords": [
+                "no"
+              ]
+            }
+          ]
+        }
+      }
+    ]
+  }
+}
+
+{
+  "ovon": {
+    "conversation": {
+      "id": "convoID8403984",
+      "startTime": "07-26-2024_07:50:32"
+    },
+    "schema": {
+      "version": "0.9.0",
+      "url": "not_published_yet"
+    },
+    "sender": {
+      "from": "internal:postman"
+    },
+    "events": [
+      {
+        "eventType": "whisper",
+        "parameters": {
+          "concepts": [
+            {
+              "concept": "bye",
+              "matchedWords": [
+                "Goodbye",
+                "bye"
+              ]
+            },
+            {
+              "concept": "no",
+              "matchedWords": [
+                "no"
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "to": "internal:postman",
+        "eventType": "whisper",
+        "parameters": {
+          "dialogEvent": {
+            "speakerId": "cassandra",
+            "span": {
+              "startTime": "2024-07-26T11:50:33.032Z"
+            },
+            "features": {
+              "text": {
+                "mimeType": "text/plain",
+                "tokens": [
+                  {
+                    "value": "action=invite:cassandra"
+                  }
+                ]
+              }
+            }
+          }
+        }
+      },
+      {
+        "to": "internal:postman",
+        "eventType": "utterance",
+        "parameters": {
+          "dialogEvent": {
+            "speakerId": "cassandra",
+            "features": {
+              "text": {
+                "mimeType": "text/plain",
+                "tokens": [
+                  {
+                    "value": "Goodbye, Emmett."
+                  }
+                ]
+              }
+            }
+          }
+        }
+      }
+    ]
+  }
+}
+
+{
+  "ovon": {
+    "conversation": {
+      "id": "convoID8403984",
+      "startTime": "07-26-2024_07:50:34"
+    },
+    "schema": {
+      "version": "0.9.0",
+      "url": "not_published_yet"
+    },
+    "sender": {
+      "from": "Emmett"
+    },
+    "events": [
+      {
+        "eventType": "invite"
+      }
+    ]
+  }
+}
+
+{
+  "ovon": {
+    "conversation": {
+      "id": "convoID8403984",
+      "startTime": "07-26-2024_07:50:34"
+    },
+    "schema": {
+      "version": "0.9.0",
+      "url": "not_published_yet"
+    },
+    "sender": {
+      "from": "internal:cassandra"
+    },
+    "events": []
+  }
+}
+
+{
+  "ovon": {
+    "conversation": {
+      "id": "convoID8403984",
+      "startTime": "07-26-2024_07:50:34"
+    },
+    "schema": {
+      "version": "0.9.0",
+      "url": "not_published_yet"
+    },
+    "sender": {
+      "from": "internal:cassandra"
+    },
+    "events": [
+      {
+        "to": "internal:cassandra",
+        "eventType": "utterance",
+        "parameters": {
+          "dialogEvent": {
+            "speakerId": "cassandra",
+            "features": {
+              "text": {
+                "mimeType": "text/plain",
+                "tokens": [
+                  {
+                    "value": "Hi Emmett! How can I assist you today?"
+                  }
+                ]
+              }
+            }
+          }
+        }
+      }
+    ]
+  }
+}
+
+{
+  "ovon": {
+    "conversation": {
+      "id": "convoID8403984",
+      "startTime": "07-26-2024_07:50:46"
+    },
+    "schema": {
+      "version": "0.9.0",
+      "url": "not_published_yet"
+    },
+    "sender": {
+      "from": "Emmett"
+    },
+    "events": [
+      {
+        "to": "internal:cassandra",
+        "eventType": "utterance",
+        "parameters": {
+          "dialogEvent": {
+            "speakerId": "Emmett",
+            "features": {
+              "text": {
+                "mimeType": "text/plain",
+                "tokens": [
+                  {
+                    "value": "That's all I needed Have a good day."
+                  }
+                ]
+              }
+            }
+          }
+        }
+      }
+    ]
+  }
+}
+
+{
+  "ovon": {
+    "conversation": {
+      "id": "convoID8403984",
+      "startTime": "07-26-2024_07:50:46"
+    },
+    "schema": {
+      "version": "0.9.0",
+      "url": "not_published_yet"
+    },
+    "sender": {
+      "from": "internal:cassandra"
+    },
+    "events": [
+      {
+        "eventType": "whisper",
+        "parameters": {
+          "concepts": [
+            {
+              "concept": "bye",
+              "matchedWords": [
+                "have a good day"
+              ]
+            }
+          ]
+        }
+      }
+    ]
+  }
+}
+
+{
+  "ovon": {
+    "conversation": {
+      "id": "convoID8403984",
+      "startTime": "07-26-2024_07:50:46"
+    },
+    "schema": {
+      "version": "0.9.0",
+      "url": "not_published_yet"
+    },
+    "sender": {
+      "from": "internal:cassandra"
+    },
+    "events": [
+      {
+        "eventType": "whisper",
+        "parameters": {
+          "concepts": [
+            {
+              "concept": "bye",
+              "matchedWords": [
+                "have a good day"
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "to": "internal:cassandra",
+        "eventType": "utterance",
+        "parameters": {
+          "dialogEvent": {
+            "speakerId": "cassandra",
+            "features": {
+              "text": {
+                "mimeType": "text/plain",
+                "tokens": [
+                  {
+                    "value": "Thank you, Emmett! Have a wonderful day!"
+                  }
+                ]
+              }
+            }
+          }
+        }
+      }
+    ]
+  }
+}

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Sandbox (Start Page)</title>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/>
+    <meta name="viewport" content="width=device-width"/>
+    <script language="JavaScript" src= "../Scripts/sbAssistantTable.js"></script>
+    <script language="JavaScript" src= "Scripts/sbEnvelopeTools.js"></script>
+    <script language="JavaScript" src= "Scripts/sbHomepage.js"></script>
+    <link rel="stylesheet" href="../Scripts/css/styles.css">
+
+    <script>
+         if (window.location.href !== "http://localhost:6002/sbStartup.html") {
+          // Redirect to the desired server URL
+          window.location.href = "http://localhost:6002/sbStartup.html";
+      }
+  </script>
+  </head>
+
+<body onload="loadSettingsValues()">
+  <h1><img src="/Media/img/OVONInterop.jpg" alt="Interop graphic" height="60" width="300"/><b> OVON Sandbox</b></h1>
+
+  <h3>Enter the name you want the assistants to address you by:</h3>
+  <input id="firstName" placeholder="Type your first name" onchange="setFirstName();"></input>
+  <h2><button class="homeBtn" onclick="openWindow('../Browsers/sbHome.html')">Start Sandbox</a></h2>
+  <br/>
+  <img src="/Media/img/sbOverview.jpg" alt="Interop graphic" height="400" width="500"/>
+</body>
+</html>
