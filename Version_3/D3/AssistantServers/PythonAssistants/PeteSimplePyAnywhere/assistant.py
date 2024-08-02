@@ -23,6 +23,7 @@ def generate_response(inputOVON, sender_from):
     server_info = ""
     response_text = "I'm not sure how to respond."
     detected_intents = []
+    include_manifest_request = False
 
     for event in inputOVON["ovon"]["events"]:
         event_type = event["eventType"]
@@ -44,6 +45,11 @@ def generate_response(inputOVON, sender_from):
                     to_url = event.get("sender", {}).get("to", "Unknown")
                     server_info = f"Server: {to_url}"
                     response_text = "Thanks for the invitation, I am ready to assist."
+        elif event_type == "requestManifest":
+                to_url = event.get("sender", {}).get("to", "Unknown")
+                server_info = f"Server: {to_url}"
+                response_text = "Thanks for asking, here is my manifest."
+                include_manifest_request = True
 
         elif event_type == "utterance":
             user_input = event["parameters"]["dialogEvent"]["features"]["text"]["tokens"][0]["value"]
@@ -53,7 +59,7 @@ def generate_response(inputOVON, sender_from):
     currentTime = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
 
     if "to" in inputOVON["ovon"]["sender"]["from"]:
-        to_url = inputOVON["ovon"]["sneder"]["url"]
+        to_url = inputOVON["ovon"]["sender"]["url"]
         sender_from = to_url
 
 
@@ -84,6 +90,44 @@ def generate_response(inputOVON, sender_from):
         }
     }
     ovon_response["ovon"]["events"].append(whisper_event)
+
+    if include_manifest_request:
+        manifestRequestEvent = {
+            "eventType": "publishManifest",
+            "parameters": {
+                "manifest" : {
+                    "identification":
+                    {
+                        "serviceEndpoint": "http://lrb24.pythonanywhere.com",
+                        "organization": "Sandbox_LFAI",
+                        "conversationalName": "Pete",
+                        "serviceName": "Python Anywhere",
+                        "role": "Basic assistant",
+                        "synopsis" : "I am a pretty dumb assistant."
+                    },
+                    "capabilities": [
+                        {
+                            "keyphrases": [
+                                "dumb",
+                                "basic",
+                                "lazy"
+                            ],
+                            "languages": [
+                                "en-us"
+                            ],
+                            "descriptions": [
+                                "just some test code to test manifest messages",
+                                "simple minded unit test code"
+                            ],
+                            "supportedLayers": [
+                                "text"
+                            ]
+                        }
+                    ]
+                }
+            }
+        }
+        ovon_response["ovon"]["events"].append(manifestRequestEvent)
 
     utterance_event = {
         "eventType": "utterance",
