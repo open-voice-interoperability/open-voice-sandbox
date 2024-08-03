@@ -235,15 +235,15 @@ function changeBackgroundColor(serviceAddress) {
     const assistantInvite = invitedAssistantStack.find(assistant => assistant.assistant.serviceAddress === serviceAddress);
     console.log('assistantInvite:', assistantInvite);
 
-    const assistantOther = assistantStack.find(assistant => assistant.assistant.serviceAddress === serviceAddress);
+    const assistantOther = assistantStack.find(assistant => assistant.assistant.assistant.serviceAddress === serviceAddress);
     console.log('assistantOther:', assistantOther);
-
+    
     if (assistantInvite && assistantInvite.assistant.markerColor) {
         const markerColor = assistantInvite.assistant.markerColor;
         var hsl = hexToHSL(markerColor);
         console.log('Found color in invitedAssistantStack:', `hsl(${hsl.h}, ${hsl.s}%, ${hsl.l}%)`);
         return `hsl(${hsl.h}, ${hsl.s}%, ${hsl.l}%)`;
-    } else if (assistantOther && assistantOther.assistant.assistant.markerColor) {
+    } else if (assistantOther &&  (assistantOther.assistant.assistant.markerColor || assistantOther.assistant.markerColor)) {
         const markerColor = assistantOther.assistant.assistant.markerColor;
         var hsl = hexToHSL(markerColor);
         console.log('Found color in assistantStack:', `hsl(${hsl.h}, ${hsl.s}%, ${hsl.l}%)`);
