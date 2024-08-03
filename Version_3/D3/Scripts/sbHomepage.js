@@ -70,8 +70,8 @@ function cleanDateTimeString() {
   dateStr += addFixZero(d.getDate())+ "-";
   dateStr += addFixZero(d.getFullYear());
   dateStr += '_' + addFixZero(d.getHours());
-  dateStr += ":" + addFixZero(d.getMinutes());
-  dateStr += ":" + addFixZero(d.getSeconds() + 1);
+  dateStr += addFixZero(d.getMinutes());
+  dateStr += addFixZero(d.getSeconds() + 1);
   return dateStr;
 }
 
