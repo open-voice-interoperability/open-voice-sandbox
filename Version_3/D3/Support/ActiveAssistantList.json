@@ -81,8 +81,28 @@
         "platform": ""
       },
       "markerColor": "#d100a4",
-      "serviceName": "ejTalk Expert",
-      "serviceAddress": "https://ejtalk.com/ejAI/cassandra.php",
+      "serviceName": "simple hello bot",
+      "serviceAddress": "http://codeMom.pythonanywhere.com",
+      "authCode": "zz8h00ee45",
+      "contentType": "none",
+      "pitch": 1,
+      "volume": 1,
+      "rate": 1
+    }
+  },
+  {
+    "assistant": {
+      "name": "lily",
+      "displayName": "Lily",
+      "voice": {
+        "index": 116,
+        "name": "Microsoft Emma Online (Natural) - English (United States)",
+        "lang": "en-US",
+        "platform": ""
+      },
+      "markerColor": "#d100a4",
+      "serviceName": "simple hello bot",
+      "serviceAddress": "http://ejtalk.pythonanywhere.com",
       "authCode": "zz8h00ee45",
       "contentType": "none",
       "pitch": 1,
