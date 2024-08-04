@@ -104,7 +104,7 @@
       "serviceName": "simple hello bot",
       "serviceAddress": "http://ejtalk.pythonanywhere.com",
       "authCode": "zz8h00ee45",
-      "contentType": "none",
+      "contentType": "application/json",
       "pitch": 1,
       "volume": 1,
       "rate": 1
@@ -115,7 +115,7 @@
       "name": "cassandra",
       "displayName": "Cassandra",
       "voice": {
-        "index": 277,
+        "index": 123,
         "name": "Microsoft Jenny Online (Natural) - English (United States)",
         "lang": "en-US",
         "platform": ""
@@ -135,7 +135,7 @@
       "name": "florist",
       "displayName": "Pat",
       "voice": {
-        "index": 273,
+        "index": 119,
         "name": "Microsoft Aria Online (Natural) - English (United States)",
         "lang": "en-US",
         "platform": ""
@@ -249,7 +249,7 @@
       "name": "basic",
       "displayName": "BasicJS",
       "voice": {
-        "index": 265,
+        "index": 111,
         "name": "Microsoft AndrewMultilingual Online (Natural) - English (United States)",
         "lang": "en-US",
         "platform": ""
@@ -267,13 +267,13 @@
       "displayName": "PetePyAnywhere",
       "voice": {
         "index": 237,
-        "name": "Microsoft Liam Online (Natural) - English (Canada)",
-        "lang": "en-CA",
+        "name": "Microsoft Rok Online (Natural) - Slovenian (Slovenia)",
+        "lang": "sl-SI",
         "platform": ""
       },
       "markerColor": "#cc0088",
       "serviceName": "PythonAnywhere",
-      "serviceAddress": "http://lrb24.pythonanywhere.com",
+      "serviceAddress": "https://lrb24.pythonanywhere.com",
       "authCode": "AuZ9SYtXn",
       "contentType": "application/json"
     }
@@ -283,7 +283,7 @@
       "name": "Sam",
       "displayName": "Sam",
       "voice": {
-        "index": 237,
+        "index": 83,
         "name": "Microsoft Liam Online (Natural) - English (Canada)",
         "lang": "en-CA",
         "platform": ""
