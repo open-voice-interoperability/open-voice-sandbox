@@ -25,4 +25,4 @@ def home():
     return ovon_response
 
 if __name__ == '__main__':
-    app.run(host="localhost",port=port, debug=True)
+    app.run(host="localhost",port=port, debug=True, use_reloader=False)
