@@ -266,9 +266,9 @@
       "name": "pete",
       "displayName": "PetePyAnywhere",
       "voice": {
-        "index": 237,
-        "name": "Microsoft Rok Online (Natural) - Slovenian (Slovenia)",
-        "lang": "sl-SI",
+        "index": 125,
+        "name": "Microsoft Roger Online (Natural) - English (United States)",
+        "lang": "en-US",
         "platform": ""
       },
       "markerColor": "#cc0088",
