@@ -1,7 +1,18 @@
 import json
 from datetime import datetime
 import os
+import weather_api # importing weather_api.py file -- GET API key and put on line 90 --> https://openweathermap.org/api
+import re
 
+conversation_state = {}
+
+def extract_location(input_text):
+    location_match = re.search(r"(in|for|at) (.+)", input_text, re.IGNORECASE)
+    if location_match:
+        return location_match.group(2)
+    else:
+        return None
+    
 def search_intent(input_text):
     my_dir = os.path.dirname(__file__)
     json_file_path = os.path.join(my_dir, 'intentConcepts.json')
@@ -9,11 +20,22 @@ def search_intent(input_text):
         concepts_data = json.load(f)
 
     matched_intents = []
+    input_text_lower = input_text.lower()
+
+    if "weather" in input_text_lower or "forecast" in input_text_lower:
+        location = extract_location(input_text_lower)
+        if location:
+            matched_intents.append({"intent": "weather", "location": location})
+        else:
+            matched_intents.append({"intent": "weather", "location": "unknown"})
     for concept in concepts_data["concepts"]:
         matched_words = [word for word in concept["examples"] if word in input_text.lower()]
         if matched_words:
             matched_intents.append({"intent": concept["name"], "matched_words": matched_words})
     return matched_intents if matched_intents else None
+
+def celsius_to_fahrenheit(celsius):
+    return (celsius * 9/5) + 32
 
 server_info = ""
 
@@ -54,14 +76,35 @@ def generate_response(inputOVON, sender_from):
         elif event_type == "utterance":
             user_input = event["parameters"]["dialogEvent"]["features"]["text"]["tokens"][0]["value"]
             detected_intents.extend(search_intent(user_input) or [])
-            response_text = "Hello! How can I assist you today?"
+            print(f"Detected intents: {detected_intents}")
+            conversation_id = inputOVON["ovon"]["conversation"]["id"]
+
+            if conversation_id not in conversation_state:
+                conversation_state[conversation_id] = {}
+
+            for intent in detected_intents:
+                if intent["intent"] == "weather":
+                    location = extract_location(user_input)
+                    if location:
+                        print(f"Extracted location: {location}")
+                        api_key = "PUT YOUR API KEY HERE" # GET API key here --> https://openweathermap.org/api
+                        weather_data = weather_api.get_weather(api_key, location)
+                        temp, humidity, weather_report = weather_api.parse_weather_data(weather_data)
+                        conversation_state[conversation_id]["temp_in_celsius"] = temp
+                        response_text = f"Weather in {location}: {weather_report}, Temperature: {temp}°C, Humidity: {humidity}%"
+                        print(f"Generated weather response: {response_text}")
+                    else:
+                        response_text = "Could you please specify a location?"
+                elif intent["intent"] == "convertTemperature":
+                    if "temp_in_celsius" in conversation_state[conversation_id]:
+                        temp_in_fahrenheit = celsius_to_fahrenheit(conversation_state[conversation_id]["temp_in_celsius"])
+                        response_text = f"The temperature in Fahrenheit is {temp_in_fahrenheit}°F."
+                    else:
+                        response_text = "I don't have a temperature to convert. Please ask for the weather first."
+                else:
+                    response_text = "Hello! How can I assist you today?"
 
     currentTime = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
-
-    if "to" in inputOVON["ovon"]["sender"]["from"]:
-        to_url = inputOVON["ovon"]["sender"]["url"]
-        sender_from = to_url
-
 
     # /find the one with utterance, make if statement
     ovon_response = {
@@ -77,19 +120,20 @@ def generate_response(inputOVON, sender_from):
     }
 
     # Construct a single whisper event containing all intents
-    whisper_event = {
-        "eventType": "whisper",
-        "parameters": {
-            "concepts": [
-                {
-                    "concept": intent_info["intent"],
-                    "matchedWords": intent_info["matched_words"]
-                }
-                for intent_info in detected_intents
-            ]
+    if detected_intents:
+        whisper_event = {
+            "eventType": "whisper",
+            "parameters": {
+                "concepts": [
+                    {
+                        "concept": intent_info["intent"],
+                        "matchedWords": intent_info["matched_words"]
+                    }
+                    for intent_info in detected_intents if "matched_words" in intent_info
+                ]
+            }
         }
-    }
-    ovon_response["ovon"]["events"].append(whisper_event)
+        ovon_response["ovon"]["events"].append(whisper_event)
 
     if include_manifest_request:
         manifestRequestEvent = {
