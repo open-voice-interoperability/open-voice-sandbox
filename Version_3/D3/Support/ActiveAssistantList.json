@@ -212,6 +212,46 @@
   },
   {
     "assistant": {
+      "name": "pharmacy",
+      "displayName": "Fred",
+      "voice": {
+        "index": 126,
+        "name": "Microsoft Steffan Online (Natural) - English (United States)",
+        "lang": "en-US",
+        "platform": ""
+      },
+      "markerColor": "#8d2994",
+      "serviceName": "Acme Hardware",
+      "serviceAddress": "internal:pharmacy",
+      "authCode": "zz8h00ee45",
+      "contentType": "application/json",
+      "pitch": 1,
+      "volume": 1,
+      "rate": 1
+    }
+  },
+  {
+    "assistant": {
+      "name": "fish_restaurant",
+      "displayName": "Carlos",
+      "voice": {
+        "index": 279,
+        "name": "Microsoft Alonso Online (Natural) - Spanish (United States)",
+        "lang": "es-US",
+        "platform": ""
+      },
+      "markerColor": "#8d2994",
+      "serviceName": "El Fish",
+      "serviceAddress": "internal:fish_restaurant",
+      "authCode": "zz8h00ee45",
+      "contentType": "application/json",
+      "pitch": 1,
+      "volume": 1,
+      "rate": 1
+    }
+  },
+  {
+    "assistant": {
       "name": "tennis",
       "displayName": "Tennis",
       "voice": {
