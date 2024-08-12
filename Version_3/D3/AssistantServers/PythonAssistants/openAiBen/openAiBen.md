@@ -30,7 +30,7 @@ __Notes on starting the server:__
 2. Make sure to have `Flask` and `flask_cors` installed before running the script.
 3. CORS (Cross-Origin Resource Sharing) is enabled to allow requests from and origin (`*`). Adjust the CORS configuration based on your application's security requirements.
 
-# ${\textsf{\color{#3AABFC}OvonIOparser.py}}$
+# ${\textsf{\color{#3AABFC}openAiParser.py}}$
 
 ###  ${\textsf{\color{#3AABFC}Overview}}$
 `OvonIOparser.py` contains functions to parse OVON messages and generate appropriate responses.
