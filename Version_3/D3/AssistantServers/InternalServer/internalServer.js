@@ -83,9 +83,7 @@ async function callInternalAssistant( assistName, assistantObject, OVONmsg, hand
     retOVONJSON = baseEnvelopeOVON( assistantObject.assistant.serviceAddress, true );
     var fName = "../AssistantServers/LLMPool/" + assistName + ".json";
     var eventsJSON = eventSummary( OVONmsg.ovon.events );
-    console.log("Switching to assistant:", assistName);
     assistantObject.assistant.name = assistName;
-    console.log(assistantObject.assistant.name);
 
 // console.log("callIntASS-eventsJSON", eventsJSON); // ejcDBG
     if( eventsJSON.invite ){            

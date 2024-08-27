@@ -22,12 +22,10 @@ function highlightSelectedAssistant(markerColor) {
 
       // Find the selected assistant and apply highlighting
       const selectedAssistantName = assistantObject.assistant.name;
-      console.log('selectedAssistantName:', selectedAssistantName);
       let found = false;
       const assistantElements = assistantListDiv.getElementsByTagName('p');
       for (const element of assistantElements) {
           if (element.textContent === selectedAssistantName) {
-            console.log('Highlighting element:', element);
             element.classList.add('highlighted');
               element.style.backgroundColor = `hsl(${hslColor.h}, ${hslColor.s}%, ${hslColor.l}%)`;
               found = true;

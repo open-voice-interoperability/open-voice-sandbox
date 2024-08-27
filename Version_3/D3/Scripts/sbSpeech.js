@@ -107,7 +107,7 @@ function cleanOutPunctuation( str ){
   return str;
 }
 var voiceIndex =0;
-async function checkIndex(vOG){
+async function checkIndex(assistantObject){
   await new Promise(resolve => {
     if (voices.length > 0) {
         resolve();
@@ -136,35 +136,30 @@ async function checkIndex(vOG){
             },
             body: JSON.stringify(data, null, 2),
           });
-          return voiceIndex;
         } else {
+          // Voice name not found in the voices list, update to default values
           console.log("Voice name not found in the voices list:", assistantToUpdate.assistant.voice.name);
           var defaultVoiceIndex = assistantToUpdate.assistant.voice.index;
-  
-            // Set the assistant's voice index with the default index
-            assistantToUpdate.assistant.voice.index = defaultVoiceIndex
-
-            // Get the default voice name and lang from the voices array using the default index
+          
+          if (voices[defaultVoiceIndex]) {
             const defaultVoice = voices[defaultVoiceIndex];
-            const defaultVoiceName = defaultVoice.name;
-            const defaultVoiceLang = defaultVoice.lang;
+            assistantToUpdate.assistant.voice.name = defaultVoice.name;
+            assistantToUpdate.assistant.voice.lang = defaultVoice.lang;
+            assistantToUpdate.assistant.voice.index = defaultVoiceIndex;
+          }
 
-            // Set the assistant's voice name and lang with the default values
-            assistantToUpdate.assistant.voice.name = defaultVoiceName;
-            assistantToUpdate.assistant.voice.lang = defaultVoiceLang;
+          await fetch('../Support/ActiveAssistantList.json', {
+            method: 'PUT',
+            headers: {
+              'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(data, null, 2),
+          });
 
-            // Update JSON with default values
-            await fetch('../Support/ActiveAssistantList.json', {
-                method: 'PUT',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify(data, null, 2),
-            });
-
-            voiceIndex= defaultVoiceIndex;
-            return voiceIndex;
-      }
+          voiceIndex = defaultVoiceIndex;
+        }
+        
+        return voiceIndex;
       } else {
         console.log("Voice name not found in the assistant data:", assistantToUpdate.assistant.voice);
         return null;
@@ -181,7 +176,7 @@ async function checkIndex(vOG){
 
 pendingSpeech = null;
 nonPendingOvon = null;
-function sbSpeak( say, assistantObject ) {
+async function sbSpeak( say, assistantObject ) {
   if(speechSynthesis.speaking){ // say it after ongoing tts finishes
     pendingSpeech = {
       "assistant": assistantObject,
@@ -194,6 +189,11 @@ function sbSpeak( say, assistantObject ) {
     var aColor = "#555555";
     var voices = speechSynthesis.getVoices();
     if (assistantObject) {
+      const updatedVoiceIndex = await checkIndex(assistantObject);
+      if (updatedVoiceIndex !== null) {
+        assistantObject.assistant.voice.index = updatedVoiceIndex;
+      }
+
       vOG = assistantObject.assistant.voice.index;
 
       if (sbBrowserType === "chromium based edge" || sbBrowserType === "safari" || sbBrowserType === "chrome") {
@@ -205,9 +205,9 @@ function sbSpeak( say, assistantObject ) {
 
       aColor = assistantObject.assistant.markerColor;
       vOG = Math.min(Math.max(0, vOG), voices.length - 1); // v within bounds
+      
       //TESTING 
       var assistantVoice = voices[vOG];
-
       var name = voices[vOG].name;
       var lang = voices[vOG].lang;
       // console.log(`Using voice - Name: ${name}, Lang: ${lang}`);
