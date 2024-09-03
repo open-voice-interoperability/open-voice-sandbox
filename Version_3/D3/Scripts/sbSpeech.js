@@ -194,7 +194,7 @@ async function sbSpeak( say, assistantObject ) {
         assistantObject.assistant.voice.index = updatedVoiceIndex;
       }
 
-      vOG = assistantObject.assistant.voice.index;
+      // vOG = assistantObject.assistant.voice.index;
 
       if (sbBrowserType === "chromium based edge" || sbBrowserType === "safari" || sbBrowserType === "chrome") {
           vOG = assistantObject.assistant.voice.index;

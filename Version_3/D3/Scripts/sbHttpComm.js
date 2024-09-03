@@ -20,7 +20,6 @@ async function sbPostToAssistant( assistantObject, OVONmsg ) { //send to their s
     assistType = remoteURL.split(':');
     textColor = assistantObject.assistant.markerColor;
     voiceIndex = assistantObject.assistant.voice.index;
-    const updatedVoice = await checkIndex(voiceIndex);
     contentType = assistantObject.assistant.contentType;
     setAssistantNameElement(assistantObject);
 

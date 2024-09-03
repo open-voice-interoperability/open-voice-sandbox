@@ -38,10 +38,10 @@
   },
   {
     "assistant": {
-      "name": "library",
-      "displayName": "Smart Library",
+      "name": "Athena",
+      "displayName": "Athena",
       "voice": {
-        "index": 91,
+        "index": 245,
         "name": "Microsoft Asilia Online (Natural) - English (Kenya)",
         "lang": "en-KE",
         "platform": ""
@@ -115,7 +115,7 @@
       "name": "cassandra",
       "displayName": "Cassandra",
       "voice": {
-        "index": 123,
+        "index": 277,
         "name": "Microsoft Jenny Online (Natural) - English (United States)",
         "lang": "en-US",
         "platform": ""
@@ -135,7 +135,7 @@
       "name": "florist",
       "displayName": "Pat",
       "voice": {
-        "index": 119,
+        "index": 273,
         "name": "Microsoft Aria Online (Natural) - English (United States)",
         "lang": "en-US",
         "platform": ""
@@ -175,7 +175,7 @@
       "name": "postman",
       "displayName": "Andrew",
       "voice": {
-        "index": 120,
+        "index": 274,
         "name": "Microsoft Christopher Online (Natural) - English (United States)",
         "lang": "en-US",
         "platform": ""

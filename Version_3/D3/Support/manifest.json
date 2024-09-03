@@ -104,8 +104,8 @@
     {
         "identification": 
         {
-            "conversationalName": "library"  ,
-            "serviceName":  "Smart Library",
+            "conversationalName": "Athena"  ,
+            "serviceName":  "Athena",
             "organization": "xcally",
             "serviceEndpoint": "https://ovon.xcally.com/smartlibrary" ,
             "role": "Smart Library",
