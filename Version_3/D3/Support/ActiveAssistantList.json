@@ -92,26 +92,6 @@
   },
   {
     "assistant": {
-      "name": "lily",
-      "displayName": "Lily ",
-      "voice": {
-        "index": 116,
-        "name": "Microsoft Emma Online (Natural) - English (United States)",
-        "lang": "en-US",
-        "platform": ""
-      },
-      "markerColor": "#d100a4",
-      "serviceName": "simple hello bot",
-      "serviceAddress": "http://ejtalk.pythonanywhere.com",
-      "authCode": "zz8h00ee45",
-      "contentType": "application/json",
-      "pitch": 1,
-      "volume": 1,
-      "rate": 1
-    }
-  },
-  {
-    "assistant": {
       "name": "cassandra",
       "displayName": "Cassandra",
       "voice": {
@@ -286,23 +266,6 @@
   },
   {
     "assistant": {
-      "name": "basic",
-      "displayName": "BasicJS",
-      "voice": {
-        "index": 111,
-        "name": "Microsoft AndrewMultilingual Online (Natural) - English (United States)",
-        "lang": "en-US",
-        "platform": ""
-      },
-      "markerColor": "#cc0088",
-      "serviceName": "PrimaryAssistant",
-      "serviceAddress": "internal:basic",
-      "authCode": "zz8h00ji",
-      "contentType": "application/json"
-    }
-  },
-  {
-    "assistant": {
       "name": "pete",
       "displayName": "PetePyAnywhere",
       "voice": {
@@ -331,40 +294,6 @@
       "markerColor": "#fa7000",
       "serviceName": "sam Basic",
       "serviceAddress": "http://localhost:8242/",
-      "authCode": "AuZ9SYtXn",
-      "contentType": "application/json"
-    }
-  },
-  {
-    "assistant": {
-      "name": "ben",
-      "displayName": "BenOpenAI",
-      "voice": {
-        "index": 237,
-        "name": "Microsoft Liam Online (Natural) - English (Canada)",
-        "lang": "en-CA",
-        "platform": ""
-      },
-      "markerColor": "#2e89ff",
-      "serviceName": "OpenAI",
-      "serviceAddress": "http://localhost:8243/",
-      "authCode": "AuZ9SYtXn",
-      "contentType": "application/json"
-    }
-  },
-  {
-    "assistant": {
-      "name": "echo",
-      "displayName": "EchoDiscover",
-      "voice": {
-        "index": 237,
-        "name": "Microsoft Liam Online (Natural) - English (Canada)",
-        "lang": "en-Ca",
-        "platform": ""
-      },
-      "markerColor": "#00ad91",
-      "serviceName": "discovery",
-      "serviceAddress": "http://localhost:8222/",
       "authCode": "AuZ9SYtXn",
       "contentType": "application/json"
     }

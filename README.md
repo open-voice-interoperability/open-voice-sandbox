@@ -7,12 +7,55 @@ __A browser/assistant system for experimentation with OVON Envelopes. It is:__
 * Has a list of OVON Envelope based assistant servers to play with
 * Has a skeleton python assistant server that you can use to build assistants
 
+## ${\textsf{\color{#3AABFC}Version 3 Updates (Use THIS Version - Latest)}}$
+__If you want a VERY QUICK Start, then do the following:__
+* After cloning the repository navigate to the Version_3/D3 directory in your file explorer.
+* Start up the local sandbox server (it *requires* Python):
+	* For Windows: double-click **windowsStartup.command**
+	* For Mac: double-click **macStartup.bat**
+* *Open* up a MS Edge browser.
+	* (NOTE: The sandbox __does__ work with the Chrome browser, __BUT__ there are fewer and lower quality TTS voices available. This will be an issue if you are experimenting with several different assistants.)
+* *Enter* the URL: [localhost:6002](http://localhost:6002/sbStartup.html)
+* You should see a diagram of the sandbox.
+* *Enter* the name you want to be addressed by (e.g. Sarah).
+* *Click* the **Start Sandbox** button.
+* *Click* on the __Select an Assistant__ dropdown and select __Wizard__.
+* *Click* the **Bare Invite** button.
+* This will open the __Conversation__ page.
+	* You will see __Assistant: Wizard__
+	* The Wizard will say: __This is the Wizard Agent. Ask me anything.__
+	* To *say* something to the Wizard either:
+		* *Click* the blue __microphone__ icon and speak, *or*
+		* *Type* text in the __Utterance__ box (& press enter)
+	* Below are the __OVON__ messages that were __SENT__ and __RECIEVED__.
+	* __NOTE:__ The Wizard is a single question/response assistant, it __does not__ maintain context.
+* Other NON-LLM Assistants are:
+	* Smart Library - an expert on published books
+	* Jonathan - a pythonAnywhere example (dumb, only greets)
+	* PetePyAnywhere - a pythonAnywhere example (code in the sandbox under AssistantServers/PythonAssistants)
+	* Sam - runs on a local python server (simple but you can modify the python)
+		* you must start it in directory: Version_3\D3\AssistantServers\PythonAssistants\localSamServer
+
+* If you want to experiment with your own __LLM based Assistants__ (requires an __OpenAI key__ ) then look [here](https://github.com/open-voice-interoperability/open-voice-sandbox/tree/main/Version_3/D3/AssistantServers/LLMPool/newLLMBot.md).
+	* __NOTE:__ *Click* the __Settings__ button and paste your __OpenAI key__ in the field OpenAI. It is stored in the browser and will be use for all subsequent LLM activities.
+* Also, if you have an __OpenAI key__ you will have access to several other assistants on the __Select an Assistant__ dropdown.
+	* Cassandra - a Personal assistant who can transfer to:
+		* Pat - If you want to buy some flowers (for you mom's birthday?)
+		* Sukanya - To order from the Thai Palace (carryout lunch?)
+		* Andrew - Your local postoffice (price to mail ???)
+		* Charles - Your local hardware store (chainsaw repaired?)
+		* Fred - Your local pharmacy 
+	* Carlos - maitre d of the El Fish restraunt in Manhattan
+	* Tennis - an expert on all things Tennis 
+	* Sandy - can answer questions about the "SandBox" (But only trust the docs, Sandy gets creative.)
+
+* Read the sections below and the other MD files in other directories for further information.
+
 ## ${\textsf{\color{#3AABFC}Version 2 Updates}}$
 * Added concepts for certain assistants to understand conversation better and for discovery.
 * Added floor events to handle delegations/transfers to different assistants.
 * Updated Sequence Diagram page quite a bit for better analytics. 
 * Added a place to put company/organization logos found [here](https://github.com/open-voice-interoperability/open-voice-sandbox/blob/main/Version_2.0/Sandbox/Media/img/yourLogo)
-* And more updates to come..
 
 ## ${\textsf{\color{#3AABFC}How to get started}}$
 
@@ -51,7 +94,7 @@ __A browser/assistant system for experimentation with OVON Envelopes. It is:__
 * Double click the **`sbStartup.html`**
 	#### OR
 * Open you web browser
-* In the Navigation bar enter: __http://localhost:6003__
+* In the Navigation bar enter: __http://localhost:6002__
 	* You will see a page titled __OVON SandBox Homepage__
 	* Enter your __first__ name (may be used by assistants to address you)
 	* Press the __"Start Sandbox"__ button
