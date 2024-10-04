@@ -177,6 +177,8 @@ function displayAssistantSettings() {
       <input type="text" id="assistantID" value="${uniqueID}">
       <label for="voiceIndex">Voice Index:</label>
       <input type="text" id="voiceIndex" value="${selectedAssistant.assistant.voice.index}">
+      <div><button id="voiceSelect" class="load-voices" onclick="openWindow('sbVoices.html')">Load Voices</button></div>
+
       <label for="markerColor">Marker Color:</label>
       <input type="color" id="markerColor" value="${selectedAssistant.assistant.markerColor}">
       <label for="serviceName">Service Name:</label>
