@@ -63,7 +63,7 @@
       </table>
     <div id="lineSeparator"></div>
 
-    <button onclick="openWindow('sbHome.html')" class="settingBtn">Back Home</button>        
+    <!-- <button onclick="openWindow('sbHome.html')" class="settingBtn">Back Home</button>         -->
     <div class="assistantTable">
         <div class="leftSection">
             <table>
@@ -81,6 +81,8 @@
                     <td><h3>OpenAI:</h3></td>
                     <td>
                         <input type="text" id="OpenAI" placeholder="your secret key" onchange="setOpenAIKey();">
+                        <button class="homeBtn" onclick="setOpenAIKey()">Save Key</button>
+
                     </td>
                 </tr>
                 <tr>

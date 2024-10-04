@@ -1,3 +1,4 @@
+var lastSelectedVoices = []; //used in updateSelectedVoiceInfo()
 
 // build the TTS Voice <select> html innerHTML string
 function loadVoiceSelect() {
@@ -20,9 +21,7 @@ function updateVoiceSelectOptions(voices) {
   selCntl += '<select name="TTSVoices" id="sbTTS" onchange="saveTTSVoiceIndex();">';
 
   for (var i = 0; i < voices.length; i++) {
-    if (i !== 115) {
       selCntl += '<option value="' + i + '">' + i + ": " + voices[i].name + '</option>';
-    }
   }
   selCntl += "</select>";
   document.getElementById('information').innerHTML = selCntl;
@@ -32,11 +31,9 @@ function updateVoiceSelectOptions(voices) {
   }
 
   updateSelectedVoiceInfo();
-  // var firstOptionValue = document.getElementById('sbTTS').options[0].value; // Set default index
-  // localStorage.setItem('voiceSelection', firstOptionValue);
 }
 
-var lastSelectedVoices = [];
+
 function updateSelectedVoiceInfo() {
   var ttsEngs = speechSynthesis.getVoices();
   var selectedIndex = document.getElementById('sbTTS').value;
@@ -115,59 +112,12 @@ function saveTTSVoiceIndex() {
     assistantObject.assistant.voice.index = vInd;
     localStorage.setItem('voiceSelection', vInd); // Save the selected voice index
     updateSelectedVoiceInfo();
-  } else {
-    console.error("Invalid voice index:", vInd);
-  }
+  
   say = document.getElementById("sbTTS_Text").value;
  
   console.log("Selected voice:", selectedVoice);
-  sbSpeak(say ,assistantObject);
-}
-
-function saveTTS_TestText() { // allow setting a "test phrase" to be set
-  var test =  document.getElementById("sbTTS_Text").value;
-  test += " ";
-  localStorage.setItem( "sbTTSTestPhrase", test );
-  updateSelectedVoiceInfo();
-  sbSpeak(test, assistantObject);
-}
-
-function updateVoiceSettings() {
-    var selectedAssistant = assistantObject.assistant;
-  
-    var selectedAssistantIndex = assistantTable.findIndex(assistant => assistant.assistant.name === selectedAssistant.name);
-  
-    // Update the voiceIndex property with the selected voice index
-    selectedAssistant.voice.index = assistantObject.assistant.voice.index;
-  
-    selectedAssistant.pitch = parseFloat(document.getElementById("pitch").value);
-    selectedAssistant.volume = parseFloat(document.getElementById("volume").value);
-    selectedAssistant.rate = parseFloat(document.getElementById("rate").value);
-  
-
-    localStorage.setItem('assistantTable', JSON.stringify(assistantTable));
-  
-    // Update the selected assistant in the assistantTable
-    if (selectedAssistantIndex !== -1) {
-        assistantTable[selectedAssistantIndex].assistant = selectedAssistant;
-  
-        // Save the updated assistantTable to localStorage
-        localStorage.setItem('assistantTable', JSON.stringify(assistantTable));
-  
-        // Send a PUT request to update the server-side JSON file
-        fetch('../Support/ActiveAssistantList.json', {
-            method: 'PUT',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify(assistantTable, null, 2), // Send the updated assistant data
-        })
-        .then(response => response.json())
-        .catch(error => {
-            console.error('Error updating assistant on the server:', error);
-        });
-    } else {
-        console.error('Selected assistant not found in the assistantTable.');
-    }
-    bareInviteWindow();
+  updateSpeechParams('volume'); // This will use the current volume, rate, and pitch to speak the text
+  }else {
+    console.error("Invalid voice index:", vInd);
+  }
 }

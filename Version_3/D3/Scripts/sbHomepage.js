@@ -5,6 +5,7 @@ var msgLogDiv;
 var selectedAssistantIndex;
 var bareInviteSelected = false;
 var InviteWithWhisper = false;
+var functionList=[];
 
 
 function openWindow(url) {

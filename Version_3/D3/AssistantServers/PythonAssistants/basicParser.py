@@ -13,8 +13,28 @@ def search_intent(input_text):
     return matched_intents if matched_intents else None
 
 server_info = ""
+def handle_utterance_event(event):
+    # Handles utterance events by extracting the user input text and detecting 
+    # intents based on the input text.
+
+    # Extract user input from the utterance event
+    user_input = event["parameters"]["dialogEvent"]["features"]["text"]["tokens"][0]["value"]
+    
+   # Search for intents in the extracted user input
+    detected_intents = search_intent(user_input) or []
+    
+    # Generate a response based on whether intents were detected
+    response_text = "Hello! How can I assist you today?" if detected_intents else "I'm not sure how to respond."
+    
+    return response_text, detected_intents
+
+
 
 def generate_response(inputOVON, sender_from):
+    # Generates a response for the inputOVON data, which may contain multiple events
+    # such as 'invite', 'requestManifest', or 'utterance'. Processes each event type accordingly
+    # and constructs a response in the required format.
+
     global server_info
     global conversation_history
     server_info = ""
@@ -37,7 +57,6 @@ def generate_response(inputOVON, sender_from):
                     
             else:
                 # Handle the bare invite and manifest events
-                print(event_type)
                 if event_type == "invite":
                     to_url = event.get("sender", {}).get("to", "Unknown")
                     server_info = f"Server: {to_url}"
@@ -50,9 +69,8 @@ def generate_response(inputOVON, sender_from):
             include_manifest_request = True 
 
         elif event_type == "utterance":
-            user_input = event["parameters"]["dialogEvent"]["features"]["text"]["tokens"][0]["value"]
-            detected_intents.extend(search_intent(user_input) or [])
-            response_text = "Hello! How can I assist you today?"
+            # Use the new function to handle the utterance event
+            response_text, detected_intents = handle_utterance_event(event)
 
     currentTime = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
 

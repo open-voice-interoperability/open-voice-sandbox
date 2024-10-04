@@ -80,7 +80,9 @@
         "go to",
         "talk with",
         "chat with",
-        "talk to"
+        "talk to",
+        "take me back to",
+        "take me to"
       ]
     },
     {
@@ -97,7 +99,7 @@
         "wizard",
         "discovery",
         "sam",
-        "library",
+        "Athena",
         "pete",
         "ben",
         "basic",
@@ -161,6 +163,16 @@
         "visit",
         "vacation",
         "trip"
+      ]
+    },
+    {
+      "name": "weather",
+      "examples": [
+        "what's the weather",
+        "tell me the weather",
+        "what's the weather like",
+        "how's the weather today",
+        "what's the forecast"
       ]
     }
   ]

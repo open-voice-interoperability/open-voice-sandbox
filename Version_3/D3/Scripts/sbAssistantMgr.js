@@ -2,6 +2,8 @@ var selectedAssistantIndex = 0;
 var assistantObject ;
 
 function sbGetAgentParams( someAgentName ){ //return object for this agent
+  functionList.push('sbGetAgentParams()');
+
   for (let i = 0; i < assistantTable.length; i++) {
     if( assistantTable[i].assistant && assistantTable[i].assistant.name === someAgentName ){
       return assistantTable[i];
@@ -10,80 +12,75 @@ function sbGetAgentParams( someAgentName ){ //return object for this agent
 }
 
 function highlightSelectedAssistant(markerColor) {
+  functionList.push('highlightSelectedAssistant()');
   const hslColor = hexToHSL(markerColor);
   const assistantListDiv = document.getElementById('assistantList');
-  if (assistantListDiv) {
-      // Remove existing highlighting
-      const highlightedElement = assistantListDiv.querySelector('.highlighted');
-      if (highlightedElement) {
-          highlightedElement.classList.remove('highlighted');
-          highlightedElement.style.backgroundColor = '';
-      }
+  const selectedAssistantName = assistantObject.assistant.name;
 
-      // Find the selected assistant and apply highlighting
-      const selectedAssistantName = assistantObject.assistant.name;
-      let found = false;
-      const assistantElements = assistantListDiv.getElementsByTagName('p');
-      for (const element of assistantElements) {
-          if (element.textContent === selectedAssistantName) {
-            element.classList.add('highlighted');
-              element.style.backgroundColor = `hsl(${hslColor.h}, ${hslColor.s}%, ${hslColor.l}%)`;
-              found = true;
-              break; // No need to continue iterating once highlighted
-          }
-      }
-      if (!found) {
-        console.log('Assistant not found in the list');
+  if (assistantListDiv) {
+    const highlightedElement = assistantListDiv.querySelector('.highlighted');
+    if (highlightedElement) {
+      highlightedElement.classList.remove('highlighted');
+      highlightedElement.style.backgroundColor = '';
     }
+    const assistantElements = assistantListDiv.getElementsByTagName('p');
+    Array.from(assistantElements).forEach(element => {
+      if (element.textContent === selectedAssistantName) {
+        element.classList.add('highlighted');
+        element.style.backgroundColor = `hsl(${hslColor.h}, ${hslColor.s}%, ${hslColor.l}%)`;
+      }
+    });
   }
 }
 
 var assistantStack = [];
 async function fetchAssistantData() {
+  functionList.push('fetchAssistantData()');
+
   try {
-    const response = await fetch("../Support/ActiveAssistantList.json");
-    const manifest = await fetch("../Support/manifest.json");
+    const [response, manifest] = await Promise.all([
+      fetch("../Support/ActiveAssistantList.json"),
+      fetch("../Support/manifest.json")
+    ]);
     const manifestData = await manifest.json();
     const data = await response.json();
     const transformedData = data.map(item => ({ assistant: item }));
-    const excludedData = transformedData.slice(2); // Exclude the first two items
+    const excludedData = transformedData.slice(2);
+
     localStorage.setItem('assistantStack', JSON.stringify(excludedData));
     localStorage.setItem('fullAssistantList', JSON.stringify(transformedData));
-    const assistantListDiv = document.getElementById('assistantList');
-  if (assistantListDiv) {
-      assistantListDiv.innerHTML = '<h3 style="margin-bottom: -6px; margin-top: -6px; text-align:center">Assistants To Transfer To:</h3>';
-      excludedData.forEach(item => {
-          const assistantName = item.assistant.assistant.name;
-          const keywords = getKeywordsForAssistant(assistantName, manifestData);
-          assistantListDiv.innerHTML += `<p style="margin-bottom: -10px; text-align:center; font-weight: bold;">${assistantName}</p>`;
 
-          if (keywords.length > 0) {
-            assistantListDiv.innerHTML += `<p style="margin-bottom: -10px; text-align:center">{${keywords.join(', ')}}</p>`;
-          }
-        });
-  }
-
+    populateAssistantList(excludedData, manifestData);
     return data;
   } catch (error) {
-    throw error;
+    console.error('Error fetching assistant data:', error);
+  }
+}
+
+function populateAssistantList(excludedData, manifestData) {
+  const assistantListDiv = document.getElementById('assistantList');
+  if (assistantListDiv) {
+    assistantListDiv.innerHTML = '<h3 style="margin-bottom: -6px; margin-top: -6px; text-align:center">Assistants To Transfer To:</h3>';
+    excludedData.forEach(item => {
+      const assistantName = item.assistant.assistant.name;
+      const keywords = getKeywordsForAssistant(assistantName, manifestData);
+      assistantListDiv.innerHTML += `<p style="margin-bottom: -10px; text-align:center; font-weight: bold;">${assistantName}</p>`;
+      if (keywords.length > 0) {
+        assistantListDiv.innerHTML += `<p style="margin-bottom: -10px; text-align:center">{${keywords.join(', ')}}</p>`;
+      }
+    });
   }
 }
 function getKeywordsForAssistant(assistantName, manifestData) {
-  const lowerCaseAssistantName = assistantName.toLowerCase(); // Convert assistant name to lowercase
-  const assistant = manifestData.assistants.find(assistant => {
-    // Convert both the name in the manifest and the provided name to lowercase for case-insensitive comparison
-    const lowerCaseManifestName = assistant.identification.conversationalName.toLowerCase();
-    return lowerCaseManifestName === lowerCaseAssistantName;
-  });
-  if (assistant) {
-    // Return only the first three keywords, if available
-    return assistant.capabilities.keyphrases.slice(0, 3);
-  } else {
-    return [];
-  }
+  const assistant = manifestData.assistants.find(
+    assistant => assistant.identification.conversationalName.toLowerCase() === assistantName.toLowerCase()
+  );
+  return assistant ? assistant.capabilities.keyphrases.slice(0, 3) : [];
 }
 
 async function initializeAssistantData(callback) {
+  functionList.push('initializeAssistantData()');
+
   try {
     const data = await fetchAssistantData();
     assistantTable = data;
@@ -91,9 +88,7 @@ async function initializeAssistantData(callback) {
     assistantObject = assistantTable[selectedAssistantIndex];
     loadAssistantSelect();
 
-    if (typeof callback === 'function') {
-      callback();
-    }
+    if ( callback) callback();
   } catch (error) {
     console.error('Error fetching assistant data:', error);
   }
@@ -101,12 +96,14 @@ async function initializeAssistantData(callback) {
 
 //build the Assistant <select> html innerHTML string
 function loadAssistantSelect() {
+  functionList.push('loadAssistantSelect()');
+
   var assistantSelect = document.getElementById('assistantSelect');
 
   if (assistantSelect) {
     var selCntl = '<label style="font-size: 18px;" for="sbAssist">Choose an Assistant:</label>';
     selCntl += '<select name="startAssistant" id="sbAssist" onchange="saveAssistantIndex();">';
-    selCntl += '<option value="" disabled selected>Select an Assistant</option>';
+    selCntl += '<option style="font-family: \'Exo\', sans-serif;" value="" disabled selected>Select an Assistant</option>';
 
     for (var i = 2; i < assistantTable.length; i++) { // note avoid the first two
       selCntl += '<option value="';
@@ -123,47 +120,35 @@ function loadAssistantSelect() {
       }
 }
 
-function saveAssistantIndex() {  
-  selectedAssistantIndex = document.getElementById("sbAssist").selectedIndex;
-  selectedAssistantIndex = selectedAssistantIndex >= 2 ? selectedAssistantIndex + 1 : 2; 
-  localStorage.setItem( "currentAssistantIndex", selectedAssistantIndex );
+function saveAssistantIndex() { 
+  functionList.push('saveAssistantIndex()');
+ 
+  selectedAssistantIndex = parseInt(document.getElementById("sbAssist").value, 10);
+  localStorage.setItem("currentAssistantIndex", selectedAssistantIndex);
   handleAssistantSelectionChange();
  }
     // Function to handle assistant selection change
 function handleAssistantSelectionChange() {
-      var selectedAssistantIndex = document.getElementById("sbAssist").value;
-      selectedAssistantIndex = localStorage.getItem("currentAssistantIndex");
-      if (selectedAssistantIndex !== "") {
-        // Assistant is selected, show the settings
-        document.getElementById("assistantSettings").style.display = "block";
-    
-        var selectedAssistant = assistantTable[selectedAssistantIndex].assistant;
-        localStorage.setItem("assistantName", selectedAssistant.name);
-    
-        // assistantObject = sbGetAgentParams(selectedAssistant.name);
-        displayAssistantSettings();
-      } else {
-        // No assistant selected, hide the settings
-        document.getElementById("assistantSettings").style.display = "block";
-      }
-    }
+  functionList.push('handleAssistantSelectionChange()');
+
+  selectedAssistantIndex = localStorage.getItem("currentAssistantIndex");
+  const selectedAssistant = assistantTable[selectedAssistantIndex].assistant;
+  localStorage.setItem("assistantName", selectedAssistant.name);
+  displayAssistantSettings();
+}
 
 function generateRandomID() {
+  functionList.push('generateRandomID()');
+
       const letters = "abcdefghijklmnopqrstuvwxyz";
       const numbers = "0123456789";
-      const getRandomChar = (characters) =>
-        characters.charAt(Math.floor(Math.random() * characters.length));
-    
-      const randomID =
-        getRandomChar(letters) +
-        getRandomChar(letters) +
-        getRandomChar(numbers) +
-        getRandomChar(numbers);
-    
-      return randomID;
+      return `${letters.charAt(Math.random() * letters.length)}${letters.charAt(Math.random() * letters.length)}${numbers.charAt(Math.random() * numbers.length)}${numbers.charAt(Math.random() * numbers.length)}`;
+
     }
 
 function getAssistantID(assistantName) {
+  functionList.push('getAssistantID()');
+
   // Retrieve the ID from localStorage, or generate a new one if it doesn't exist
   let assistantID = localStorage.getItem(`${assistantName}_assistantID`);
   if (!assistantID) {
@@ -175,91 +160,61 @@ function getAssistantID(assistantName) {
 
 // Function to display assistant settings
 function displayAssistantSettings() {
-  var selectedAssistantIndex = document.getElementById("sbAssist").value;
-  var selectedAssistant = assistantTable[selectedAssistantIndex];
+  functionList.push('displayAssistantSettings()');
+
+  const selectedAssistant = assistantTable[selectedAssistantIndex];
   const uniqueID = getAssistantID(selectedAssistant.assistant.name);
-
-  // Modify this part based on your settings structure
-  var settingsHTML = `
-  <div>
-
-  <h2>${selectedAssistant.assistant.name}'s Settings</h2>
-  <div>
-    <label for="assistantName"><b>Display Name:</b></label>
-    <input type="text" id="assistantName" value="${selectedAssistant.assistant.displayName}">
-  </div>
-  <div>
-    <label for="spokenName"><b>Spoken Name:</b></label>
-    <input type="text" id="spokenName" value="${selectedAssistant.assistant.name}">
-  </div>
-  <div>
-            <label for="assistantID"><b>Assistant ID:</b></label>
-            <input type="text" id="assistantID" value="${uniqueID}">
-        </div>
-  <div>
-  <label for="voiceIndex"><b>Voice Index:</b></label>
-  <input type="text" id="voiceIndex" value="${selectedAssistant.assistant.voice.index}">
-
-  <button id="voiceSelect" class="load-voices" onclick="openWindow('sbVoices.html')">Load Voices</button>
-  </div>
-  <div>
-      <label for="markerColor"><b>Marker Color:</b></label>
+  const assistantSettingsDiv = document.getElementById("assistantSettings");
+  assistantSettingsDiv.style.display = "block";
+  document.getElementById("assistantSettings").innerHTML = `
+    <div>
+      <h2>${selectedAssistant.assistant.name}'s Settings</h2>
+      <label for="assistantName">Display Name:</label>
+      <input type="text" id="assistantName" value="${selectedAssistant.assistant.displayName}">
+      <label for="spokenName">Spoken Name:</label>
+      <input type="text" id="spokenName" value="${selectedAssistant.assistant.name}">
+      <label for="assistantID">Assistant ID:</label>
+      <input type="text" id="assistantID" value="${uniqueID}">
+      <label for="voiceIndex">Voice Index:</label>
+      <input type="text" id="voiceIndex" value="${selectedAssistant.assistant.voice.index}">
+      <label for="markerColor">Marker Color:</label>
       <input type="color" id="markerColor" value="${selectedAssistant.assistant.markerColor}">
-  </div>
-  <div>
-      <label for="serviceName"><b>Service Name:</b></label>
+      <label for="serviceName">Service Name:</label>
       <input type="text" id="serviceName" value="${selectedAssistant.assistant.serviceName}">
-  </div>
-  <div>
-      <label for="serviceAddress"><b>Service Address:</b></label>
+      <label for="serviceAddress">Service Address:</label>
       <input type="text" id="serviceAddress" value="${selectedAssistant.assistant.serviceAddress}">
-      </div>
-  <div>
-      <label for="authCode"><b>Auth Code:</b></label>
-      <input type="text" id="authCode" value="${selectedAssistant.assistant.authCode}">
-      </div>
-  <div>
-      <label for="contentType"><b>Content Type:</b></label>
-      <input type="text" id="contentType" value="${selectedAssistant.assistant.contentType}">
-
-      </div>
-  <button id="updateSettingsButton" class="update-settings" onclick="updateAssistantSettings()"><b>Update Assistant Settings</b></button>
-  </div>
-  <div id="updateMessage" class="update-message"></div>
+      <button id="updateSettingsButton" class="update-settings" onclick="updateAssistantSettings()">Update Assistant Settings</button>
+    </div>
   `;
-
-  // Display settings and input fields in a single box
-  document.getElementById("assistantSettings").innerHTML = settingsHTML;
 }
 
 var updateClicked = false;
 // Function to update the assistant settings based on user input
 function updateAssistantSettings() {
+  functionList.push('updateAssistantSettings()');
+
   updateClicked = true;
-  var selectedAssistantIndex = document.getElementById("sbAssist").value;
-  var selectedAssistant = JSON.parse(
-    JSON.stringify(assistantTable[selectedAssistantIndex].assistant)
-  );
+  const selectedAssistant = assistantTable[selectedAssistantIndex].assistant;
   
   selectedAssistant.displayName = document.getElementById("assistantName").value;
   selectedAssistant.name = document.getElementById("spokenName").value;
   
-  // Update voice settings
-  var selectedVoiceIndex = parseInt(document.getElementById("voiceIndex").value, 10);
-  var voices = speechSynthesis.getVoices();
+  const selectedVoiceIndex = parseInt(document.getElementById("voiceIndex").value, 10);
+  const voices = speechSynthesis.getVoices();
 
   if (voices.length > 0) {
     updateVoiceSettings(selectedAssistant, selectedVoiceIndex, voices);
   } else {
-    // If voices are not available, wait for the onvoiceschanged event
-    speechSynthesis.onvoiceschanged = function () {
-      voices = speechSynthesis.getVoices();
-      updateVoiceSettings(selectedAssistant, selectedVoiceIndex, voices);
+    speechSynthesis.onvoiceschanged = () => {
+      const updatedVoices = speechSynthesis.getVoices();
+      updateVoiceSettings(selectedAssistant, selectedVoiceIndex, updatedVoices);
     };
   }
 }
 
 function updateVoiceSettings(selectedAssistant, selectedVoiceIndex, voices) {
+  functionList.push('updateVoiceSettings()');
+
   if (selectedVoiceIndex >= 0 && selectedVoiceIndex < voices.length) {
     selectedAssistant.voice.index = selectedVoiceIndex;
     selectedAssistant.voice.name = voices[selectedVoiceIndex].name;

@@ -1,22 +1,24 @@
+var invitedAssistantStack = [];
+var prevAssistantList = [];
+let delegate = false;
+var wc = "assistantBrowser";
+
 function getManifest() {
+    functionList.push('getManifest()');
+
     fetch('http://localhost:8000/request_manifest')
         .then(response => response.json())
         .then(urls => {
-            urls.forEach((url, index) => {
-                if (index >= 2) { // Assuming first two are skipped as in your original code
-                    const assistantItem = assistantTable[index];
+            urls.slice(2).forEach((url, index) => {
+                const assistantItem = assistantTable[index + 2]; // Adjust index due to slice
+                if (assistantItem && assistantItem.assistant) {
                     const baseEnvelopeForAssistant = baseEnvelopeOVON(assistantItem.assistant.serviceAddress);
                     const OVONmsgForAssistant = manifestRequestOVON(baseEnvelopeForAssistant, assistantItem, false);
-                    
-                    // Log the assistantItem to see its structure
-                    console.log("Sending manifest request for assistant:", assistantItem);
 
-                    // Check if the assistantItem has the expected structure
-                    if (assistantItem && assistantItem.assistant) {
-                        sbPostToAssistant(assistantItem, OVONmsgForAssistant);
-                    } else {
-                        console.error("Invalid assistantItem structure:", assistantItem);
-                    }
+                    console.log("Sending manifest request for assistant:", assistantItem);
+                    sbPostToAssistant(assistantItem, OVONmsgForAssistant);
+                } else {
+                    console.error("Invalid assistantItem structure:", assistantItem);
                 }
             });
         })
@@ -24,17 +26,18 @@ function getManifest() {
             console.error('Error fetching manifest:', error);
         });
 }
-var wc = "assistantBrowser";
 
 // var aName = assistantObject.assistant.name;
 
 function sbConversationStart() {
+    functionList.push('sbConversationStart()');
+
     msgLogDiv = document.getElementById("msgLOG");
     localStorage.setItem("currentConversationID", "");
     jsonLOG = "";
     localStorage.setItem( "uttCount", 0 );
     if (!assistantObject) {
-        console.error('assistantObject is not defined');
+        console.error('assistantObject is not defined yet');
         return;
     }
     const baseEnvelope = baseEnvelopeOVON(assistantObject.assistant.serviceAddress);
@@ -72,13 +75,15 @@ function sbConversationStart() {
 initializeAssistantData().then(sbConversationStart);
 
 function baseEnvelopeOVON( someAssistantURL, isReceived = false ){
+    functionList.push('baseEnvelopeOVON()');
+
     const humanFirstName = localStorage.getItem("humanFirstName");
     const defaultSenderName = humanFirstName || "Human"; 
     const OVON_Base = {
         "ovon": {
             "conversation": {
                 "id": "someUniqueIdCreatedByTheFirstParticipant",
-                "startTime": "2023-06-14 02:06:07+00:00" ,
+                "startTime": cleanDateTimeString().slice(1,),
             },
             "schema": {
                 "version": "0.9.0",
@@ -91,20 +96,19 @@ function baseEnvelopeOVON( someAssistantURL, isReceived = false ){
             "events": []
         }
     };
-    OVON_Base.ovon.conversation.startTime = cleanDateTimeString().slice(1,);
     conversationID = localStorage.getItem( "currentConversationID" );
     if( conversationID == "" ){
-        conversationID = "convoID8403984"; // in reality build a unique one
+        conversationID = "convoID" + cleanDateTimeString();
         localStorage.setItem( "currentConversationID", conversationID );
     }
     OVON_Base.ovon.conversation.id = conversationID; // once set it is retained until SB restart
     return OVON_Base;
 }
 
-var invitedAssistantStack = [];
-var prevAssistantList = [];
-let delegate = false;
+
 function bareInviteOVON(baseEnvelope, someAssistant, delegate ){
+    functionList.push('bareInviteOVON()');
+
     const OVON_invite = {
         "to": someAssistant.serviceAddress,
         "eventType": "invite"
@@ -120,6 +124,8 @@ function bareInviteOVON(baseEnvelope, someAssistant, delegate ){
 }
 
 function addManifestRequestOVON(baseEnvelope, someAssistant, delegate ){
+    functionList.push('addManifestRequestOVON()');
+
     const OVON_manifest = {
         "to": assistantObject.assistant.serviceAddress,
         "eventType": "requestManifest",
@@ -130,6 +136,8 @@ function addManifestRequestOVON(baseEnvelope, someAssistant, delegate ){
 }
 
 function manifestRequestOVON(baseEnvelope, someAssistant, delegate ){
+    functionList.push('manifestRequestOVON()');
+
     const OVON = {
         "to": assistantObject.assistant.serviceAddress,
         "eventType": "requestManifest",
@@ -146,6 +154,8 @@ function manifestRequestOVON(baseEnvelope, someAssistant, delegate ){
 }
 
 function setAssistantNameElement( assObj ){
+    functionList.push('setAssistantNameElement()');
+
     var assistantNameElement = document.getElementById("AssistantName");
     var assistantName = assObj.assistant.name;
     var markerColor = assObj.assistant.markerColor;
@@ -170,6 +180,8 @@ function setAssistantNameElement( assObj ){
 }
 
 function bareByeOVON( someAssistant ){
+    functionList.push('bareByeOVON()');
+
     const OVON_invite = {
         "to": assistantObject.assistant.serviceAddress,
         "eventType": "bye",
@@ -184,6 +196,8 @@ function bareByeOVON( someAssistant ){
 }
 
 function buildUtteranceOVON( speaker, utteranceStr, isText, isDelegate, isWhisper, whisperText){
+    functionList.push('buildUtteranceOVON()');
+
     const OVON_Utterance = {
         "to": assistantObject.assistant.serviceAddress,
         "eventType": "utterance",
@@ -214,6 +228,8 @@ function buildUtteranceOVON( speaker, utteranceStr, isText, isDelegate, isWhispe
 }
 
 function buildWhisperOVON( speaker, whisperStr ){
+    functionList.push('buildWhisperOVON()');
+
     // let isWhisper=true;
     const name = speaker;
     const OVON_Whisper = {
@@ -239,6 +255,8 @@ function buildWhisperOVON( speaker, whisperStr ){
 }
 var converseWindow = null;
 function inviteWithUtterance() {
+    functionList.push('inviteWithUtterance()');
+
     const whisperMessage = document.getElementById("whisperMessage").value;
     if (whisperMessage.trim() !== "") {
         localStorage.setItem("InviteWithWhisper", "true");
@@ -255,6 +273,8 @@ function inviteWithUtterance() {
 }
 
 function bareInviteWindow() {
+    functionList.push('bareInviteWindow()');
+
     localStorage.setItem("bareInviteSelected", "true");
     if (!converseWindow || converseWindow.closed) {
         converseWindow = window.open('sbConverse.html', '_blank');
@@ -265,6 +285,8 @@ function bareInviteWindow() {
 }
 
 function manifestRequestWindow() {
+    functionList.push('manifestRequestWindow()');
+
     localStorage.setItem("manifestRequestSelected", "true");
     if (!converseWindow || converseWindow.closed) {
         converseWindow = window.open('sbConverse.html', '_blank');
@@ -275,6 +297,8 @@ function manifestRequestWindow() {
 }
 
 function clearValue(OVONmsg) {
+    functionList.push('clearValue()');
+
     const isInviteWithWhisper = localStorage.getItem("InviteWithWhisper") === "true";
     
     if (isInviteWithWhisper) {
@@ -292,6 +316,8 @@ function clearValue(OVONmsg) {
 
 //Present the Assistant response html innerHTML string
 function displayResponseUtterance( text, col ) {
+    functionList.push('displayResponseUtterance()');
+
     var resp = "<b style='color:";
     resp += ' style="color:';
     resp += assistantObject.assistant.markerColor;
@@ -310,6 +336,8 @@ function displayResponseUtterance( text, col ) {
   }
 
   function displayMsgRECEIVED(text, col) {
+    functionList.push('displayMsgRECEIVED()');
+
     var resp = `<span style='color:${col};'>${text}</span>`;
     var msgRECEIVEDDiv = document.getElementById("msgRECEIVED");
     msgRECEIVEDDiv.innerHTML = resp;
@@ -318,6 +346,8 @@ function displayResponseUtterance( text, col ) {
 
 //Present the Assistant msgLOG html innerHTML string
 function displayMsgLOG( text, col ) {
+    functionList.push('displayMsgLOG()');
+
     var resp = "<b>";
     resp += text;
     resp += '</b>'
@@ -327,6 +357,8 @@ function displayMsgLOG( text, col ) {
 }
 
 function checkEnterKey(event, isText, isWhisper) {
+    functionList.push('checkEnterKey()');
+
     if (event.key === "Enter") {
         var utteranceText = document.getElementById("utterance").value;
         var whisperText = document.getElementById("whisper").value;
@@ -337,6 +369,8 @@ function checkEnterKey(event, isText, isWhisper) {
 
 //Present the Assistant msgLOG html innerHTML string
 function sendReply(utteranceText, isWhisperButton, isText, prevAssistant, whisperText) {
+    functionList.push('sendReply()');
+
     if (isText) {
         console.log("TEXT WAS USED");
     }
@@ -401,24 +435,34 @@ function sendReply(utteranceText, isWhisperButton, isText, prevAssistant, whispe
 
 // settings stuff here
 function loadSettingsValues(){
+    functionList.push('loadSettingsValues()');
+
     document.getElementById("firstName").value = localStorage.getItem( "humanFirstName" );
     document.getElementById("OpenAI").value = localStorage.getItem( "OpenAIKey" );
     document.getElementById("AITemp").value = localStorage.getItem( "AITemp" );
 }
 
 function setFirstName(){
+    functionList.push('setFirstName()');
+
     localStorage.setItem( "humanFirstName", document.getElementById("firstName").value );
 }
 
 function setOpenAIKey(){
+    functionList.push('setOenAIKey()');
+
     localStorage.setItem( "OpenAIKey", document.getElementById("OpenAI").value );
 }
 
 function setAITemp(){
+    functionList.push('setAITemp()');
+
     localStorage.setItem( "AITemp", document.getElementById("AITemp").value );
 }
 
 function setEvelopeConvoID( OVONmsg ){
+    functionList.push('setEnvelopeConvoID()');
+
     conversationID = localStorage.getItem( "currentConversationID" );
     if( conversationID == "" ){
         conversationID = "convoID_";
@@ -429,6 +473,8 @@ function setEvelopeConvoID( OVONmsg ){
 }
 
 function saveTimeStampedLogFile(){
+    functionList.push('saveTimeStampedLogFile()');
+
     var fileName = "OVON";
     fileName += cleanDateTimeString();
     fileName += ".log.txt";
@@ -436,6 +482,8 @@ function saveTimeStampedLogFile(){
 }
 
 function eventSummary( eventArray ) {
+    functionList.push('eventSummary()');
+
     summaryJSON = {"invite": false,
     "bye": false,
     "utterance": false,
@@ -474,5 +522,4 @@ function eventSummary( eventArray ) {
 }
 var assistantStack = JSON.parse(localStorage.getItem('fullAssistantList')) || [];
 var assistantBrowser = assistantStack[1];
-console.log(assistantBrowser)
 var assistantBrowserServiceAddress = assistantBrowser.assistant.assistant.name;

@@ -21,6 +21,28 @@
                   
         },
         {
+            "identification":{
+                "conversationalName": "cassandra",
+                "serviceName": "Personal Assistant",
+                "organization": "ejTalk",
+                "serviceEndpoint": "internal:cassandra",
+                "role": "Help with general tasks.",
+                "synopsis": "Sort of like Jarvis in Iron Man."
+            },
+            "capabilities": {
+                "keyphrases": ["personal","assistant","schedule","appointments"
+                ],
+                "languages": [
+                    "en-us"
+                ],
+                "descriptions":[
+                    "A general purpose administrative assistant.",
+                    "Help the human with basic daily tasks."
+                ],
+                "supportedLayers": ["text","voice"]
+            }
+        },
+        {
             "identification": 
             {
                 "conversationalName": "pete"  ,
@@ -33,7 +55,7 @@
 
             "capabilities": 
             {
-                "keyphrases": ["basic", "lazy", "general", "non informative"],
+                "keyphrases": ["weather", "basic", "temp converter"],
                 "languages": ["en-us"],
                 "descriptions" : "basic assistant that searches for intent and generates a response " , 
                 "supportedLayers": ["text", "voice"]

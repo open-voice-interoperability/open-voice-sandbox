@@ -5,5 +5,5 @@ osascript -e 'tell application "Terminal"
 end tell'
 
 cd -- "$(dirname "$BASH_SOURCE")"
-python benLLM.py
+python3 benLLM.py
 
