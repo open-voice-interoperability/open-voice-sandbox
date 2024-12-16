@@ -41,9 +41,9 @@
       "name": "Athena",
       "displayName": "Athena",
       "voice": {
-        "index": 245,
-        "name": "Microsoft Asilia Online (Natural) - English (Kenya)",
-        "lang": "en-KE",
+        "index": 80,
+        "name": "Microsoft Natasha Online (Natural) - English (Australia)",
+        "lang": "en-AU",
         "platform": ""
       },
       "markerColor": "#555354",
@@ -95,7 +95,7 @@
       "name": "cassandra",
       "displayName": "Cassandra",
       "voice": {
-        "index": 277,
+        "index": 123,
         "name": "Microsoft Jenny Online (Natural) - English (United States)",
         "lang": "en-US",
         "platform": ""
@@ -115,7 +115,7 @@
       "name": "florist",
       "displayName": "Pat",
       "voice": {
-        "index": 273,
+        "index": 119,
         "name": "Microsoft Aria Online (Natural) - English (United States)",
         "lang": "en-US",
         "platform": ""
@@ -155,7 +155,7 @@
       "name": "postman",
       "displayName": "Andrew",
       "voice": {
-        "index": 274,
+        "index": 120,
         "name": "Microsoft Christopher Online (Natural) - English (United States)",
         "lang": "en-US",
         "platform": ""
