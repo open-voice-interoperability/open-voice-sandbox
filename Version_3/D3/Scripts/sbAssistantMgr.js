@@ -1,4 +1,5 @@
 var selectedAssistantIndex = 0;
+//var assistantObject = assistantTable.find(agent => assistant.name === "cassandra");
 var assistantObject ;
 
 function sbGetAgentParams( someAgentName ){ //return object for this agent
@@ -60,7 +61,7 @@ async function fetchAssistantData() {
 function populateAssistantList(excludedData, manifestData) {
   const assistantListDiv = document.getElementById('assistantList');
   if (assistantListDiv) {
-    assistantListDiv.innerHTML = '<h3 style="margin-bottom: -6px; margin-top: -6px; text-align:center">Assistants To Transfer To:</h3>';
+    assistantListDiv.innerHTML = '<h3 style="margin-bottom: -6px; margin-top: -6px; text-align:center; text-decoration: underline; text-decoration-thickness:1.5px;">Assistants To Transfer To:</h3>';
     excludedData.forEach(item => {
       const assistantName = item.assistant.assistant.name;
       const keywords = getKeywordsForAssistant(assistantName, manifestData);
@@ -101,9 +102,9 @@ function loadAssistantSelect() {
   var assistantSelect = document.getElementById('assistantSelect');
 
   if (assistantSelect) {
-    var selCntl = '<label style="font-size: 18px;" for="sbAssist">Choose an Assistant:</label>';
-    selCntl += '<select name="startAssistant" id="sbAssist" onchange="saveAssistantIndex();">';
-    selCntl += '<option style="font-family: \'Exo\', sans-serif;" value="" disabled selected>Select an Assistant</option>';
+    var selCntl = '<class="text" id="text" label style="font-size: 18px;" for="sbAssist">Choose an Assistant:</label>';
+    selCntl += '<select name="startAssistant" id="sbAssist" style="font-size: 16px; width: 200px; height: 35px; padding: 2.5px;" onchange="saveAssistantIndex();">';
+    selCntl += '<option style="font-family=\'Exo\',sans-serif;" value="" disabled selected>Select an Assistant</option>';
 
     for (var i = 2; i < assistantTable.length; i++) { // note avoid the first two
       selCntl += '<option value="';
@@ -167,7 +168,7 @@ function displayAssistantSettings() {
   const assistantSettingsDiv = document.getElementById("assistantSettings");
   assistantSettingsDiv.style.display = "block";
   document.getElementById("assistantSettings").innerHTML = `
-    <div>
+    <div style="font-family: 'Exo', sans-serif; ">
       <h2>${selectedAssistant.assistant.name}'s Settings</h2>
       <label for="assistantName">Display Name:</label>
       <input type="text" id="assistantName" value="${selectedAssistant.assistant.displayName}">
@@ -257,4 +258,94 @@ function updateVoiceSettings(selectedAssistant, selectedVoiceIndex, voices) {
   setTimeout(function () {
     updateMessage.style.display = "none";
   }, 1200);
+}
+
+function createNewEntryInAssistantList(selectedAssistant, selectedVoiceIndex, voices) {
+  //functionList.push('updateVoiceSettings()');
+
+  if (selectedVoiceIndex >= 0 && selectedVoiceIndex < voices.length) {
+    selectedAssistant.voice.index = selectedVoiceIndex;
+    selectedAssistant.voice.name = voices[selectedVoiceIndex].name;
+    selectedAssistant.voice.lang = voices[selectedVoiceIndex].lang;
+  } else {
+    console.error("Invalid voice index:", selectedVoiceIndex);
+  }
+
+  selectedAssistant.markerColor = document.getElementById("markerColor").value;
+  selectedAssistant.serviceName = document.getElementById("serviceName").value;
+  selectedAssistant.serviceAddress = document.getElementById("serviceAddress").value;
+  selectedAssistant.authCode = document.getElementById("authCode").value;
+  selectedAssistant.contentType = document.getElementById("contentType").value;
+
+  // Save the updated assistant settings
+  assistantTable[selectedAssistantIndex].assistant = selectedAssistant;
+  localStorage.setItem("assistantTable", JSON.stringify(assistantTable));
+
+  // Send a PUT request to update the server-side JSON file
+  fetch('../Support/ActiveAssistantList.json', {
+    method: 'PUT',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify(assistantTable, null, 2), // Send the updated assistant data
+  })
+  .then(response => response.json())
+  .catch(error => {
+    console.error('Error updating assistant on the server:', error);
+  });
+
+  displayAssistantSettings();
+
+  var updateMessage = document.getElementById("updateMessage");
+  updateMessage.textContent = "Settings updated successfully!";
+  updateMessage.style.display = "block";
+  // Hide the message after a certain duration (e.g., 3 seconds)
+  setTimeout(function () {
+    updateMessage.style.display = "none";
+  }, 1200);
+}
+
+function addExistingAssistantToList() {
+  //assistantObject = assistantTable.find(agent => assistant.name === "cassandra");
+  newAssistant = {
+    "assistant": {
+      "name": "lowerCaseName",
+      "displayName": "prettyDisplayableName",
+      "voice": {
+        "index": 115,
+        "name": "Microsoft Ryan Online (Natural) - English (United Kingdom)"
+      },
+      "markerColor": "someColor",
+      "serviceName": "Your Expert",
+      "serviceAddress": "someURL",
+      "contentType": "none",
+    }
+  };
+
+  newAssistant.assistant.displayName = document.getElementById("convoName").value;
+  newAssistant.assistant.name = document.getElementById("convoName").value.toLowerCase();
+  newAssistant.assistant.markerColor = document.getElementById("markerColor").value;
+  newAssistant.assistant.serviceName = document.getElementById("organization").value;
+  newAssistant.assistant.serviceAddress = document.getElementById("serviceURL").value;
+  newAssistant.assistant.voice.name = theLastVoicePicked;
+  newAssistant.assistant.voice.index = theLastVoiceIndexPicked;
+  // Save the updated assistant settings
+  assistantTable.push( newAssistant );
+  localStorage.setItem("assistantTable", JSON.stringify(assistantTable));
+
+  // Send a PUT request to update the server-side JSON file
+  fetch('../Support/ActiveAssistantList.json', {
+    method: 'PUT',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify(assistantTable, null, 2), // Send the updated assistant data
+  })
+  .then(response => response.json())
+  .catch(error => {
+    console.error('Error updating assistant on the server:', error);
+  });
+
+  initializeAssistantData().then(displayAssistantSettings());
+  document.getElementById("isAdded").value = "Added External Assistant: " + document.getElementById("convoName").value;
 }

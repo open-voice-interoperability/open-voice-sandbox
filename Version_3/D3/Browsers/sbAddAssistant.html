@@ -94,6 +94,10 @@
     </form>
     <br>
     <button id="createAssistant" type="submit" class="homeBtn" onclick="createAssistant()">Create</button>
+    <button class="homeBtn" onclick="openWindow('sbAddExternalAssistant.html')">Add Existing Assistant</button>
+    <script>
+        assistantObject = assistantTable.find(agent => assistant.name === "cassandra");
+    </script>
 
 </body>
 </html>

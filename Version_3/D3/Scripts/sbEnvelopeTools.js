@@ -32,6 +32,7 @@ function getManifest() {
 function sbConversationStart() {
     functionList.push('sbConversationStart()');
 
+    //assistantObject = assistantTable.find(agent => assistant.name === "cassandra"); // ejcDBG 
     msgLogDiv = document.getElementById("msgLOG");
     localStorage.setItem("currentConversationID", "");
     jsonLOG = "";

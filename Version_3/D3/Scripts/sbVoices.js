@@ -1,4 +1,6 @@
 var lastSelectedVoices = []; //used in updateSelectedVoiceInfo()
+var theLastVoicePicked = "none";
+var theLastVoiceIndexPicked = 0;
 
 // build the TTS Voice <select> html innerHTML string
 function loadVoiceSelect() {
@@ -31,6 +33,7 @@ function updateVoiceSelectOptions(voices) {
   }
 
   updateSelectedVoiceInfo();
+
 }
 
 
@@ -40,8 +43,11 @@ function updateSelectedVoiceInfo() {
   var selectedVoiceName;
   
   for (var j = 0; j < ttsEngs.length; j++) {
-    if (j == selectedIndex && j !== 115) {
-      var voiceName = ttsEngs[j].name;
+    //if (j == selectedIndex && j !== 115) {
+    if (j == selectedIndex ) {
+        var voiceName = ttsEngs[j].name;
+        theLastVoicePicked = voiceName; // use this to set a new existing assistant
+        theLastVoiceIndexPicked = j; // use this to set a new existing assistant
         selectedVoiceName = j + ': ' + voiceName;
         break; // No need to continue the loop once the voice is found
     }
@@ -112,12 +118,12 @@ function saveTTSVoiceIndex() {
     assistantObject.assistant.voice.index = vInd;
     localStorage.setItem('voiceSelection', vInd); // Save the selected voice index
     updateSelectedVoiceInfo();
-  
-  say = document.getElementById("sbTTS_Text").value;
+    say = document.getElementById("sbTTS_Text").value;
  
   console.log("Selected voice:", selectedVoice);
   updateSpeechParams('volume'); // This will use the current volume, rate, and pitch to speak the text
-  }else {
+} else {
     console.error("Invalid voice index:", vInd);
   }
+  
 }

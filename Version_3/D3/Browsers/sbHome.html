@@ -2,19 +2,21 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home (Start Conversation)</title>
+    <link href="https://fonts.googleapis.com/css2?family=Exo:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
     <link rel="stylesheet" href="../Scripts/css/styles.css">
-    <script type="JSON" src="../Support/ActiveAssistantList.json"></script>
-    <script language="JavaScript" src= "../Scripts/sbHomepage.js"></script>
-    <script language="JavaScript" src= "../Scripts/sbAssistantMgr.js"></script>    
-    <script language="JavaScript" src= "../Scripts/sbEnvelopeTools.js"></script>
-    <script language="JavaScript" src= "../Scripts/sbHttpComm.js"></script>
-    <script language="JavaScript" src= "../Scripts/sbSpeech.js"></script>
-    <script language="JavaScript" src= "../Scripts/sbSeqDiag.js"></script>
-    <script language="JavaScript" src= "../AssistantServers/InternalServer/internalServer.js"></script>
-
-    <script language="JavaScript" src= "../AssistantServers/InternalBasic/internalBasic.js"></script>
-
+    <!-- External Scripts -->
+    <script defer src="../Support/ActiveAssistantList.json"></script>
+    <script defer src="../Scripts/sbHomepage.js"></script>
+    <script defer src="../Scripts/sbAssistantMgr.js"></script>
+    <script defer src="../Scripts/sbEnvelopeTools.js"></script>
+    <script defer src="../Scripts/sbHttpComm.js"></script>
+    <script defer src="../Scripts/sbSpeech.js"></script>
+    <script defer src="../Scripts/sbSeqDiag.js"></script>
+    <script defer src="../AssistantServers/InternalServer/internalServer.js"></script>
+    <script defer src="../AssistantServers/InternalBasic/internalBasic.js"></script>
 </head>
 <body onload="sbStart()">
     <table class="centerTable">
@@ -38,10 +40,12 @@
       </table>
 
     <div id="lineSeparator"></div>
-    <button class="homeBtn" onclick="openWindow('../sbStartup.html')">Startup Page</button>
+    <button class="converseBtn" onclick="openWindow('../sbStartup.html')">Startup Page</button>
+    
 
     <button class="homeBtn" onclick="openWindow('sbSettings.html')">Settings</button>
     <button class="homeBtn" onclick="openWindow('sbAddAssistant.html')">Create New Assistant</button>
+    <button class="homeBtn" onclick="openWindow('sbAddExternalAssistant.html')">Add Existing Assistant</button>
     <button class="homeBtn" onclick="getManifest()">Refresh Manifest</button>
     <br/>
     <br/>

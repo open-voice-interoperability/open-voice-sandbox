@@ -95,7 +95,7 @@
       "name": "cassandra",
       "displayName": "Cassandra",
       "voice": {
-        "index": 123,
+        "index": 108,
         "name": "Microsoft Jenny Online (Natural) - English (United States)",
         "lang": "en-US",
         "platform": ""
@@ -296,6 +296,62 @@
       "serviceAddress": "http://localhost:8242/",
       "authCode": "AuZ9SYtXn",
       "contentType": "application/json"
+    }
+  },
+  {
+    "assistant": {
+      "name": "nigel",
+      "displayName": "Nigel",
+      "voice": {
+        "index": 108,
+        "name": "Microsoft Brian Online (Natural) - English (United States)"
+      },
+      "markerColor": "#56f576",
+      "serviceName": "ejTalk",
+      "serviceAddress": "http://ejtalk.pythonanywhere.com",
+      "contentType": "none"
+    }
+  },
+  {
+    "assistant": {
+      "name": "nigel",
+      "displayName": "Nigel",
+      "voice": {
+        "index": 110,
+        "name": "Microsoft Luke Online (Natural) - English (South Africa)"
+      },
+      "markerColor": "#e89292",
+      "serviceName": "ejTalk",
+      "serviceAddress": "http://ejtalk.pythonanywhere.com",
+      "contentType": "none"
+    }
+  },
+  {
+    "assistant": {
+      "name": "margret",
+      "displayName": "Margret",
+      "voice": {
+        "index": 107,
+        "name": "Microsoft Emma Online (Natural) - English (United States)"
+      },
+      "markerColor": "#3f50d5",
+      "serviceName": "Debbie",
+      "serviceAddress": "https://secondAssistant.pythonAnywhere.com",
+      "contentType": "none"
+    }
+  },
+  {
+    "assistant": {
+      "name": "harold",
+      "displayName": "harold",
+      "voice": {
+        "index": 108,
+        "name": "Microsoft Brian Online (Natural) - English (United States)"
+      },
+      "markerColor": "#c3d016",
+      "serviceName": "ejTalk",
+      "serviceAddress": "http://codeMom.pythonanywhere.com",
+      "contentType": "none"
     }
   }
 ]
