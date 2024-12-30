@@ -7,69 +7,98 @@ var remoteURL = "";
 var contentType = "application/json";
 var jsonLOG;
 var conversationLOG = [];
-var isAssistantActive = false; // Flag to indicate if an assistant is currently speaking
 
-//function sbPostToAssistant( assistantObject, OVONmsg ) { //send to their server
-async function sbPostToAssistant( assistantObject, OVONmsg ) { //send to their server
-  while (isAssistantActive) {
-    await new Promise(resolve => setTimeout(resolve, 100)); // Wait for 100ms before checking again
-  }
-  isAssistantActive = true;
-  try {
-    remoteURL = assistantObject.assistant.serviceAddress;
-    assistType = remoteURL.split(':');
-    textColor = assistantObject.assistant.markerColor;
-    voiceIndex = assistantObject.assistant.voice.index;
-    contentType = assistantObject.assistant.contentType;
-    setAssistantNameElement(assistantObject);
+function sbRawManifestRequest( assistantURL, OVONmsg ) { //send to their server
+  assistType = assistantURL.split(':');
 
-    jsonSENT = JSON.stringify(OVONmsg, null, 2);
-    if (assistType[0] == "internal") {
-      callInternalAssistant(assistType[1], assistantObject, OVONmsg, true);
-    } else if (assistType[0] == "internalLLM") {
-      callInternalLLM(assistType[1], assistantObject, OVONmsg);
-    } else if (assistType[0] == "internal" && assistType[1] == "basic") {
-      callBasicAssistant(assistType[1], assistantObject, OVONmsg);
-    } else {
-      if (sbOVON_CommObject == null) {
-        try {
-          sbOVON_CommObject = new XMLHttpRequest();
-        } catch (e) {
-          sbOVON_CommObject = null;
-          alert('Failed to make sandbox communication object');
-          return false;
-        }
-        sbOVON_CommObject.onreadystatechange = sbOVONstateChecker;
+  if( assistType[0] == "internal"  && assistType[1] == "discovery"){
+    callInternalAssistant( assistType[1], assistantObject, OVONmsg );
+  }else if( assistType[0] == "internalLLM" ){
+    callInternalLLM( assistType[1], assistantObject, OVONmsg );
+  }else if( assistType[0] == "internal" && assistType[1] == "basic" ){
+    callBasicAssistant( assistType[1], assistantObject, OVONmsg );
+  }else if( assistType[0] == "internal" && assistType[1] == "cassandra" ){
+    callCassandra( assistType[1], assistantObject, OVONmsg );
+  }else{
+    if( sbOVON_CommObject == null ){
+      try{
+        sbOVON_CommObject = new XMLHttpRequest();
+      }catch(e){
+        sbOVON_CommObject = null;
+        alert( 'Failed to make sandbox communication object' );
+        return false;
       }
-      if (sbOVON_CommObject != null) {
-        sbOVON_CommObject.open('POST', remoteURL, true);
-        if (contentType != "none") {
-          sbOVON_CommObject.setRequestHeader('Content-Type', contentType);
-        }
-        sbOVON_CommObject.send(JSON.stringify(OVONmsg));
-      }
+      sbOVON_CommObject.onreadystatechange=sbOVONManReqstateChecker;
     }
-    displayMsgSent(jsonSENT);
-  } finally {
-    // Mark the assistant as inactive
-    isAssistantActive = false;
+    if( sbOVON_CommObject != null ){  
+      sbOVON_CommObject.open( 'POST', assistantURL, true ); // false makes it async
+      sbOVON_CommObject.setRequestHeader('Content-Type', "application/json" );
+      sbOVON_CommObject.send( JSON.stringify( OVONmsg ) ); // send to server
+    }
   }
 }
 
-function displayMsgSent(jsonSENT){
-  var targ = document.getElementById("msgSENT");
-  if(targ){
-    targ.innerHTML = jsonSENT; 
-    const sentMessage = {
-      direction: 'sent',
-      timestamp: new Date().toISOString(),
-      content: jsonSENT,
-    };
-    conversationLOG.push(sentMessage);
-    logs = localStorage.setItem('conversationLog', JSON.stringify(conversationLOG));
-    document.getElementById("utterance").value = "";    
-    document.getElementById("whisper").value = "";
+function sbOVONManReqstateChecker(){ // when POST response appears do this
+  if( sbOVON_CommObject.readyState == 4 ){
+    if( sbOVON_CommObject.status == 200 || sbOVON_CommObject.status == 201 ){
+      sbData = sbOVON_CommObject.responseText;
+      if( sbData.length ){
+        retOVONJSON = JSON.parse(sbData);
+        handleReturnedManifestOVON( retOVONJSON );
+      }
+    }
   }
+}
+
+function sbPostToAssistant( assistantObject, OVONmsg ) { //send to their server
+  remoteURL = assistantObject.assistant.serviceAddress;
+  assistType = remoteURL.split(':');
+
+  textColor = assistantObject.assistant.markerColor;
+  voiceIndex = assistantObject.assistant.voiceIndex;
+
+  contentType = assistantObject.assistant.contentType;
+  setAssistantNameElement( assistantObject ); // this replaces following lines
+  
+  jsonSENT = JSON.stringify( OVONmsg, null, 2 );
+
+  if( assistType[0] == "internal"  && assistType[1] == "discovery"){
+    callInternalAssistant( assistType[1], assistantObject, OVONmsg );
+  }else if( assistType[0] == "internalLLM" ){
+    callInternalLLM( assistType[1], assistantObject, OVONmsg );
+  }else if( assistType[0] == "internal" && assistType[1] == "basic" ){
+    callBasicAssistant( assistType[1], assistantObject, OVONmsg );
+  }else if( assistType[0] == "internal" && assistType[1] == "cassandra" ){
+    //callCassandra( assistType[1], assistantObject, OVONmsg );
+    callInternalAssistant( assistType[1], assistantObject, OVONmsg );
+  }else{
+    if( sbOVON_CommObject == null ){
+      try{
+        sbOVON_CommObject = new XMLHttpRequest();
+      }catch(e){
+        sbOVON_CommObject = null;
+        alert( 'Failed to make sandbox communication object' );
+        return false;
+      }
+      sbOVON_CommObject.onreadystatechange=sbOVONstateChecker;
+    }
+    if( sbOVON_CommObject != null ){  
+      sbOVON_CommObject.open( 'POST', remoteURL, true ); // false makes it async
+              if( contentType != "none"){  // UGLY HACK JUST TO MAKE "wizard" work
+                sbOVON_CommObject.setRequestHeader('Content-Type', contentType ); } // END OF UGLY HACK!!!!!
+      sbOVON_CommObject.send( JSON.stringify( OVONmsg ) ); // send to server
+    }
+  }
+
+  var targ = document.getElementById("msgSENT");
+  targ.innerHTML = jsonSENT; 
+  const sentMessage = {
+    direction: 'sent',
+    timestamp: new Date().toISOString(),
+    content: jsonSENT,
+  };
+  conversationLOG.push(sentMessage);
+  logs = localStorage.setItem('conversationLog', JSON.stringify(conversationLOG));
 }
 
 function sbOVONstateChecker(){ // when POST response appears do this
@@ -77,14 +106,7 @@ function sbOVONstateChecker(){ // when POST response appears do this
     if( sbOVON_CommObject.status == 200 || sbOVON_CommObject.status == 201 ){
       sbData = sbOVON_CommObject.responseText;
       if( sbData.length ){
-        var start = sbData.indexOf("{");
-        var stop = sbData.lastIndexOf("}");
-        var result;
-        if( stop > start ){
-          result = sbData.substring(start, stop+1);          
-        }
-        retOVONJSON = JSON.parse(result);
-        //retOVONJSON = JSON.parse(sbData);
+        retOVONJSON = JSON.parse(sbData);
         handleReturnedOVON( retOVONJSON );
       }
     }
@@ -92,31 +114,23 @@ function sbOVONstateChecker(){ // when POST response appears do this
 }
 
 function handleReturnedOVON( OVON_msg ){
-  try {
-    const jsonRECEIVED = JSON.stringify(OVON_msg, null, 2);
-    localStorage.setItem('lastReceived', jsonRECEIVED);
+  jsonRECEIVED = JSON.stringify( OVON_msg, null, 2 );
+  const myArray = jsonRECEIVED.split("\n");
 
-    var targ = document.getElementById("msgRECEIVED");
-    if (targ) {
-      targ.innerHTML = jsonRECEIVED;
-      displayMsgRECEIVED(jsonRECEIVED, assistantObject.assistant.markerColor);
-      requestAnimationFrame(function() {
-        const receivedMessage = {
-          direction: 'received',
-          timestamp: new Date().toISOString(),
-          content: jsonRECEIVED,
-        };
-        conversationLOG.push(receivedMessage);
-        localStorage.setItem('conversationLog', JSON.stringify(conversationLOG));
-      });
+  var targ = document.getElementById("msgRECEIVED");
+  targ.innerHTML = jsonRECEIVED;
+  displayMsgRECEIVED(jsonRECEIVED, assistantObject.assistant.markerColor);
+  requestAnimationFrame(function() {
+    const receivedMessage = {
+        direction: 'received',
+        timestamp: new Date().toISOString(),
+        content: jsonRECEIVED,
+    };
 
-      // Wait for the display and logging operations to complete
-      new Promise(resolve => requestAnimationFrame(resolve));
-      serviceEventsOVON(OVON_msg);
-    }
-  } catch (error) {
-    console.error('Error handling returned OVON:', error);
-  }
+  conversationLOG.push(receivedMessage);
+  localStorage.setItem('conversationLog', JSON.stringify(conversationLOG));
+  serviceEventsOVON( OVON_msg );
+  });
 }
 
 function RenderResponseOVON( oneEvent, indx, arr ){
@@ -126,44 +140,21 @@ function RenderResponseOVON( oneEvent, indx, arr ){
   if( type == "utterance" ){
     say = oneEvent.parameters.dialogEvent.features.text.tokens[0].value;
     displayResponseUtterance( say, textColor); // NOTE: This speaks too!
-  }else if( type == "whisper"){
-    hasKey = 'dialogEvent' in oneEvent.parameters;
-    if(hasKey) {
-      whisp = oneEvent.parameters.dialogEvent.features.text.tokens[0].value;
-    }
-    hasKey = 'concepts' in oneEvent.parameters;
-    // do something with this???
-  }else if( type == "proposeAssistant"){
-  }else if( type == "findAssistant"){
-  }else if( type == "publishManifest "){
-  }else if( type == "requestManifest "){
+  }else if( type == "bye"){
   }
 }
 
-function serviceEventsOVON(OvonJson) {
-  try {
-    for (const event of OvonJson.ovon.events) {
-      RenderResponseOVON(event);
-    }
-  } catch (error) {
-    console.error('Error processing OVON events:', error);
-  }
+function serviceEventsOVON( OvonJson ){
+  OvonJson.ovon.events.forEach(RenderResponseOVON);
 }
 
 async function fetchFileJSON( fullFileName ) {
+  functionList.push('fetchFileJSON()');
+
   try {
     const response = await fetch(fullFileName );
     const data = await response.json();
     return data;
-  }catch (error) {
-    throw error;
-  }
-}
-
-async function fetchFileText( fullFileName ) {
-  try {
-    const response = await fetch(fullFileName );
-    return response;
   }catch (error) {
     throw error;
   }

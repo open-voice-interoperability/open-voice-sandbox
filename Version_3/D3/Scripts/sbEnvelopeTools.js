@@ -29,10 +29,13 @@ function getManifest() {
 
 // var aName = assistantObject.assistant.name;
 
-function sbConversationStart() {
+async function sbConversationStart() {
     functionList.push('sbConversationStart()');
 
-    //assistantObject = assistantTable.find(agent => assistant.name === "cassandra"); // ejcDBG 
+    await initializeAssistantData();
+
+
+    //assistantObject = assistantTable.find(assistant => assistant.name === "cassandra"); // ejcDBG 
     msgLogDiv = document.getElementById("msgLOG");
     localStorage.setItem("currentConversationID", "");
     jsonLOG = "";
@@ -74,6 +77,39 @@ function sbConversationStart() {
 }
 
 initializeAssistantData().then(sbConversationStart);
+
+
+function bareManifestRequestOVON( assistantURL ){
+    const OVON_Base = {
+        "ovon": {
+            "conversation": {
+                "id": "addedInSectionBelow",
+                "startTime": cleanDateTimeString().slice(1,),
+            },
+            "schema": {
+                "version": "0.9.0",
+                "url": "not_published_yet"
+            },
+            "sender": {
+                "from": "convener"
+            },
+            "events": []
+        }
+    };
+    conversationID = localStorage.getItem( "currentConversationID" );
+    if( conversationID == "" ){
+        conversationID = "convoID" + cleanDateTimeString();
+        localStorage.setItem( "currentConversationID", conversationID );
+    }
+    OVON_Base.ovon.conversation.id = conversationID;
+
+    const OVON_Event = {
+        "to": assistantURL,
+        "eventType": "requestManifest",
+        }
+    OVON_Base.ovon.events.push(OVON_Event);
+    return OVON_Base;
+}
 
 function baseEnvelopeOVON( someAssistantURL, isReceived = false ){
     functionList.push('baseEnvelopeOVON()');

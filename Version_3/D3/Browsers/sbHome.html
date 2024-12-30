@@ -17,6 +17,7 @@
     <script defer src="../Scripts/sbSeqDiag.js"></script>
     <script defer src="../AssistantServers/InternalServer/internalServer.js"></script>
     <script defer src="../AssistantServers/InternalBasic/internalBasic.js"></script>
+    <script>localStorage.setItem("currentAssistantIndex", -1);</script>
 </head>
 <body onload="sbStart()">
     <table class="centerTable">
@@ -49,6 +50,9 @@
     <button class="homeBtn" onclick="getManifest()">Refresh Manifest</button>
     <br/>
     <br/>
+    <button class="homeBtn" onclick="window.location.reload()">Refresh Assistant List</button>
+    <button class="dangerBtn" onclick="deleteSelectedAssistant()">Remove Selected Assistant</button>
+    <div id="isRemoved" textcolor="red"></div>
     <div class="assistantSelectDiv"><span id="assistantSelect"></span> </div>
     <div id="assistantSettings" style="display: none;"></div>
     

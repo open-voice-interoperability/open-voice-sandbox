@@ -21,23 +21,6 @@
   },
   {
     "assistant": {
-      "name": "wizard",
-      "displayName": "Wizard",
-      "voice": {
-        "index": 109,
-        "name": "Microsoft Thomas Online (Natural) - English (United Kingdom)",
-        "lang": "en-GB",
-        "platform": ""
-      },
-      "markerColor": "#29a3a3",
-      "serviceName": "DaVinci_LLM",
-      "serviceAddress": "https://www.asteroute.com/ovontest",
-      "authCode": "69jjg45cf0",
-      "contentType": "none"
-    }
-  },
-  {
-    "assistant": {
       "name": "Athena",
       "displayName": "Athena",
       "voice": {
@@ -95,7 +78,7 @@
       "name": "cassandra",
       "displayName": "Cassandra",
       "voice": {
-        "index": 108,
+        "index": 84,
         "name": "Microsoft Jenny Online (Natural) - English (United States)",
         "lang": "en-US",
         "platform": ""
@@ -300,58 +283,53 @@
   },
   {
     "assistant": {
-      "name": "nigel",
-      "displayName": "Nigel",
+      "name": "jonathan",
+      "displayName": "Jonathan",
       "voice": {
-        "index": 108,
-        "name": "Microsoft Brian Online (Natural) - English (United States)"
+        "index": 82,
+        "name": "Microsoft Molly Online (Natural) - English (New Zealand)"
       },
-      "markerColor": "#56f576",
-      "serviceName": "ejTalk",
-      "serviceAddress": "http://ejtalk.pythonanywhere.com",
-      "contentType": "none"
-    }
-  },
-  {
-    "assistant": {
-      "name": "nigel",
-      "displayName": "Nigel",
-      "voice": {
-        "index": 110,
-        "name": "Microsoft Luke Online (Natural) - English (South Africa)"
-      },
-      "markerColor": "#e89292",
-      "serviceName": "ejTalk",
-      "serviceAddress": "http://ejtalk.pythonanywhere.com",
-      "contentType": "none"
-    }
-  },
-  {
-    "assistant": {
-      "name": "margret",
-      "displayName": "Margret",
-      "voice": {
-        "index": 107,
-        "name": "Microsoft Emma Online (Natural) - English (United States)"
-      },
-      "markerColor": "#3f50d5",
-      "serviceName": "Debbie",
-      "serviceAddress": "https://secondAssistant.pythonAnywhere.com",
-      "contentType": "none"
-    }
-  },
-  {
-    "assistant": {
-      "name": "harold",
-      "displayName": "harold",
-      "voice": {
-        "index": 108,
-        "name": "Microsoft Brian Online (Natural) - English (United States)"
-      },
-      "markerColor": "#c3d016",
-      "serviceName": "ejTalk",
+      "markerColor": "#3cb44b",
+      "serviceName": "Jon's Place",
       "serviceAddress": "http://codeMom.pythonanywhere.com",
-      "contentType": "none"
+      "contentType": "application/json",
+      "organization": "ejTalk",
+      "role": "Basic assistant",
+      "synopsis": "I am a pretty dumb assistant."
+    }
+  },
+  {
+    "assistant": {
+      "name": "wendyweather",
+      "displayName": "WendyWeather",
+      "voice": {
+        "index": 82,
+        "name": "Microsoft Clara Online (Natural) - English (Canada)"
+      },
+      "markerColor": "#3cb44b",
+      "serviceName": "Python Anywhere",
+      "serviceAddress": "http://secondAssistant.pythonanywhere.com",
+      "contentType": "application/json",
+      "organization": "Sandbox_LFAI",
+      "role": "Basic weather assistant",
+      "synopsis": "weather information."
+    }
+  },
+  {
+    "assistant": {
+      "name": "nigel",
+      "displayName": "Nigel",
+      "voice": {
+        "index": 84,
+        "name": "Microsoft Sam Online (Natural) - English (Hongkong)"
+      },
+      "markerColor": "#3cb44b",
+      "serviceName": "ejTalk Anywhere",
+      "serviceAddress": "http://ejtalk.pythonanywhere.com",
+      "contentType": "application/json",
+      "organization": "ejTalk_Sandbox",
+      "role": "Basic assistant",
+      "synopsis": "I am a really dumb assistant."
     }
   }
 ]

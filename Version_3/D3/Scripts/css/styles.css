@@ -198,6 +198,22 @@
     transition: .5s;
     cursor: pointer;
 }
+
+.dangerBtn {
+    border-radius: 8px;
+    opacity: 90%;
+    border: 0px;
+    margin-top: 5px;
+    margin-right: 5px;
+    padding: 5px;
+    background-color: rgb(254, 93, 96);
+    font-size: 16px;
+}
+.dangerBtn:hover {
+    background-color: rgb(247, 255, 101);
+    transition: .5s;
+    cursor: pointer;
+}
 .assistantSelectDiv{
     margin-bottom: -25px;
 }

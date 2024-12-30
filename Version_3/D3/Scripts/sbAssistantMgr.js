@@ -128,7 +128,8 @@ function saveAssistantIndex() {
   localStorage.setItem("currentAssistantIndex", selectedAssistantIndex);
   handleAssistantSelectionChange();
  }
-    // Function to handle assistant selection change
+
+// Function to handle assistant selection change
 function handleAssistantSelectionChange() {
   functionList.push('handleAssistantSelectionChange()');
 
@@ -137,7 +138,32 @@ function handleAssistantSelectionChange() {
   localStorage.setItem("assistantName", selectedAssistant.name);
   displayAssistantSettings();
 }
+// Delete selected assistant from list
+function deleteSelectedAssistant() {
+  selIndex = localStorage.getItem("currentAssistantIndex");
+  var cName = assistantTable[selIndex].assistant.displayName;
+  assistantTable.splice( selIndex, 1 );
 
+  document.getElementById("isRemoved").innerHTML = "External Assistant: " + cName + " is removed from your Assistant List.";
+
+  // Send a PUT request to update the server-side JSON file
+  fetch('../Support/ActiveAssistantList.json', {
+    method: 'PUT',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify(assistantTable, null, 2), // Send the updated assistant data
+  })
+  .then(response => response.json())
+  .catch(error => {
+    console.error('Error updating assistant on the server:', error);
+  });
+
+  initializeAssistantData().then(displayAssistantSettings());
+  
+  displayAssistantSettings();
+}
+        
 function generateRandomID() {
   functionList.push('generateRandomID()');
 
@@ -305,47 +331,109 @@ function createNewEntryInAssistantList(selectedAssistant, selectedVoiceIndex, vo
   }, 1200);
 }
 
-function addExistingAssistantToList() {
-  //assistantObject = assistantTable.find(agent => assistant.name === "cassandra");
+function loadFromManifest() {
+  assistantURL = document.getElementById("serviceURL").value;
+  const OVONmsg = bareManifestRequestOVON( assistantURL );
+  sbRawManifestRequest( assistantURL, OVONmsg);
+}
+
+var newAssistant = null; // Global for now
+
+function handleReturnedManifestOVON( OVON ){
+  //var someAssistant = {
   newAssistant = {
-    "assistant": {
+      "assistant": {
       "name": "lowerCaseName",
       "displayName": "prettyDisplayableName",
       "voice": {
         "index": 115,
         "name": "Microsoft Ryan Online (Natural) - English (United Kingdom)"
       },
-      "markerColor": "someColor",
+      "markerColor": "#3cb44b",
       "serviceName": "Your Expert",
       "serviceAddress": "someURL",
-      "contentType": "none",
+      "contentType": "application/json",
     }
   };
 
-  newAssistant.assistant.displayName = document.getElementById("convoName").value;
-  newAssistant.assistant.name = document.getElementById("convoName").value.toLowerCase();
-  newAssistant.assistant.markerColor = document.getElementById("markerColor").value;
-  newAssistant.assistant.serviceName = document.getElementById("organization").value;
-  newAssistant.assistant.serviceAddress = document.getElementById("serviceURL").value;
-  newAssistant.assistant.voice.name = theLastVoicePicked;
-  newAssistant.assistant.voice.index = theLastVoiceIndexPicked;
-  // Save the updated assistant settings
-  assistantTable.push( newAssistant );
-  localStorage.setItem("assistantTable", JSON.stringify(assistantTable));
+  manEvent = OVON.ovon.events.find(event => event.eventType === "publishManifest");
+  if( !manEvent ){
+    alert( "INVALID ASSISTANT MANIFEST" );
+    return;
+  }else if(manEvent.parameters.manifest === null ){
+    alert( "NO MANIFEST IN THE OVON");
+  }else{
+    var manifest = manEvent.parameters.manifest;
 
-  // Send a PUT request to update the server-side JSON file
-  fetch('../Support/ActiveAssistantList.json', {
-    method: 'PUT',
-    headers: {
-      'Content-Type': 'application/json',
-    },
-    body: JSON.stringify(assistantTable, null, 2), // Send the updated assistant data
-  })
-  .then(response => response.json())
-  .catch(error => {
-    console.error('Error updating assistant on the server:', error);
-  });
+    ///*
+    urlToAdd = manifest.identification.serviceEndpoint;
+    var existing = assistantTable.find(assistant => assistant.serviceAddress === urlToAdd);
+    /*
+    if( existing ){
+      newAssistant = existing; // this will OVERWRITE the existing assistant info
+    }else{
+      newAssistant = someAssistant;
+    }
+    */
 
-  initializeAssistantData().then(displayAssistantSettings());
-  document.getElementById("isAdded").value = "Added External Assistant: " + document.getElementById("convoName").value;
+    newAssistant.assistant.displayName = manifest.identification.conversationalName;
+    document.getElementById("convoName").innerHTML = manifest.identification.conversationalName;
+  
+    newAssistant.assistant.name = manifest.identification.conversationalName.toLowerCase();
+  
+    newAssistant.assistant.organization = manifest.identification.organization;
+    document.getElementById("organization").innerHTML = manifest.identification.organization;
+  
+    newAssistant.assistant.serviceAddress = manifest.identification.serviceEndpoint;
+    //document.getElementById("serviceURL").value = manifest.identification.serviceEndpoint;
+    // do test here to be sure the url in the manifest is the same as was contacted
+  
+    newAssistant.assistant.serviceName = manifest.identification.serviceName;
+    document.getElementById("serviceName").innerHTML = manifest.identification.serviceName;
+  
+    newAssistant.assistant.role = manifest.identification.role;
+    document.getElementById("role").innerHTML = manifest.identification.role;
+  
+    newAssistant.assistant.synopsis = manifest.identification.synopsis;
+    document.getElementById("synopsis").innerHTML = manifest.identification.synopsis;
+  }
+}
+
+function findNewAssistant() {
+  loadFromManifest( document.getElementById("serviceURL").value );
+
+  // just defaults if no voice is selected
+  theLastVoiceIndexPicked = 115;
+  theLastVoicePicked = "Microsoft Ryan Online (Natural) - English (United Kingdom)"
+}
+
+function addExistingAssistantToList() { // adds color and voice if desired
+  if( !newAssistant ){
+    alert( "YOU MUST FIND AN ASSISTANT FIRST");
+    return;
+  }else{
+    newAssistant.assistant.voice.name = theLastVoicePicked;
+    newAssistant.assistant.voice.index = theLastVoiceIndexPicked;
+    // Save the updated assistant settings
+    assistantTable.push( newAssistant );
+    localStorage.setItem("assistantTable", JSON.stringify(assistantTable));
+    //document.getElementById("isAdded").innerHTML = "Added External Assistant: " + document.getElementById("convoName").innerHTML;
+
+    // Send a PUT request to update the server-side JSON file
+    fetch('../Support/ActiveAssistantList.json', {
+      method: 'PUT',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(assistantTable, null, 2), // Send the updated assistant data
+    })
+    .then(response => response.json())
+    .catch(error => {
+      console.error('Error updating assistant on the server:', error);
+    });
+
+    document.getElementById("isAdded").innerHTML = "Added External Assistant: " + document.getElementById("convoName").innerHTML;
+    initializeAssistantData().then(displayAssistantSettings());
+    //document.getElementById("isAdded").innerHTML = "Added External Assistant: " + document.getElementById("convoName").innerHTML;
+  }
 }
