@@ -29,19 +29,14 @@ function getManifest() {
 
 // var aName = assistantObject.assistant.name;
 
-async function sbConversationStart() {
+function sbConversationStart() {
     functionList.push('sbConversationStart()');
-
-    await initializeAssistantData();
-
-
-    //assistantObject = assistantTable.find(assistant => assistant.name === "cassandra"); // ejcDBG 
+//assistantObject = assistantTable.find(assistant => assistant.name === "cassandra"); // ejcDBG 
     msgLogDiv = document.getElementById("msgLOG");
     localStorage.setItem("currentConversationID", "");
     jsonLOG = "";
     localStorage.setItem( "uttCount", 0 );
     if (!assistantObject) {
-        console.error('assistantObject is not defined yet');
         return;
     }
     const baseEnvelope = baseEnvelopeOVON(assistantObject.assistant.serviceAddress);

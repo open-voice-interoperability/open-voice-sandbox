@@ -3,13 +3,15 @@
     float: right;
     margin: 10px;
 }
-
+body{
+    background-image: linear-gradient(to right, rgba(77, 175, 255, 0), rgba(77, 175, 255, 0.33),rgb(77, 175, 255, .9));
+}
 #assistantSettings, #userInput {
     border: 2px solid rgb(1, 120, 205);
     border-radius: 10px;
     padding: 10px;
     margin-top: 50px;
-    max-width: 250px; 
+    max-width: 500px; 
     float: right;
     margin-right: 20%;
     background-color: #3aabfc;
@@ -55,11 +57,12 @@
     align-items: center;
     margin-left: auto;
     margin-right: auto;
+    font-family: 'Exo', sans-serif;
 }
 
 #assistantSettings .update-settings:hover {
     transition: .5s;
-    background-color: #ca4300; 
+    background-color: #f35507; 
 }
 #assistantSettings .load-voices {
     background-color: #003973;
@@ -68,11 +71,12 @@
     border-radius: 10px;
     border: 0px;
     cursor: pointer;
+    font-family: 'Exo', sans-serif;
 }
 
 #assistantSettings .load-voices:hover {
     transition: .5s;
-    background-color: #ca4300; 
+    background-color: #f35507; 
 }
 #assistantList{
     position: fixed;
@@ -82,7 +86,11 @@
     border-radius: 10px;
     padding-bottom: 10px;
     padding-top: 10px;
-    background-color: rgba(240, 240, 240, 0.8);    
+    background-color: rgba(240, 240, 240, 0.8);
+    font-family: 'Exo', sans-serif;
+    font-size:14px;
+    max-height: auto;
+    overflow-y: auto;    
 }
 .highlighted {
     font-weight: bold; /* or any other styling to make it stand out */
@@ -112,28 +120,18 @@
     font-weight: bold;
   }
 
-#microphoneIcon {
+  #microphoneIcon, #stopTTSIcon {
     /* Initial styles */
     cursor: pointer !important;
     filter: brightness(100%);
     position: relative; 
-}
-
-#microphoneIcon:hover {
-    filter: brightness(135%);
     transition: filter 0.75s ease;
+
 }
 
-#stopTTSIcon {
-    /* Initial styles */
-    cursor: pointer !important;
-    filter: brightness(100%);
-    position: relative; 
-}
-
-#stopTTSIcon:hover {
+#microphoneIcon:hover, #stopTTSIcon:hover  {
     filter: brightness(135%);
-    transition: filter 0.75s ease;
+    /* transition: filter 0.75s ease; */
 }
 
 #lineSeparator {
@@ -168,7 +166,7 @@
     margin-top: -9px;
     width: 400px;
     resize: vertical;
-    font-family: 'Times New Roman', Times, serif;
+    font-family: 'Exo', sans-serif;
     font-size: 14px;
     max-height: 200px;
 }
@@ -192,10 +190,11 @@
     padding: 5px;
     background-color: rgb(58, 171, 252);
     font-size: 16px;
+    font-family: 'Exo', sans-serif;
 }
 .homeBtn:hover, .converseBtn:hover, .logBtn:hover, .settingBtn:hover{
-    background-color: rgb(101, 191, 255);
-    transition: .5s;
+    background-color: #f35507;
+    transition: .75s ease;
     cursor: pointer;
 }
 
@@ -208,6 +207,7 @@
     padding: 5px;
     background-color: rgb(254, 93, 96);
     font-size: 16px;
+    font-family: 'Exo',sans-serif;
 }
 .dangerBtn:hover {
     background-color: rgb(247, 255, 101);
@@ -215,14 +215,17 @@
     cursor: pointer;
 }
 .assistantSelectDiv{
-    margin-bottom: -25px;
+    margin-top: 25px;
+    font-family: 'Exo',sans-serif;
 }
+
 #sbAssist{
     margin-left: 5px;
     padding: 1.85px;
     padding-left: 1.85px;
     padding-right: 1.85px;
     border-radius: 8px;
+    font-family: 'Exo',sans-serif;
 }
 
 #sbAssist:hover, #logFileDropdown:hover{
@@ -256,9 +259,11 @@
 .browserAndOs{
     margin-bottom: 6px;
     font-size: 14px;
+    font-family: 'Exo',sans-serif;
 }
 #titleHead{
     margin-top: -10px;
+    font-family: 'Exo',sans-serif;
 }
 
 img {
@@ -271,7 +276,12 @@ img {
         height: auto;
     }
 }
-
+input::placeholder {
+    font-family: 'Exo',sans-serif;
+}
+h3 {
+    font-family: 'Exo',sans-serif;
+}
 #whisperMessage, #rf {
     border-radius: 5px;
     border-color: #797979;
@@ -280,6 +290,8 @@ img {
 #whisperMessage::placeholder , #rf::placeholder{ 
     color: rgb(56, 55, 55);
     text-align: center;
+    font-family: 'Exo', sans-serif;
+
 }
 
 #whisperMessage{
@@ -287,7 +299,7 @@ img {
     margin-left: 10px;
     width: 215px;
     resize: vertical;
-    font-family: 'Arial';
+    font-family: 'Exo', sans-serif;
     font-size: 14px;
     max-height: 200px;
 }
@@ -331,7 +343,7 @@ img {
 }
 
 .responseWrap {
-    max-width: calc(100vw - 340px);
+    max-width: calc(100vw - 385px);
     overflow-x: auto;
     word-wrap: break-word;
   }
@@ -395,4 +407,20 @@ img {
     text-align: center;
     border-radius: 10px;
     font-weight: 600;
+}
+#updateMessage {
+    display: none;
+    background-color: #219b25;
+    color: white;
+    padding: 10px;
+    text-align: center;
+    border-radius: 10px;
+    font-weight: 600;
+    margin-top: 8px;
+    border: 2px solid rgb(1, 120, 205);
+    width: calc(60%); /* Match the general width of `assistantSettings` */
+    margin-right: auto;
+    margin-left: auto;
+    max-width: 500px;
+    font-family: 'Exo', sans-serif;
 }

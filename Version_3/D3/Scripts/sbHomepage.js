@@ -7,17 +7,25 @@ var bareInviteSelected = false;
 var InviteWithWhisper = false;
 var functionList=[];
 
-
+const openWindows = {};
 function openWindow(url) {
-  var windowName = 'window_' + url;
-  var existingWindow = window.open('', windowName);
-  if (existingWindow) {
-      existingWindow.location.href = url;
-      existingWindow.focus();
+  const windowName = 'window_' + url.split('/').pop(); // Get the filename from the URL
+   // Check if the window is already open
+  if (openWindows[windowName] && !openWindows[windowName].closed) {
+    // If it's already open, just focus on it
+    openWindows[windowName].focus();
   } else {
-      var newWindow = window.open(url, windowName, '_blank');
-      newWindow.focus();
-  }
+      // Open a new window
+      const newWindow = window.open(url, windowName);
+      if (newWindow) {
+        openWindows[windowName] = newWindow; // Store the new window reference
+        newWindow.onunload = function() {
+        delete openWindows[windowName]; // Remove from the list when closed
+      };
+      }else {
+          alert('Please allow popups for this website');
+      }
+    }
 }
 
 var sbBrowserType;

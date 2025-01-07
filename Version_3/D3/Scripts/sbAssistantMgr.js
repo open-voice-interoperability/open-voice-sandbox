@@ -213,7 +213,9 @@ function displayAssistantSettings() {
       <label for="serviceAddress">Service Address:</label>
       <input type="text" id="serviceAddress" value="${selectedAssistant.assistant.serviceAddress}">
       <button id="updateSettingsButton" class="update-settings" onclick="updateAssistantSettings()">Update Assistant Settings</button>
-    </div>
+        <div id="updateMessage" style="display: none;"></div>
+
+      </div>
   `;
 }
 
@@ -255,8 +257,7 @@ function updateVoiceSettings(selectedAssistant, selectedVoiceIndex, voices) {
   selectedAssistant.markerColor = document.getElementById("markerColor").value;
   selectedAssistant.serviceName = document.getElementById("serviceName").value;
   selectedAssistant.serviceAddress = document.getElementById("serviceAddress").value;
-  selectedAssistant.authCode = document.getElementById("authCode").value;
-  selectedAssistant.contentType = document.getElementById("contentType").value;
+  
 
   // Save the updated assistant settings
   assistantTable[selectedAssistantIndex].assistant = selectedAssistant;
@@ -278,7 +279,7 @@ function updateVoiceSettings(selectedAssistant, selectedVoiceIndex, voices) {
   displayAssistantSettings();
 
   var updateMessage = document.getElementById("updateMessage");
-  updateMessage.textContent = "Settings updated successfully!";
+  updateMessage.textContent = "Updated!";
   updateMessage.style.display = "block";
   // Hide the message after a certain duration (e.g., 3 seconds)
   setTimeout(function () {
@@ -323,7 +324,7 @@ function createNewEntryInAssistantList(selectedAssistant, selectedVoiceIndex, vo
   displayAssistantSettings();
 
   var updateMessage = document.getElementById("updateMessage");
-  updateMessage.textContent = "Settings updated successfully!";
+  updateMessage.textContent = "Updated!";
   updateMessage.style.display = "block";
   // Hide the message after a certain duration (e.g., 3 seconds)
   setTimeout(function () {
