@@ -19,16 +19,16 @@ __If you want a VERY QUICK Start, then do the following:__
 * You should see a diagram of the sandbox.
 * *Enter* the name you want to be addressed by (e.g. Sarah).
 * *Click* the **Start Sandbox** button.
-* *Click* on the __Select an Assistant__ dropdown and select __Wizard__.
+* *Click* on the __Select an Assistant__ dropdown and select __Athena__.
 * *Click* the **Bare Invite** button.
 * This will open the __Conversation__ page.
-	* You will see __Assistant: Wizard__
-	* The Wizard will say: __This is the Wizard Agent. Ask me anything.__
-	* To *say* something to the Wizard either:
+	* You will see __Assistant: Athena__
+	* The Athena will say: __Hello from Athena, your Smart Library service! Please ask me anything about books and writers. If you prefer, you can also whisper me a valid ISDN number to look-up for a specific book information.__
+	* To *say* something to the Athena either:
 		* *Click* the blue __microphone__ icon and speak, *or*
 		* *Type* text in the __Utterance__ box (& press enter)
 	* Below are the __OVON__ messages that were __SENT__ and __RECIEVED__.
-	* __NOTE:__ The Wizard is a single question/response assistant, it __does not__ maintain context.
+	* __NOTE:__ The Athena is a single question/response assistant, it __does not__ maintain context.
 * Other NON-LLM Assistants are:
 	* Smart Library - an expert on published books
 	* Jonathan - a pythonAnywhere example (dumb, only greets)
@@ -101,12 +101,7 @@ __If you want a VERY QUICK Start, then do the following:__
 
 *There are several working assistants that use the OVON Envelope. They were developed by members of our group as experimental examples.*
 * Some of the assistants:
-	* __wizard:__ Says "Ready" when you start
-		* When you type an __input__ it will respond to a question
-		* You can continue as long as you like
-		* It uses and underlying LLM
-		* It runs somewhere on the web
-	* __library:__
+	* __Athena:__
 		* It accepts an _invite_ and an _utterance_
 		* Once it responds you can speak/type some input
 		* It can tell you things about published books
