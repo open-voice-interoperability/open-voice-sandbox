@@ -340,7 +340,7 @@ function loadFromManifest() {
 
 var newAssistant = null; // Global for now
 
-function handleReturnedManifestOVON( OVON ){
+function displayAssistantViaManifest( OVON ){
   //var someAssistant = {
   newAssistant = {
       "assistant": {

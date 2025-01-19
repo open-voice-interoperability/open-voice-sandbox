@@ -213,7 +213,11 @@ async function sbSpeak( say, assistantObject ) {
       // console.log(`Using voice - Name: ${name}, Lang: ${lang}`);
       // console.log(`Assistant details - Name: ${assistantObject.assistant.name}, Voice Index: ${vOG}`);
       
-
+      const delim = say.indexOf("<<<EMBED_");
+      if (delim !== -1) {
+        say = say.substring(0, delim);
+      }
+    
       var msg = new SpeechSynthesisUtterance(say);
       msg.voice = voices[vOG];
       

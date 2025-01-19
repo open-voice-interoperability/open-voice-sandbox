@@ -14,7 +14,7 @@
     <script language="JavaScript" src= "../Scripts/sbVoices.js"></script>
     <script language="JavaScript" src= "../Scripts/sbSpeech.js"></script>
     <script language="JavaScript" src= "../Scripts/sbSeqDiag.js"></script>
-    <script language="JavaScript" src= "../AssistantServers/InternalServer.js"></script>
+    <script language="JavaScript" src= "../AssistantServers/InternalServer/internalServer.js"></script>
     <script language="JavaScript" src= "../Scripts/sbEnvelopeTools.js"></script>
     <script>
         loadVoiceSelect();
@@ -78,7 +78,34 @@
               <td align="right"><b>Synopsis:</b></td>
               <td><div id="synopsis">e.g. Simple Assistant to test if I can access it from the sandbox.</div></td>
             </tr>
-        </table>
+            <tr>
+                <td colspan="4">
+                  <div id="information"></div>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                  <div style="display: inline-block;">
+                    <button id="testBtn" onclick="saveTTSVoiceIndex();" style="margin-top: 5px;">Test Voice</button>
+                  </div>
+                  <br>
+                  <div id="testInput">
+                    <h7>Input you want to test: </h7>
+                  </div>
+                  <br>
+                  <textarea id="sbTTS_Text">Hello. How do you like this voice?</textarea>
+                  <br>
+                  <div id="selectedVoiceInfo"></div>
+                </td>
+                </td>
+              </tr>
+              <tr>
+                <td align="left" colspan="2">
+                  <h5><button class="dangerBtn" onclick="updateVoiceSettings()"><b>Update this Assistant's Voice</b></button></h5>
+                </td>
+              </tr>
+          
+          </table>
 
         <br>
         <h2>After you have loaded the manifest:</h2>

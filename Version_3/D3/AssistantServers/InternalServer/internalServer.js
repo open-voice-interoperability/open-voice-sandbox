@@ -78,6 +78,7 @@ function callThisLLM( aPoolMember, OVONmsg ){
     return;
 }
 */
+//async function callInternalAssistant( assistName, assistantObject, OVONmsg, handleMsg ){
 async function callInternalAssistant( assistName, assistantObject, OVONmsg, handleMsg ){
     currentLLMName = assistName;
     retOVONJSON = baseEnvelopeOVON( assistantObject.assistant.serviceAddress, true );

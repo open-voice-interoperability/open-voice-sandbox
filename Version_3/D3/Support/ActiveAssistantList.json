@@ -78,7 +78,7 @@
       "name": "cassandra",
       "displayName": "Cassandra",
       "voice": {
-        "index": 84,
+        "index": 123,
         "name": "Microsoft Jenny Online (Natural) - English (United States)",
         "lang": "en-US",
         "platform": ""
@@ -325,11 +325,82 @@
       },
       "markerColor": "#3cb44b",
       "serviceName": "ejTalk Anywhere",
-      "serviceAddress": "http://ejtalk.pythonanywhere.com",
+      "serviceAddresszzz": "http://ejtalk.pythonanywhere.com",
+      "serviceAddress": "https://ejtalk.com/ovon/ejTalkAgent.php",
       "contentType": "application/json",
       "organization": "ejTalk_Sandbox",
       "role": "Basic assistant",
       "synopsis": "I am a really dumb assistant."
+    }
+  },
+  {
+    "assistant": {
+      "name": "dieguito",
+      "displayName": "Dieguito",
+      "voice": {
+        "index": 0,
+        "name": "none"
+      },
+      "markerColor": "#3cb44b",
+      "serviceName": "Python Anywhere",
+      "serviceAddress": "http://didacus.pythonanywhere.com",
+      "contentType": "application/json",
+      "organization": "Sandbox_LFAI",
+      "role": "Basic assistant",
+      "synopsis": "I am a pretty general purpose assistant specialized in anything."
+    }
+  },
+  {
+    "assistant": {
+      "name": "solar bob",
+      "displayName": "Solar Bob",
+      "voice": {
+        "index": 0,
+        "name": "Microsoft David - English (United States)",
+        "lang": "en-US"
+      },
+      "markerColor": "#3cb44b",
+      "serviceName": "Solar System",
+      "serviceAddress": "http://davidattwater.pythonanywhere.com",
+      "contentType": "application/json",
+      "organization": "Sandbox_LFAI",
+      "role": "Basic assistant",
+      "synopsis": "I can answer simple questions about the solar system."
+    }
+  },
+  {
+    "assistant": {
+      "name": "night",
+      "displayName": "Night",
+      "voice": {
+        "index": 102,
+        "name": "Microsoft AndrewMultilingual Online (Natural) - English (United States)",
+        "lang": "en-US"
+      },
+      "markerColor": "#3cb44b",
+      "serviceName": "Personal Assistant",
+      "serviceAddress": "https://nighthyperion.pythonanywhere.com",
+      "contentType": "application/json",
+      "organization": "Leah",
+      "role": "Help with general tasks.",
+      "synopsis": "Sort of like Jarvis in Iron Man."
+    }
+  },
+  {
+    "assistant": {
+      "name": "stormy",
+      "displayName": "Stormy",
+      "voice": {
+        "index": 105,
+        "name": "Microsoft Ava Online (Natural) - English (United States)"
+      },
+      "markerColor": "#3cb44b",
+      "serviceName": "meteorologist",
+      "serviceAddress": "https://ejtalk.com/ovon/agent3.php",
+      "contentType": "application/json",
+      "organization": "The Purfect Storm",
+      "role": "Explaining weather.",
+      "synopsis": "Friendly weather expert and educator."
     }
   }
 ]

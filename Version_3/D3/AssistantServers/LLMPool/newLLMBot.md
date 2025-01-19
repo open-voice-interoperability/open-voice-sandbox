@@ -17,7 +17,7 @@ Copy the content from the LLMPool/florist.json into your new json file.
 Change the following elements:
 
 ```json
- "prompt": "{Describe your bot here} If the human asks to return or go back to Cassandra you will acknowlege that and you must include the following text: <<<WHISPERaction=invite:cassandra>>>.",
+ "prompt": "{In two or three sentences describe your bot here} If the human asks to return or go back to Cassandra you will acknowlege that and you must include the following text: <<<WHISPERaction=invite:cassandra>>>.",
 "transferList": "",
 "assistantName": "{Name your bot here}",
 "assistantTitle": "{Give your bot a title here}",

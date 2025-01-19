@@ -11,7 +11,8 @@ var conversationLOG = [];
 function sbRawManifestRequest( assistantURL, OVONmsg ) { //send to their server
   assistType = assistantURL.split(':');
 
-  if( assistType[0] == "internal"  && assistType[1] == "discovery"){
+  //if( assistType[0] == "internal"  && assistType[1] == "discovery"){
+  if( assistType[0] == "internal" ){
     callInternalAssistant( assistType[1], assistantObject, OVONmsg );
   }else if( assistType[0] == "internalLLM" ){
     callInternalLLM( assistType[1], assistantObject, OVONmsg );
@@ -32,7 +33,6 @@ function sbRawManifestRequest( assistantURL, OVONmsg ) { //send to their server
     }
     if( sbOVON_CommObject != null ){  
       sbOVON_CommObject.open( 'POST', assistantURL, true ); // false makes it async
-      sbOVON_CommObject.setRequestHeader('Content-Type', "application/json" );
       sbOVON_CommObject.send( JSON.stringify( OVONmsg ) ); // send to server
     }
   }
@@ -44,7 +44,7 @@ function sbOVONManReqstateChecker(){ // when POST response appears do this
       sbData = sbOVON_CommObject.responseText;
       if( sbData.length ){
         retOVONJSON = JSON.parse(sbData);
-        handleReturnedManifestOVON( retOVONJSON );
+        displayAssistantViaManifest( retOVONJSON );
       }
     }
   }
@@ -84,8 +84,6 @@ function sbPostToAssistant( assistantObject, OVONmsg ) { //send to their server
     }
     if( sbOVON_CommObject != null ){  
       sbOVON_CommObject.open( 'POST', remoteURL, true ); // false makes it async
-              if( contentType != "none"){  // UGLY HACK JUST TO MAKE "wizard" work
-                sbOVON_CommObject.setRequestHeader('Content-Type', contentType ); } // END OF UGLY HACK!!!!!
       sbOVON_CommObject.send( JSON.stringify( OVONmsg ) ); // send to server
     }
   }
