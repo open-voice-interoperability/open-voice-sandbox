@@ -33,7 +33,10 @@ function sbRawManifestRequest( assistantURL, OVONmsg ) { //send to their server
     }
     if( sbOVON_CommObject != null ){  
       sbOVON_CommObject.open( 'POST', assistantURL, true ); // false makes it async
-      sbOVON_CommObject.send( JSON.stringify( OVONmsg ) ); // send to server
+      sbOVON_CommObject.setRequestHeader('Content-Type', 'application/json');
+      var jStr = JSON.stringify( OVONmsg );
+      sbOVON_CommObject.send( jStr ); // send to server
+      //sbOVON_CommObject.send( JSON.stringify( OVONmsg ) ); // send to server
     }
   }
 }

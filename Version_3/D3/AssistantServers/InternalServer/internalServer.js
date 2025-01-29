@@ -46,39 +46,7 @@ function callInternalLLM( assistName, assistantObject, OVONmsg ){
     return;
 }
 
-/*
-function callThisLLM( aPoolMember, OVONmsg ){
-    retOVONJSON = baseEnvelopeOVON( assistantObject, true );
-    var eventsJSON = eventSummary( OVONmsg.ovon.events );
-    if( eventsJSON.invite ){
-        aPoolMember.invited = true;
 
-        sendInternalJSON = {
-            "model": aPoolMember.llmModel, // e.g. "model": "gpt-3.5-turbo",
-            "temperature": aPoolMember.temperature, //0.0 - 2.0
-            "messages": aPoolMember.context
-        }
-        sendInternalJSON.messages.push( sbAddMsg( "assistant", aPoolMember.startPrompt ) );
-
-        if( eventsJSON.utterance ){
-            aPoolMember.context.push( sbAddMsg( "user", eventsJSON.utteranceText ) );
-        }else{
-            aPoolMember.context.push( sbAddMsg( "user", "Hello" ) );
-        }
-    }else{
-        if( eventsJSON.utterance ){
-            aPoolMember.context.push( sbAddMsg( "user", eventsJSON.utteranceText ) );
-        }else if( eventsJSON.whisper ){
-            aPoolMember.context.push( sbAddMsg( "user", eventsJSON.whisperText ) );
-        }else{
-            console.log("You must send an utterance or a whisper.");
-        }
-    }
-    sbLLMPost( aPoolMember.context );
-    return;
-}
-*/
-//async function callInternalAssistant( assistName, assistantObject, OVONmsg, handleMsg ){
 async function callInternalAssistant( assistName, assistantObject, OVONmsg, handleMsg ){
     currentLLMName = assistName;
     retOVONJSON = baseEnvelopeOVON( assistantObject.assistant.serviceAddress, true );

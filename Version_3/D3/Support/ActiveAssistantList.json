@@ -402,5 +402,23 @@
       "role": "Explaining weather.",
       "synopsis": "Friendly weather expert and educator."
     }
+  },
+  {
+    "assistant": {
+      "name": "gerald",
+      "displayName": "Gerald",
+      "voice": {
+        "index": 110,
+        "name": "Microsoft Luke Online (Natural) - English (South Africa)",
+        "lang": "en-ZA"
+      },
+      "markerColor": "#3cb44b",
+      "serviceName": "auto shop",
+      "serviceAddress": "https://ejtalk.com/bfPHP/test2.php",
+      "contentType": "application/json",
+      "organization": "Gerry's Auto Repair Shop",
+      "role": "General auto repair and services",
+      "synopsis": "Local mechanic for ICE vehicles"
+    }
   }
 ]
