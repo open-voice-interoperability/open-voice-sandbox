@@ -87,6 +87,7 @@ function sbPostToAssistant( assistantObject, OVONmsg ) { //send to their server
     }
     if( sbOVON_CommObject != null ){  
       sbOVON_CommObject.open( 'POST', remoteURL, true ); // false makes it async
+      sbOVON_CommObject.setRequestHeader('Content-Type', 'application/json');
       sbOVON_CommObject.send( JSON.stringify( OVONmsg ) ); // send to server
     }
   }

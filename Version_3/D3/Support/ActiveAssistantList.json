@@ -420,5 +420,23 @@
       "role": "General auto repair and services",
       "synopsis": "Local mechanic for ICE vehicles"
     }
+  },
+  {
+    "assistant": {
+      "name": "smartlibrary",
+      "displayName": "smartlibrary",
+      "voice": {
+        "index": 105,
+        "name": "Microsoft Ava Online (Natural) - English (United States)",
+        "lang": "en-US"
+      },
+      "markerColor": "#3cb44b",
+      "serviceName": "Books and Authors AI agent",
+      "serviceAddress": "https://ovon.xcally.com/smartlibrary",
+      "contentType": "application/json",
+      "organization": "XCALLY.ai",
+      "role": "Book Specialist",
+      "synopsis": "AI agent specializing in providing information about books and authors."
+    }
   }
 ]
