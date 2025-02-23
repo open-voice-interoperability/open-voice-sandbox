@@ -405,24 +405,6 @@
   },
   {
     "assistant": {
-      "name": "gerald",
-      "displayName": "Gerald",
-      "voice": {
-        "index": 110,
-        "name": "Microsoft Luke Online (Natural) - English (South Africa)",
-        "lang": "en-ZA"
-      },
-      "markerColor": "#3cb44b",
-      "serviceName": "auto shop",
-      "serviceAddress": "https://ejtalk.com/bfPHP/test2.php",
-      "contentType": "application/json",
-      "organization": "Gerry's Auto Repair Shop",
-      "role": "General auto repair and services",
-      "synopsis": "Local mechanic for ICE vehicles"
-    }
-  },
-  {
-    "assistant": {
       "name": "smartlibrary",
       "displayName": "smartlibrary",
       "voice": {
@@ -437,6 +419,55 @@
       "organization": "XCALLY.ai",
       "role": "Book Specialist",
       "synopsis": "AI agent specializing in providing information about books and authors."
+    }
+  },
+  {
+    "assistant": {
+      "name": "chuck",
+      "displayName": "Chuck",
+      "voice": {
+        "name": "Microsoft AndrewMultilingual Online (Natural) - English (United States)"
+      },
+      "markerColor": "#3cb44b",
+      "serviceName": "knock-knock joke creator",
+      "serviceAddress": "https://ejtalk.com/ov1/joker.php",
+      "contentType": "application/json",
+      "organization": "Geek Laugh Network",
+      "role": "tech humor generator",
+      "synopsis": "An innovative service providing computer-themed knock-knock jokes."
+    }
+  },
+  {
+    "assistant": {
+      "name": "dr. claire",
+      "displayName": "Dr. Claire",
+      "voice": {
+        "name": "Microsoft Liam Online (Natural) - English (Canada)"
+      },
+      "markerColor": "#3cb44b",
+      "serviceName": "therapeutic conversation facilitator",
+      "serviceAddress": "https://ejtalk.com/ov1/therapist.php",
+      "contentType": "application/json",
+      "organization": "Mindful Dialogue Institute",
+      "role": "psychotherapy conversationalist",
+      "synopsis": "A compassionate service offering supportive and empathetic conversations in a therapeutic setting."
+    }
+  },
+  {
+    "assistant": {
+      "name": "luca",
+      "displayName": "Luca",
+      "voice": {
+        "name": "Microsoft Ryan Online (Natural) - English (United Kingdom)",
+        "index": 111
+      },
+      "markerColor": "#3cb44b",
+      "serviceName": "upscale wine shop",
+      "serviceAddress": "https://ejtalk.com/ov1/wine.php",
+      "contentType": "application/json",
+      "organization": "World Vintages Gallery",
+      "role": "wine selection advisor",
+      "synopsis": "An upscale destination for diverse, high-quality wines and spirits from around the globe."
     }
   }
 ]

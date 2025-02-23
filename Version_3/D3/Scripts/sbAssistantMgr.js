@@ -340,15 +340,15 @@ function loadFromManifest() {
 
 var newAssistant = null; // Global for now
 
-function displayAssistantViaManifest( OVON ){
+async function displayAssistantViaManifest( OVON ){
   //var someAssistant = {
   newAssistant = {
       "assistant": {
       "name": "lowerCaseName",
       "displayName": "prettyDisplayableName",
       "voice": {
-        "index": 115,
-        "name": "Microsoft Ryan Online (Natural) - English (United Kingdom)"
+        "index": 0,
+        "name": "none"
       },
       "markerColor": "#3cb44b",
       "serviceName": "Your Expert",
@@ -397,6 +397,16 @@ function displayAssistantViaManifest( OVON ){
   
     newAssistant.assistant.synopsis = manifest.identification.synopsis;
     document.getElementById("synopsis").innerHTML = manifest.identification.synopsis;
+
+    if( manifest?.character?.voice?.uri ){
+      if( manifest?.character?.voice?.vendor ){
+        if( manifest?.character?.voice?.vendor == "MS_EDGE" ){
+          newAssistant.assistant.voice.name = manifest.character.voice.uri;
+          newAssistant.assistant.voice.index = getVoiceIndex( manifest.character.voice.uri );
+          document.getElementById("voiceName").innerHTML = manifest.character.voice.uri;
+        }
+      }
+    }
   }
 }
 
@@ -413,8 +423,11 @@ function addExistingAssistantToList() { // adds color and voice if desired
     alert( "YOU MUST FIND AN ASSISTANT FIRST");
     return;
   }else{
-    newAssistant.assistant.voice.name = theLastVoicePicked;
-    newAssistant.assistant.voice.index = theLastVoiceIndexPicked;
+    if( newAssistant.assistant.voice.name == "none" ){
+      newAssistant.assistant.voice.name = theLastVoicePicked;
+      newAssistant.assistant.voice.index = theLastVoiceIndexPicked;
+    }
+ 
     // Save the updated assistant settings
     assistantTable.push( newAssistant );
     localStorage.setItem("assistantTable", JSON.stringify(assistantTable));

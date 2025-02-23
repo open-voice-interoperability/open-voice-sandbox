@@ -106,6 +106,12 @@ function cleanOutPunctuation( str ){
   str = str.replace( "!", "" );
   return str;
 }
+
+function getVoiceIndex( voiceURI ){
+  voices = speechSynthesis.getVoices();
+  voiceIndex = voices.findIndex(voice => voice.name === voiceURI );
+}
+
 var voiceIndex =0;
 async function checkIndex(assistantObject){
   await new Promise(resolve => {
